@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlmacenesComponent } from './almacenes/almacenes.component';
+<<<<<<< Updated upstream
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { EditarDepartamentoComponent } from './editar-departamento/editar-departamento.component';
@@ -34,14 +35,20 @@ const appRoutes: Routes = [
   {path:'controlPanel', component:ControlPanelComponent},
   { path:'almacenes', component: AlmacenesComponent }
 ]
+=======
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< Updated upstream
     AlmacenesComponent,
     ControlPanelComponent,
     EditarDepartamentoComponent,
     InsertarComponent
+=======
+    AlmacenesComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     HttpClientModule,
