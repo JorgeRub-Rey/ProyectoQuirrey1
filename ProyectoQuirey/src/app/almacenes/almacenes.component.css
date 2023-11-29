@@ -28,3 +28,8 @@ table {
   mat-icon:hover {
     color: #b71c1c; /* Color rojo más oscuro al pasar el cursor */
   }
+  
+  .orange-button {
+    background-color: orange;
+    color: white;
+}

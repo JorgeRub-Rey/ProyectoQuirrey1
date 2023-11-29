@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarComponent } from '../insertar/insertar.component';
 import { EditarDepartamentoComponent } from '../editar-departamento/editar-departamento.component';
+
 @Component({
   selector: 'app-almacenes',
   templateUrl: './almacenes.component.html',
@@ -58,6 +59,7 @@ export class AlmacenesComponent {
       // Manejar los resultados cuando la modal se cierre
     });
   }
+  
 
 
   eliminarDepartamento(Id: number) {
