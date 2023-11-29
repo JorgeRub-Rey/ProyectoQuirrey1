@@ -46,3 +46,4 @@ insertarDepartamento(departamentoData: { Nombre: string; Direccion: string; Usua
     return this.http.post<ApiResponse>(`${this.apiUrl}/UpdateAlmacenes`, body);
   }
 }
+

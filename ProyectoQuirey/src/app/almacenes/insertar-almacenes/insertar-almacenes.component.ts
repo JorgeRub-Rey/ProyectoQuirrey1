@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
-import { AlmacenesService } from '../almacenes.service';
+import { AlmacenesService } from 'src/app/almacenes.service';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-insertar',
-  templateUrl: './insertar.component.html',
-  styleUrls: ['./insertar.component.css']
+  selector: 'app-insertar-almacenes',
+  templateUrl: './insertar-almacenes.component.html',
+  styleUrls: ['./insertar-almacenes.component.css']
 })
-export class InsertarComponent {
+export class InsertarAlmacenesComponent {
   nombreDepartamento: string = '';
   direccionDepartamento: string = ''; 
   usuarioactualizaDepartamento: number = 1;
 
   constructor(
-    public dialogRef: MatDialogRef<InsertarComponent>,
+    public dialogRef: MatDialogRef<InsertarAlmacenesComponent>,
     private departamentoService: AlmacenesService
   ) {}
 
@@ -39,4 +39,5 @@ export class InsertarComponent {
     });
   }
 }
+
 

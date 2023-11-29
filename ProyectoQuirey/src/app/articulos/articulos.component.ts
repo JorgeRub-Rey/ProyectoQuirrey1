@@ -1,35 +1,30 @@
 import { Component } from '@angular/core';
-import { AlmacenesService } from '../almacenes.service';
-import { Almacenes} from '../Models/almacenes.models';
+import { ArticulosService } from '../articulos.service';
+import { Articulos } from '../Models/articulos.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-<<<<<<< Updated upstream
-import { InsertarComponent } from '../insertar/insertar.component';
-import { EditarDepartamentoComponent } from '../editar-departamento/editar-departamento.component';
-=======
-import { InsertarAlmacenesComponent } from './insertar-almacenes/insertar-almacenes.component';
-import { EditarAlmacenesComponent } from './editar-almacenes/editar-almacenes.component';
+import { InsertarArticulosComponent } from './insertar-articulos/insertar-articulos.component';
+import { EditarArticulosComponent } from './editar-articulos/editar-articulos.component';
 
->>>>>>> Stashed changes
 @Component({
-  selector: 'app-almacenes',
-  templateUrl: './almacenes.component.html',
-  styleUrls: ['./almacenes.component.css']
+  selector: 'app-articulos',
+  templateUrl: './articulos.component.html',
+  styleUrls: ['./articulos.component.css']
 })
-export class AlmacenesComponent {
-  displayedColumns: string[] = ['Id', 'Nombre', 'Direccion', 'Estatus', 'UsuarioActualiza','FechaActualiza', 'Acciones'];
-  dataSource: MatTableDataSource<Almacenes>;
+export class ArticulosComponent {
+  displayedColumns: string[] = ['Id', 'Codigo', 'Descripcion', 'UnidadMedida', 'Costo', 'Precio', 'Estatus', 'UsuarioActualiza', 'FechaActualiza', 'Acciones'];
+  dataSource: MatTableDataSource<Articulos>;
 
-  constructor(private almacenesService: AlmacenesService, public dialog: MatDialog) {
-    this.dataSource = new MatTableDataSource<Almacenes>(); // Inicializa dataSource como una instancia de MatTableDataSource
+  constructor(private articulosService: ArticulosService, public dialog: MatDialog) {
+    this.dataSource = new MatTableDataSource<Articulos>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }
 
   ngOnInit() {
-    this.dataSource.filterPredicate = (data: Almacenes, filter: string) => {
-      return data.Nombre.toLowerCase().includes(filter) || 
+    this.dataSource.filterPredicate = (data: Articulos, filter: string) => {
+      return data.Codigo.toLowerCase().includes(filter) || 
              data.Id.toString().includes(filter); // Puedes añadir más campos si es necesario
     };
-    this.almacenesService.getDepartamentos().subscribe({
+    this.articulosService.getDepartamentos().subscribe({
       next: (response) => {
         console.log('Respuesta del servidor:', response.response.data); 
         if (response.success) {
@@ -55,7 +50,7 @@ export class AlmacenesComponent {
 
   
  abrirInsertarModal() {
-    const dialogRef = this.dialog.open(InsertarAlmacenesComponent, {
+    const dialogRef = this.dialog.open(InsertarArticulosComponent, {
       width: '550px',
       // Puedes pasar datos al componente de la modal si es necesario
     });
@@ -64,13 +59,14 @@ export class AlmacenesComponent {
       // Manejar los resultados cuando la modal se cierre
     });
   }
+  
 
 
   eliminarDepartamento(Id: number) {
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
-      this.almacenesService.eliminarDepartamento(Id).subscribe({
+      this.articulosService.eliminarDepartamento(Id).subscribe({
         next: () => {
-          this.dataSource.data = this.dataSource.data.filter((departamento: Almacenes) => departamento.Id !== Id);
+          this.dataSource.data = this.dataSource.data.filter((departamento: Articulos) => departamento.Id !== Id);
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el departamento', error);
@@ -80,8 +76,8 @@ export class AlmacenesComponent {
   }
   
   
-  abrirEditarModal(departamento: Almacenes) {
-    const dialogRef = this.dialog.open(EditarAlmacenesComponent, {
+  abrirEditarModal(departamento: Articulos) {
+    const dialogRef = this.dialog.open(EditarArticulosComponent, {
       width: '250px',
       data: departamento // Pasa el objeto de departamento a la modal
     });
