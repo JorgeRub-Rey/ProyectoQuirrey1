@@ -5,9 +5,9 @@ import { AppComponent } from './app.component';
 
 import { AlmacenesComponent } from './almacenes/almacenes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ControlPanelComponent } from './control-panel/control-panel.component';
-import { EditarDepartamentoComponent } from './editar-departamento/editar-departamento.component';
-import { InsertarComponent } from './insertar/insertar.component';
+//import { ControlPanelComponent } from './control-panel/control-panel.component';
+//import { EditarDepartamentoComponent } from './editar-departamento/editar-departamento.component';
+//import { InsertarComponent } from './insertar/insertar.component';
 
 
 
@@ -46,7 +46,7 @@ import { InsertarArticulosComponent } from './articulos/insertar-articulos/inser
 
 const appRoutes: Routes = [
 
-  {path:'controlPanel', component:ControlPanelComponent},
+  //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
   { path:'almacenes', component: AlmacenesComponent },
   { path: 'articulos', component: ArticulosComponent },
   { path: 'clientes', component: ClientesComponent }
@@ -58,9 +58,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AlmacenesComponent,
-    ControlPanelComponent,
-    EditarDepartamentoComponent,
-    InsertarComponent,
     AlmacenesComponent,
     ControlPanelAlmacenesComponent,
     EditarAlmacenesComponent,
@@ -69,7 +66,6 @@ const appRoutes: Routes = [
     ControlPanelArticulosComponent,
     EditarArticulosComponent,
     InsertarArticulosComponent,
-    InsertarComponent,
     ClientesComponent,
     ControlPanelClientesComponent,
     EditarClientesComponent,

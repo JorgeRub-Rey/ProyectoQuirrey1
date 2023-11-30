@@ -4,8 +4,6 @@ import { Almacenes} from '../Models/almacenes.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 
-import { InsertarComponent } from '../insertar/insertar.component';
-import { EditarDepartamentoComponent } from '../editar-departamento/editar-departamento.component';
 
 import { InsertarAlmacenesComponent } from './insertar-almacenes/insertar-almacenes.component';
 import { EditarAlmacenesComponent } from './editar-almacenes/editar-almacenes.component';
