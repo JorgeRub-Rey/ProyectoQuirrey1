@@ -19,11 +19,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientesComponent } from './clientes/clientes.component';
+import { ControlPanelClientesComponent } from './clientes/control-panel-clientes/control-panel-clientes.component';
+import { EditarClientesComponent } from './clientes/editar-clientes/editar-clientes.component';
+import { InsertarClientesComponent } from './clientes/insertar-clientes/insertar-clientes.component';
 
 
 const appRoutes: Routes = [
   { path: 'controlPanel', component: ControlPanelComponent },
-  { path: 'almacenes', component: AlmacenesComponent }
+  { path: 'almacenes', component: AlmacenesComponent },
+  { path: 'clientes', component: ClientesComponent }
 ];
 
 @NgModule({
@@ -32,7 +37,11 @@ const appRoutes: Routes = [
     AlmacenesComponent,
     ControlPanelComponent,
     EditarDepartamentoComponent,
-    InsertarComponent
+    InsertarComponent,
+    ClientesComponent,
+    ControlPanelClientesComponent,
+    EditarClientesComponent,
+    InsertarClientesComponent
   ],
   imports: [
     HttpClientModule,

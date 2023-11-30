@@ -26,7 +26,7 @@ insertarDepartamento(departamentoData: { Nombre: string; Direccion: string; Usua
     direccion: departamentoData.Direccion, // Valor por defecto si no se proporciona
     usuarioactualiza: departamentoData.UsuarioActualiza || 0,// Valor por defecto si no se proporciona
   };
-  return this.http.post<ApiResponse>(`${this.apiUrl}/InsertAlmacen`, body);
+  return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 
   eliminarDepartamento(Id: number): Observable<any> {
