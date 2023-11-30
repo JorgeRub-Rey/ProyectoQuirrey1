@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< Updated upstream
+
 import { AlmacenesComponent } from './almacenes/almacenes.component';
-<<<<<<< Updated upstream
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { EditarDepartamentoComponent } from './editar-departamento/editar-departamento.component';
@@ -13,28 +11,29 @@ import { InsertarComponent } from './insertar/insertar.component';
 
 
 
-=======
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
->>>>>>> Stashed changes
-import { RouterModule, Routes } from '@angular/router';
 
-import { MatButtonModule} from '@angular/material/button';
-import { MatIconModule} from '@angular/material/icon';
+
+
+
+
+import { RouterModule, Routes } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
-
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
-
-//import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientesComponent } from './clientes/clientes.component';
+import { ControlPanelClientesComponent } from './clientes/control-panel-clientes/control-panel-clientes.component';
+import { EditarClientesComponent } from './clientes/editar-clientes/editar-clientes.component';
+import { InsertarClientesComponent } from './clientes/insertar-clientes/insertar-clientes.component';
 
-import { AlmacenesComponent } from './almacenes/almacenes.component';
+
 import { ControlPanelAlmacenesComponent } from './almacenes/control-panel-almacenes/control-panel-almacenes.component';
 import { EditarAlmacenesComponent } from './almacenes/editar-almacenes/editar-almacenes.component';
 import { InsertarAlmacenesComponent } from './almacenes/insertar-almacenes/insertar-almacenes.component';
@@ -46,40 +45,35 @@ import { InsertarArticulosComponent } from './articulos/insertar-articulos/inser
 
 
 const appRoutes: Routes = [
-<<<<<<< Updated upstream
+
   {path:'controlPanel', component:ControlPanelComponent},
-  { path:'almacenes', component: AlmacenesComponent }
+  { path:'almacenes', component: AlmacenesComponent },
+  { path: 'articulos', component: ArticulosComponent },
+  { path: 'clientes', component: ClientesComponent }
 ]
-=======
->>>>>>> Stashed changes
-=======
-  { path: 'controlPanel', component: ControlPanelAlmacenesComponent },
-  { path: 'almacenes', component: AlmacenesComponent },
-  { path: 'articulos', component: ArticulosComponent }
-];
->>>>>>> Stashed changes
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< Updated upstream
     AlmacenesComponent,
-<<<<<<< Updated upstream
     ControlPanelComponent,
     EditarDepartamentoComponent,
-    InsertarComponent
-=======
-    AlmacenesComponent
->>>>>>> Stashed changes
-=======
+    InsertarComponent,
+    AlmacenesComponent,
     ControlPanelAlmacenesComponent,
     EditarAlmacenesComponent,
     InsertarAlmacenesComponent,
     ArticulosComponent,
     ControlPanelArticulosComponent,
     EditarArticulosComponent,
-    InsertarArticulosComponent
->>>>>>> Stashed changes
+    InsertarArticulosComponent,
+    InsertarComponent,
+    ClientesComponent,
+    ControlPanelClientesComponent,
+    EditarClientesComponent,
+    InsertarClientesComponent
   ],
   imports: [
     HttpClientModule,
@@ -105,3 +99,4 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -11,6 +11,7 @@ export class InsertarAlmacenesComponent {
   nombreDepartamento: string = '';
   direccionDepartamento: string = ''; 
   usuarioactualizaDepartamento: number = 1;
+  
 
   constructor(
     public dialogRef: MatDialogRef<InsertarAlmacenesComponent>,
