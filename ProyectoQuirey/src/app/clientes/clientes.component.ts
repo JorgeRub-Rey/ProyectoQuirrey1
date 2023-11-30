@@ -3,7 +3,7 @@ import { clientes } from '../Models/clientes.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClientesService } from '../clientes.service';
 import { MatDialog } from '@angular/material/dialog';
-import { InsertarComponent } from '../insertar/insertar.component';
+import { InsertarClientesComponent } from 'src/app/clientes/insertar-clientes/insertar-clientes.component';
 import { EditarClientesComponent } from 'src/app/clientes/editar-clientes/editar-clientes.component';
 
 @Component({
@@ -50,8 +50,9 @@ export class ClientesComponent {
   }
 
   
+
  abrirInsertarModal() {
-    const dialogRef = this.dialog.open(InsertarComponent, {
+    const dialogRef = this.dialog.open(InsertarClientesComponent, {
       width: '550px',
       // Puedes pasar datos al componente de la modal si es necesario
     });
