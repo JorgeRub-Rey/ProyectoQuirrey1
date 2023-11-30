@@ -42,6 +42,10 @@ import { ArticulosComponent } from './articulos/articulos.component';
 import { ControlPanelArticulosComponent } from './articulos/control-panel-articulos/control-panel-articulos.component';
 import { EditarArticulosComponent } from './articulos/editar-articulos/editar-articulos.component';
 import { InsertarArticulosComponent } from './articulos/insertar-articulos/insertar-articulos.component';
+import { RutasComponent } from './rutas/rutas.component';
+import { ControlPanelRutasComponent } from './rutas/control-panel-rutas/control-panel-rutas.component';
+import { EditarRutasComponent } from './rutas/editar-rutas/editar-rutas.component';
+import { InsertarRutasComponent } from './rutas/insertar-rutas/insertar-rutas.component';
 
 
 const appRoutes: Routes = [
@@ -49,7 +53,8 @@ const appRoutes: Routes = [
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
   { path:'almacenes', component: AlmacenesComponent },
   { path: 'articulos', component: ArticulosComponent },
-  { path: 'clientes', component: ClientesComponent }
+  { path: 'clientes', component: ClientesComponent },
+  { path: 'rutas', component: RutasComponent },
 ]
 
 
@@ -69,7 +74,11 @@ const appRoutes: Routes = [
     ClientesComponent,
     ControlPanelClientesComponent,
     EditarClientesComponent,
-    InsertarClientesComponent
+    InsertarClientesComponent,
+    RutasComponent,
+    ControlPanelRutasComponent,
+    EditarRutasComponent,
+    InsertarRutasComponent
   ],
   imports: [
     HttpClientModule,
