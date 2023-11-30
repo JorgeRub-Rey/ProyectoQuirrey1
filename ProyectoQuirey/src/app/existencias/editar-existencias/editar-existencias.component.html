@@ -5,25 +5,25 @@
     <!-- Columna para el campo de nombre -->
     <div class="mat-dialog-cell">
       <mat-form-field>
-        <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Ingresa el nombre" [(ngModel)]="departamento.Nombre">
+        <mat-label>Codigo</mat-label>
+        <input matInput placeholder="Ingresa el Codigo" [(ngModel)]="departamento.Codigo">
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Direccion</mat-label>
-        <input matInput placeholder="Ingresa la Direccion" [(ngModel)]="departamento.Direccion">
+        <mat-label>IdAlmacen</mat-label>
+        <input matInput type="number" placeholder="Ingresa el IdAlmacen" [(ngModel)]="departamento.IdAlmacen">
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>UsuarioActualiza</mat-label>
-        <input matInput type="number" placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="departamento.UsuarioActualiza" step="1">
+        <mat-label>Cantidad</mat-label>
+        <input matInput placeholder="Ingresa la Cantidad" [(ngModel)]="departamento.Cantidad">
       </mat-form-field>
-      
 
       <mat-form-field>
         <mat-label>Estatus</mat-label>
         <input matInput type="number" placeholder="Ingresa el Estatus" [(ngModel)]="departamento.Estatus" step="1">
       </mat-form-field>
+
       
     </div>
   </div>
@@ -33,5 +33,3 @@
     <button mat-button (click)="onNoClick()">Cancelar</button>
     <button mat-button (click)="guardar()">Guardar Cambios</button>
 </div>
-
-

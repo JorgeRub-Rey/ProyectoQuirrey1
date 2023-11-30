@@ -28,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+
 import { ClientesComponent } from './clientes/clientes.component';
 import { ControlPanelClientesComponent } from './clientes/control-panel-clientes/control-panel-clientes.component';
 import { EditarClientesComponent } from './clientes/editar-clientes/editar-clientes.component';
@@ -43,13 +44,19 @@ import { ControlPanelArticulosComponent } from './articulos/control-panel-articu
 import { EditarArticulosComponent } from './articulos/editar-articulos/editar-articulos.component';
 import { InsertarArticulosComponent } from './articulos/insertar-articulos/insertar-articulos.component';
 
+import { ExistenciasComponent } from './existencias/existencias.component';
+import { ControlPanelExistenciasComponent } from './existencias/control-panel-existencias/control-panel-existencias.component';
+import { EditarExistenciasComponent } from './existencias/editar-existencias/editar-existencias.component';
+import { InsertarExistenciasComponent } from './existencias/insertar-existencias/insertar-existencias.component';
+
 
 const appRoutes: Routes = [
 
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
   { path:'almacenes', component: AlmacenesComponent },
   { path: 'articulos', component: ArticulosComponent },
-  { path: 'clientes', component: ClientesComponent }
+  { path: 'clientes', component: ClientesComponent },
+  { path: 'existencias', component: ExistenciasComponent }
 ]
 
 
@@ -69,7 +76,11 @@ const appRoutes: Routes = [
     ClientesComponent,
     ControlPanelClientesComponent,
     EditarClientesComponent,
-    InsertarClientesComponent
+    InsertarClientesComponent,
+    ExistenciasComponent,
+    ControlPanelExistenciasComponent,
+    EditarExistenciasComponent,
+    InsertarExistenciasComponent
   ],
   imports: [
     HttpClientModule,
