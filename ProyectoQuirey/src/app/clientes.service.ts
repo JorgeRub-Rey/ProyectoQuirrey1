@@ -30,7 +30,7 @@ insertarClientes(clientesData: { Nombre: string; Direccion: string; UsuarioActua
   }
 
   eliminarClientes(Id: number): Observable<any> {
-    return this.http.post(`${this.apiUrl}/DeleteAlmacenes`, { Id });
+    return this.http.post(`${this.apiUrl}/Delete_Clientes`, { Id });
   }
   
   
@@ -43,6 +43,6 @@ insertarClientes(clientesData: { Nombre: string; Direccion: string; UsuarioActua
       usuarioactualiza: 1
     }
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
-    return this.http.post<ApiResponse>(`${this.apiUrl}/UpdateAlmacenes`, body);
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Update_Clientes`, body);
   }
 }
