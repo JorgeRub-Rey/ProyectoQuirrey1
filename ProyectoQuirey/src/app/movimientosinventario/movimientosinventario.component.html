@@ -14,13 +14,29 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
             <td mat-cell *matCellDef="let departamento"> {{departamento.Id}} </td>
         </ng-container>
-        <ng-container matColumnDef="Nombre">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Nombre}} </td>
+        <ng-container matColumnDef="IdTipoMov">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> IdTipoMov </th>
+            <td mat-cell *matCellDef="let departamento"> {{departamento.IdTipoMov}} </td>
         </ng-container>
-        <ng-container matColumnDef="Direccion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Direccion </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Direccion}} </td>
+        <ng-container matColumnDef="IdAlmacen">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> IdAlmacen </th>
+            <td mat-cell *matCellDef="let departamento"> {{departamento.IdAlmacen}} </td>
+        </ng-container>
+        <ng-container matColumnDef="FechaMovimiento">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> FechaMovimiento </th>
+            <td mat-cell *matCellDef="let departamento"> {{departamento.FechaMovimiento}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Estatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus </th>
+            <td mat-cell *matCellDef="let departamento"> {{departamento.Estatus}} </td>
+        </ng-container>
+        <ng-container matColumnDef="NombreAlmacen">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> NombreAlmacen </th>
+            <td mat-cell *matCellDef="let departamento"> {{departamento.NombreAlmacen}} </td>
+        </ng-container>
+        <ng-container matColumnDef="NombreMovimiento">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> NombreMovimiento </th>
+            <td mat-cell *matCellDef="let departamento"> {{departamento.NombreMovimiento}} </td>
         </ng-container>
         <ng-container matColumnDef="FechaActualiza">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> FechaActualiza </th>
@@ -30,11 +46,11 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> UsuarioActualiza </th>
             <td mat-cell *matCellDef="let departamento"> {{departamento.UsuarioActualiza}} </td>
         </ng-container>
-        <ng-container matColumnDef="Estatus">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Estatus}} </td>
+        <ng-container matColumnDef="Tipo_Descripcion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo_Descripcion </th>
+            <td mat-cell *matCellDef="let departamento"> {{departamento.Tipo_Descripcion}} </td>
         </ng-container>
-        
+
         <ng-container matColumnDef="Acciones">
         <th mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let elemento">
@@ -46,4 +62,3 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </table>
   </div>
-  

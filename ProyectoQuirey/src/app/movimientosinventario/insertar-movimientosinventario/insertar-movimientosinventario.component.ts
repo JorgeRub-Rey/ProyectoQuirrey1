@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
-import { AlmacenesService } from 'src/app/almacenes.service';
+import { MovimientosinventarioService } from 'src/app/movimientosinventario.service';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-insertar-almacenes',
-  templateUrl: './insertar-almacenes.component.html',
-  styleUrls: ['./insertar-almacenes.component.css']
+  selector: 'app-insertar-movimientosinventario',
+  templateUrl: './insertar-movimientosinventario.component.html',
+  styleUrls: ['./insertar-movimientosinventario.component.css']
 })
-export class InsertarAlmacenesComponent {
-  nombreDepartamento: string = '';
-  direccionDepartamento: string = ''; 
+export class InsertarMovimientosinventarioComponent {
+  idtipomovDepartamento: number = 0;
+  idalmacenDepartamento: number = 0; 
   usuarioactualizaDepartamento: number = 1;
   
 
   constructor(
-    public dialogRef: MatDialogRef<InsertarAlmacenesComponent>,
-    private departamentoService: AlmacenesService
+    public dialogRef: MatDialogRef<InsertarMovimientosinventarioComponent>,
+    private departamentoService: MovimientosinventarioService
   ) {}
 
   onNoClick(): void {
@@ -24,8 +24,8 @@ export class InsertarAlmacenesComponent {
 
   insertar(): void {
     const nuevoDepartamento = {
-      Nombre: this.nombreDepartamento,
-      Direccion: this.direccionDepartamento,
+      IdTipoMov: this.idtipomovDepartamento,
+      IdAlmacen: this.idalmacenDepartamento,
       UsuarioActualiza: this.usuarioactualizaDepartamento,
       // ...otros campos si los hay
     };

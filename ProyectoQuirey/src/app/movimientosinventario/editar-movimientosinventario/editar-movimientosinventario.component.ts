@@ -1,19 +1,19 @@
 import { Component,Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { EditarDepartamento } from 'src/app/Models/almacenes.models';
-import { AlmacenesService } from 'src/app/almacenes.service';
+import { EditarMovimientosInventario } from 'src/app/Models/movimientosinventario.models';
+import { MovimientosinventarioService } from 'src/app/movimientosinventario.service';
 
 @Component({
-  selector: 'app-editar-almacenes',
-  templateUrl: './editar-almacenes.component.html',
-  styleUrls: ['./editar-almacenes.component.css']
+  selector: 'app-editar-movimientosinventario',
+  templateUrl: './editar-movimientosinventario.component.html',
+  styleUrls: ['./editar-movimientosinventario.component.css']
 })
-export class EditarAlmacenesComponent implements OnInit {
-  departamento: EditarDepartamento;
+export class EditarMovimientosinventarioComponent implements OnInit {
+  departamento: EditarMovimientosInventario;
   constructor(
-    public dialogRef: MatDialogRef<EditarAlmacenesComponent>,
-    private departamentoService: AlmacenesService,
-    @Inject(MAT_DIALOG_DATA) public data: EditarDepartamento
+    public dialogRef: MatDialogRef<EditarMovimientosinventarioComponent>,
+    private departamentoService: MovimientosinventarioService,
+    @Inject(MAT_DIALOG_DATA) public data: EditarMovimientosInventario
     
   ) {
     // Clona los datos recibidos para evitar la mutación directa
