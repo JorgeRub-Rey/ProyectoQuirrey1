@@ -29,23 +29,25 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 <!-- Almacenes -->
-![Alt text](image.png)
+![Alt text](image-22.png)
 <!-- Articulos -->
-![Alt text](image-1.png)
+![Alt text](image-23.png)
 <!-- Clientes -->
-![Alt text](image-2.png)
+![Alt text](image-20.png)
 <!-- Existencias -->
-![Alt text](image-3.png)
+![Alt text](image-19.png)
 <!-- Rutas -->
-![Alt text](image-4.png)
+![Alt text](image-18.png)
 <!-- Tickets -->
-![Alt text](image-5.png)
+![Alt text](image-16.png)
 <!-- Detalle Tickets -->
-![Alt text](image-6.png)
+![Alt text](image-15.png)
 <!-- Movimientos Inventario -->
-![s](image-10.png)
+![Alt text](image-24.png)
 <!-- Personas -->
-![Alt text](image-9.png)
+![Alt text](image-12.png)
+<!-- Detalle Movimiento -->
+![Alt text](image-25.png)
 
 
 
