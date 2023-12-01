@@ -21,8 +21,12 @@ export class AlmacenesComponent {
   dataSource: MatTableDataSource<Almacenes>;
 
   constructor(private almacenesService: AlmacenesService, public dialog: MatDialog) {
-    this.dataSource = new MatTableDataSource<Almacenes>(); // Inicializa dataSource como una instancia de MatTableDataSource
+    this.dataSource = new MatTableDataSource<Almacenes>();// Inicializa dataSource como una instancia de MatTableDataSource
+
+   
   }
+
+  
 
   ngOnInit() {
     this.dataSource.filterPredicate = (data: Almacenes, filter: string) => {
@@ -93,5 +97,6 @@ export class AlmacenesComponent {
       }
     });
   }
-}
+} 
+
 
