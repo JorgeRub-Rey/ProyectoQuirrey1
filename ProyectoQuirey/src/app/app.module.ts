@@ -62,6 +62,25 @@ import { EditarExistenciasComponent } from './existencias/editar-existencias/edi
 import { InsertarExistenciasComponent } from './existencias/insertar-existencias/insertar-existencias.component';
 
 
+
+
+
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+
+
+
+
+
+
+
+
+
+
+
+
 const appRoutes: Routes = [
 
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
@@ -110,7 +129,11 @@ const appRoutes: Routes = [
     ExistenciasComponent,
     ControlPanelExistenciasComponent,
     EditarExistenciasComponent,
-    InsertarExistenciasComponent
+    InsertarExistenciasComponent,
+   
+
+
+
   ],
   imports: [
     HttpClientModule,
@@ -130,7 +153,10 @@ const appRoutes: Routes = [
     MatTableModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
