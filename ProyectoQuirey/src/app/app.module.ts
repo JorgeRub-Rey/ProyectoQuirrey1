@@ -50,6 +50,10 @@ import { DetalleticketsComponent } from './detalletickets/detalletickets.compone
 import { ControlPanelDetalleticketsComponent } from './detalletickets/control-panel-detalletickets/control-panel-detalletickets.component';
 import { EditarDetalleticketsComponent } from './detalletickets/editar-detalletickets/editar-detalletickets.component';
 import { InsertarDetalleticketsComponent } from './detalletickets/insertar-detalletickets/insertar-detalletickets.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { ControlPanelTicketsComponent } from './tickets/control-panel-tickets/control-panel-tickets.component';
+import { EditarTicketsComponent } from './tickets/editar-tickets/editar-tickets.component';
+import { InsertarTicketsComponent } from './tickets/insertar-tickets/insertar-tickets.component';
 
 
 const appRoutes: Routes = [
@@ -59,6 +63,7 @@ const appRoutes: Routes = [
   { path: 'articulos', component: ArticulosComponent },
   { path: 'clientes', component: ClientesComponent },
   { path: 'rutas', component: RutasComponent },
+  { path: 'tickets', component: TicketsComponent },
 ]
 
 
@@ -86,7 +91,11 @@ const appRoutes: Routes = [
     DetalleticketsComponent,
     ControlPanelDetalleticketsComponent,
     EditarDetalleticketsComponent,
-    InsertarDetalleticketsComponent
+    InsertarDetalleticketsComponent,
+    TicketsComponent,
+    ControlPanelTicketsComponent,
+    EditarTicketsComponent,
+    InsertarTicketsComponent
   ],
   imports: [
     HttpClientModule,
