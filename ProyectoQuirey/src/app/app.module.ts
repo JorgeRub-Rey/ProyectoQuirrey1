@@ -28,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+
 import { ClientesComponent } from './clientes/clientes.component';
 import { ControlPanelClientesComponent } from './clientes/control-panel-clientes/control-panel-clientes.component';
 import { EditarClientesComponent } from './clientes/editar-clientes/editar-clientes.component';
@@ -55,6 +56,11 @@ import { ControlPanelTicketsComponent } from './tickets/control-panel-tickets/co
 import { EditarTicketsComponent } from './tickets/editar-tickets/editar-tickets.component';
 import { InsertarTicketsComponent } from './tickets/insertar-tickets/insertar-tickets.component';
 
+import { ExistenciasComponent } from './existencias/existencias.component';
+import { ControlPanelExistenciasComponent } from './existencias/control-panel-existencias/control-panel-existencias.component';
+import { EditarExistenciasComponent } from './existencias/editar-existencias/editar-existencias.component';
+import { InsertarExistenciasComponent } from './existencias/insertar-existencias/insertar-existencias.component';
+
 
 const appRoutes: Routes = [
 
@@ -62,8 +68,12 @@ const appRoutes: Routes = [
   { path:'almacenes', component: AlmacenesComponent },
   { path: 'articulos', component: ArticulosComponent },
   { path: 'clientes', component: ClientesComponent },
+
   { path: 'rutas', component: RutasComponent },
   { path: 'tickets', component: TicketsComponent },
+
+  { path: 'existencias', component: ExistenciasComponent }
+
 ]
 
 
@@ -84,6 +94,7 @@ const appRoutes: Routes = [
     ControlPanelClientesComponent,
     EditarClientesComponent,
     InsertarClientesComponent,
+
     RutasComponent,
     ControlPanelRutasComponent,
     EditarRutasComponent,
@@ -95,7 +106,11 @@ const appRoutes: Routes = [
     TicketsComponent,
     ControlPanelTicketsComponent,
     EditarTicketsComponent,
-    InsertarTicketsComponent
+    InsertarTicketsComponent,
+    ExistenciasComponent,
+    ControlPanelExistenciasComponent,
+    EditarExistenciasComponent,
+    InsertarExistenciasComponent
   ],
   imports: [
     HttpClientModule,
