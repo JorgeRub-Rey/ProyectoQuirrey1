@@ -72,6 +72,10 @@ import { ControlPanelPersonasComponent } from './personas/control-panel-personas
 //import { EditarPersonasComponent } from './editar-personas/editar-personas.component';
 import { EditarPersonasComponent } from './personas/editar-personas/editar-personas.component';
 import { InsertarPersonasComponent } from './personas/insertar-personas/insertar-personas.component';
+import { DetallemovimientoComponent } from './detallemovimiento/detallemovimiento.component';
+import { ControlPanelDetallemovimientoComponent } from './detallemovimiento/control-panel-detallemovimiento/control-panel-detallemovimiento.component';
+import { InsertarDetallemovimientoComponent } from './detallemovimiento/insertar-detallemovimiento/insertar-detallemovimiento.component';
+import { EditarDetallemovimientoComponent } from './detallemovimiento/editar-detallemovimiento/editar-detallemovimiento.component';
 
 
 
@@ -91,6 +95,7 @@ const appRoutes: Routes = [
   { path: 'movimientos', component: MovimientosinventarioComponent },
   { path: 'personas', component: PersonasComponent },
   { path: 'detalletickets', component: DetalleticketsComponent },
+  { path: 'detallemovimiento', component: DetallemovimientoComponent },
  
 
 ]
@@ -139,6 +144,10 @@ const appRoutes: Routes = [
     ControlPanelPersonasComponent,
     EditarPersonasComponent,
     InsertarPersonasComponent,
+    DetallemovimientoComponent,
+    ControlPanelDetallemovimientoComponent,
+    InsertarDetallemovimientoComponent,
+    EditarDetallemovimientoComponent,
   ],
   imports: [
     HttpClientModule,
