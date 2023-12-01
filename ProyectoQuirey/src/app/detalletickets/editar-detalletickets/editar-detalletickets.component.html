@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Nuevo detalledickets</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>idTickets</mat-label>
+        <input matInput placeholder="Ingresa el idTickets" [(ngModel)]="detalleTickets.idTickets">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>codigo</mat-label>
+        <input matInput placeholder="Ingresa la codigo" [(ngModel)]="detalleTickets.Codigo">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>cantidad</mat-label>
+        <input matInput type="number" placeholder="Ingresa el cantidad" [(ngModel)]="detalleTickets.cantidad">
+      </mat-form-field>
+      
+
+      <mat-form-field>
+        <mat-label>precioVenta</mat-label>
+        <input matInput type="number" placeholder="Ingresa el precioVenta" [(ngModel)]="detalleTickets.precioventa">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>UsuarioActualiza</mat-label>
+        <input matInput type="number" placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="detalleTickets.UsuarioActualiza">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Estatus</mat-label>
+        <input matInput type="number" placeholder="Ingresa el Estatus" [(ngModel)]="detalleTickets.Estatus" step="1">
+      </mat-form-field>
+      
+    </div>
+  </div>
+  <!-- Puedes agregar más filas con más campos aquí -->
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button (click)="guardar()">Guardar Cambios</button>
+</div>
