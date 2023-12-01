@@ -1,12 +1,38 @@
-
-<mat-form-field>
-    <mat-label>Filtrar</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Buscar..." #input>
-</mat-form-field>
-
-<div class="toolbar">
-    <button mat-button (click)="abrirInsertarModal()"  class="orange-button" >Insertar Departamento</button>
-</div>
+<mat-sidenav-container class="sidenav-container fondo-negro">
+  <mat-sidenav #sidenav mode="side" class="sidenav">
+      <!-- Contenido del menú -->
+      <mat-nav-list class="barra">
+        <a mat-list-item routerLink="/articulos" >articulos</a>
+        <a mat-list-item routerLink="/clientes">clientes</a>
+        <a mat-list-item routerLink="/existencias">existencias</a>
+        <a mat-list-item routerLink="/rutas">rutas</a>
+        <a mat-list-item routerLink="/tickets">tickets</a>
+        <a mat-list-item routerLink="/detalletickets">detalletickets</a>
+        <a mat-list-item routerLink="/movimientosinventario">movimientosinventario</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Menú</span>
+      </mat-toolbar>
+      <!-- Contenido de la página principal -->
+  
+      <!-- Resto de tu código -->
+      <div class="menu-container">
+        <mat-form-field>
+          <mat-label>Filtrar</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Buscar..." #input>
+        </mat-form-field>
+  
+        <div class="toolbar">
+          <button mat-button (click)="abrirInsertarModal()" class="orange-button">Insertars Persona</button>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>

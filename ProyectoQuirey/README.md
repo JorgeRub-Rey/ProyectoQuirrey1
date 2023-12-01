@@ -40,6 +40,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ![Alt text](image-4.png)
 <!-- Tickets -->
 ![Alt text](image-5.png)
+<!-- Detalle Tickets -->
+![Alt text](image-6.png)
+<!-- Movimientos Inventario -->
+![s](image-10.png)
+<!-- Personas -->
+![Alt text](image-9.png)
 
 
 

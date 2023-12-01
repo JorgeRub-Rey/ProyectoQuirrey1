@@ -97,6 +97,7 @@ const appRoutes: Routes = [
   { path: 'movimientos', component: MovimientosinventarioComponent },
   { path: 'personas', component: PersonasComponent },
   { path: 'detalletickets', component: DetalleticketsComponent },
+  { path: 'movimientosinventario', component: MovimientosinventarioComponent },
  
 
 ]

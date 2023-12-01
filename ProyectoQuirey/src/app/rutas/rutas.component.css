@@ -162,3 +162,7 @@ background-color: orange;
 color: black;
 
 }
+.fondo-negro {
+  background-color: black;
+  color: white; /* Puedes ajustar el color del texto según tus preferencias */
+}
