@@ -15,11 +15,32 @@
     <!-- Columna para el campo de nombre -->
     <div class="mat-dialog-cell">
       <mat-form-field>
-        <mat-label>Direccion</mat-label>
-        <input matInput placeholder="Ingresa la direccion" [(ngModel)]="direccionDepartamento">
+        <mat-label>ApPaterno</mat-label>
+        <input matInput placeholder="Ingresa el appaterno" [(ngModel)]="appaternoDepartamento">
       </mat-form-field>
     </div>
   </div>
+
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>ApMaterno</mat-label>
+        <input matInput placeholder="Ingresa el apmaterno" [(ngModel)]="apmaternoDepartamento">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Direccion</mat-label>
+        <input matInput placeholder="Ingresa la Direccion" [(ngModel)]="direccionDepartamento">
+      </mat-form-field>
+    </div>
+  </div>
+
 
   <div class="mat-dialog-row">
     <!-- Columna para el campo de nombre -->
@@ -36,4 +57,3 @@
     <button mat-button (click)="onNoClick()">Cancelar</button>
     <button mat-button cdkFocusInitial (click)="insertar()">Insertar</button>
 </div>
-

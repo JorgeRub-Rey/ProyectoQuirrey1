@@ -60,6 +60,19 @@ import { ExistenciasComponent } from './existencias/existencias.component';
 import { ControlPanelExistenciasComponent } from './existencias/control-panel-existencias/control-panel-existencias.component';
 import { EditarExistenciasComponent } from './existencias/editar-existencias/editar-existencias.component';
 import { InsertarExistenciasComponent } from './existencias/insertar-existencias/insertar-existencias.component';
+import { MovimientosinventarioComponent } from './movimientosinventario/movimientosinventario.component';
+import { ControlPanelMovimientosinventarioComponent } from './movimientosinventario/control-panel-movimientosinventario/control-panel-movimientosinventario.component';
+import { EditarMovimientosinventarioComponent } from './movimientosinventario/editar-movimientosinventario/editar-movimientosinventario.component';
+import { InsertarMovimientosinventarioComponent } from './movimientosinventario/insertar-movimientosinventario/insertar-movimientosinventario.component';
+import { PersonasComponent } from './personas/personas.component';
+
+//import { ControlPanelPersonasComponent } from './control-panel-personas/control-panel-personas.component';
+import { ControlPanelPersonasComponent } from './personas/control-panel-personas/control-panel-personas.component';
+
+//import { EditarPersonasComponent } from './editar-personas/editar-personas.component';
+import { EditarPersonasComponent } from './personas/editar-personas/editar-personas.component';
+import { InsertarPersonasComponent } from './personas/insertar-personas/insertar-personas.component';
+
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -74,7 +87,10 @@ const appRoutes: Routes = [
   { path: 'rutas', component: RutasComponent },
   { path: 'tickets', component: TicketsComponent },
 
-  { path: 'existencias', component: ExistenciasComponent }
+  { path: 'existencias', component: ExistenciasComponent },
+  { path: 'movimientos', component: MovimientosinventarioComponent },
+  { path: 'personas', component: PersonasComponent },
+ 
 
 ]
 
@@ -112,7 +128,16 @@ const appRoutes: Routes = [
     ExistenciasComponent,
     ControlPanelExistenciasComponent,
     EditarExistenciasComponent,
-    InsertarExistenciasComponent
+    InsertarExistenciasComponent,
+    MovimientosinventarioComponent,
+    ControlPanelMovimientosinventarioComponent,
+    EditarMovimientosinventarioComponent,
+    InsertarMovimientosinventarioComponent,
+
+    PersonasComponent,
+    ControlPanelPersonasComponent,
+    EditarPersonasComponent,
+    InsertarPersonasComponent
   ],
   imports: [
     HttpClientModule,
