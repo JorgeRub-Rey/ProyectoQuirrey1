@@ -75,6 +75,8 @@ import { InsertarPersonasComponent } from './personas/insertar-personas/insertar
 
 
 
+
+
 const appRoutes: Routes = [
 
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
@@ -88,6 +90,7 @@ const appRoutes: Routes = [
   { path: 'existencias', component: ExistenciasComponent },
   { path: 'movimientos', component: MovimientosinventarioComponent },
   { path: 'personas', component: PersonasComponent },
+  { path: 'detalletickets', component: DetalleticketsComponent },
  
 
 ]
@@ -135,7 +138,7 @@ const appRoutes: Routes = [
     PersonasComponent,
     ControlPanelPersonasComponent,
     EditarPersonasComponent,
-    InsertarPersonasComponent
+    InsertarPersonasComponent,
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,35 @@
+/* En tu archivo clientes.component.css */
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .table-filter {
+    width: 300px; /* Ajusta según sea necesario */
+  }
+  mat-icon {
+    cursor: pointer;
+    color: #e53935; /* Color rojo para el icono de eliminar, ajusta según tu paleta de colores */
+  }
+  
+  mat-icon:hover {
+    color: #b71c1c; /* Color rojo más oscuro al pasar el cursor */
+  }
+  
+  .orange-button {
+    background-color: orange;
+    color: white;
+}
