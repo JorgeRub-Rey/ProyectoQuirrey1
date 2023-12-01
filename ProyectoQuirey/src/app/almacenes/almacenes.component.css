@@ -37,6 +37,7 @@ table {
 
 
 
+
 .sidenav {
   overflow-y: auto; /* Agrega una barra de desplazamiento vertical */
   height: 100%; /* Ajusta la altura del menú para que ocupe toda la pantalla */
@@ -57,5 +58,6 @@ table {
   color: black;
 
 }
+
 
 

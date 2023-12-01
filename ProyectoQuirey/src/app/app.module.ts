@@ -74,9 +74,15 @@ import { EditarPersonasComponent } from './personas/editar-personas/editar-perso
 import { InsertarPersonasComponent } from './personas/insertar-personas/insertar-personas.component';
 
 
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+
+
+
+
+
 const appRoutes: Routes = [
 
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
@@ -90,6 +96,7 @@ const appRoutes: Routes = [
   { path: 'existencias', component: ExistenciasComponent },
   { path: 'movimientos', component: MovimientosinventarioComponent },
   { path: 'personas', component: PersonasComponent },
+  { path: 'detalletickets', component: DetalleticketsComponent },
  
 
 ]
@@ -137,7 +144,7 @@ const appRoutes: Routes = [
     PersonasComponent,
     ControlPanelPersonasComponent,
     EditarPersonasComponent,
-    InsertarPersonasComponent
+    InsertarPersonasComponent,
   ],
   imports: [
     HttpClientModule,
