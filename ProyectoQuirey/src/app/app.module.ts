@@ -9,13 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { EditarDepartamentoComponent } from './editar-departamento/editar-departamento.component';
 //import { InsertarComponent } from './insertar/insertar.component';
 
-
-
-
-
-
-
-
 import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -33,7 +26,6 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { ControlPanelClientesComponent } from './clientes/control-panel-clientes/control-panel-clientes.component';
 import { EditarClientesComponent } from './clientes/editar-clientes/editar-clientes.component';
 import { InsertarClientesComponent } from './clientes/insertar-clientes/insertar-clientes.component';
-
 
 import { ControlPanelAlmacenesComponent } from './almacenes/control-panel-almacenes/control-panel-almacenes.component';
 import { EditarAlmacenesComponent } from './almacenes/editar-almacenes/editar-almacenes.component';
@@ -77,20 +69,13 @@ import { ControlPanelDetallemovimientoComponent } from './detallemovimiento/cont
 import { InsertarDetallemovimientoComponent } from './detallemovimiento/insertar-detallemovimiento/insertar-detallemovimiento.component';
 import { EditarDetallemovimientoComponent } from './detallemovimiento/editar-detallemovimiento/editar-detallemovimiento.component';
 
-
-
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 
-
-
-
-
 const appRoutes: Routes = [
-
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
-  { path:'almacenes', component: AlmacenesComponent },
+  { path: 'almacenes', component: AlmacenesComponent },
   { path: 'articulos', component: ArticulosComponent },
   { path: 'clientes', component: ClientesComponent },
 
@@ -105,12 +90,7 @@ const appRoutes: Routes = [
   { path: 'movimientosinventario', component: MovimientosinventarioComponent },
 
   { path: 'detallemovimiento', component: DetallemovimientoComponent },
-
- 
-
-]
-
-
+];
 
 @NgModule({
   declarations: [
@@ -178,12 +158,11 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSidenavModule, 
+    MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}
