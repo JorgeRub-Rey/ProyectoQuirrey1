@@ -73,8 +73,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 
-import { LoginComponent } from './login/login.component';
-
 const appRoutes: Routes = [
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
   { path: 'almacenes', component: AlmacenesComponent },
@@ -92,8 +90,6 @@ const appRoutes: Routes = [
   { path: 'movimientosinventario', component: MovimientosinventarioComponent },
 
   { path: 'detallemovimiento', component: DetallemovimientoComponent },
-
-  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
@@ -142,7 +138,6 @@ const appRoutes: Routes = [
     ControlPanelDetallemovimientoComponent,
     InsertarDetallemovimientoComponent,
     EditarDetallemovimientoComponent,
-    LoginComponent,
   ],
   imports: [
     HttpClientModule,
