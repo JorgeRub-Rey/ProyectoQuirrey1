@@ -73,6 +73,42 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { LoginComponent } from './login/login.component';
+import { ControlPanelUsuariosComponent } from './usuarios/control-panel-usuarios/control-panel-usuarios.component';
+import { EditarUsuariosComponent } from './usuarios/editar-usuarios/editar-usuarios.component';
+import { InsertarUsuariosComponent } from './usuarios/insertar-usuarios/insertar-usuarios.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { DetalleperfilComponent } from './detalleperfil/detalleperfil.component';
+import { ControlPanelDetalleperfilComponent } from './detalleperfil/control-panel-detalleperfil/control-panel-detalleperfil.component';
+import { EditarDetalleperfilComponent } from './detalleperfil/editar-detalleperfil/editar-detalleperfil.component';
+import { InsertarDetalleperfilComponent } from './detalleperfil/insertar-detalleperfil/insertar-detalleperfil.component';
+import { ModulosusuarioComponent } from './modulosusuario/modulosusuario.component';
+import { ControlPanelModulosusuarioComponent } from './modulosusuario/control-panel-modulosusuario/control-panel-modulosusuario.component';
+import { EditarModulosusuarioComponent } from './modulosusuario/editar-modulosusuario/editar-modulosusuario.component';
+import { InsertarModulosusuarioComponent } from './modulosusuario/insertar-modulosusuario/insertar-modulosusuario.component';
+import { EmpleadosComponent } from './empleados/empleados.component';
+import { ControlPanelEmpleadosComponent } from './empleados/control-panel-empleados/control-panel-empleados.component';
+import { EditarEmpleadosComponent } from './empleados/editar-empleados/editar-empleados.component';
+import { InsertarEmpleadosComponent } from './empleados/insertar-empleados/insertar-empleados.component';
+import { ModulosComponent } from './modulos/modulos.component';
+import { ControlPanelModulosComponent } from './modulos/control-panel-modulos/control-panel-modulos.component';
+import { EditarModulosComponent } from './modulos/editar-modulos/editar-modulos.component';
+import { InsertarModulosComponent } from './modulos/insertar-modulos/insertar-modulos.component';
+import { PerfilesComponent } from './perfiles/perfiles.component';
+import { ControlPanelPerfilesComponent } from './perfiles/control-panel-perfiles/control-panel-perfiles.component';
+import { EditarPerfilesComponent } from './perfiles/editar-perfiles/editar-perfiles.component';
+import { InsertarPerfilesComponent } from './perfiles/insertar-perfiles/insertar-perfiles.component';
+import { SucursalsedeComponent } from './sucursalsede/sucursalsede.component';
+import { ControlPanelSucursalsedeComponent } from './sucursalsede/control-panel-sucursalsede/control-panel-sucursalsede.component';
+import { EditarSucursalsedeComponent } from './sucursalsede/editar-sucursalsede/editar-sucursalsede.component';
+import { InsertarSucursalsedeComponent } from './sucursalsede/insertar-sucursalsede/insertar-sucursalsede.component';
+import { PuestosComponent } from './puestos/puestos.component';
+import { ControlPanelPuestosComponent } from './puestos/control-panel-puestos/control-panel-puestos.component';
+import { EditarPuestosComponent } from './puestos/editar-puestos/editar-puestos.component';
+import { InsertarPuestosComponent } from './puestos/insertar-puestos/insertar-puestos.component';
+import { CategoriamodulosComponent } from './categoriamodulos/categoriamodulos.component';
+import { ControlPanelCategoriamodulosComponent } from './categoriamodulos/control-panel-categoriamodulos/control-panel-categoriamodulos.component';
+import { EditarCategoriamodulosComponent } from './categoriamodulos/editar-categoriamodulos/editar-categoriamodulos.component';
+import { InsertarCategoriamodulosComponent } from './categoriamodulos/insertar-categoriamodulos/insertar-categoriamodulos.component';
 
 const appRoutes: Routes = [
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
@@ -93,6 +129,24 @@ const appRoutes: Routes = [
   { path: 'detallemovimiento', component: DetallemovimientoComponent },
 
   { path: 'login', component: LoginComponent },
+
+  { path: 'usuarios', component: UsuariosComponent },
+
+  { path: 'detalleperfil', component: DetalleperfilComponent },
+
+  { path: 'modulosusuario', component: ModulosusuarioComponent },
+
+  { path: 'empleados', component: EmpleadosComponent },
+
+  { path: 'modulos', component: ModulosComponent },
+
+  { path: 'perfiles', component: PerfilesComponent },
+
+  { path: 'sucursalsede', component: SucursalsedeComponent },
+
+  { path: 'puestos', component: PuestosComponent },
+
+  { path: 'categoriamodulos', component: CategoriamodulosComponent },
 ];
 
 @NgModule({
@@ -143,6 +197,42 @@ const appRoutes: Routes = [
     EditarDetallemovimientoComponent,
 
     LoginComponent,
+    ControlPanelUsuariosComponent,
+    EditarUsuariosComponent,
+    InsertarUsuariosComponent,
+    UsuariosComponent,
+    DetalleperfilComponent,
+    ControlPanelDetalleperfilComponent,
+    EditarDetalleperfilComponent,
+    InsertarDetalleperfilComponent,
+    ModulosusuarioComponent,
+    ControlPanelModulosusuarioComponent,
+    EditarModulosusuarioComponent,
+    InsertarModulosusuarioComponent,
+    EmpleadosComponent,
+    ControlPanelEmpleadosComponent,
+    EditarEmpleadosComponent,
+    InsertarEmpleadosComponent,
+    ModulosComponent,
+    ControlPanelModulosComponent,
+    EditarModulosComponent,
+    InsertarModulosComponent,
+    PerfilesComponent,
+    ControlPanelPerfilesComponent,
+    EditarPerfilesComponent,
+    InsertarPerfilesComponent,
+    SucursalsedeComponent,
+    ControlPanelSucursalsedeComponent,
+    EditarSucursalsedeComponent,
+    InsertarSucursalsedeComponent,
+    PuestosComponent,
+    ControlPanelPuestosComponent,
+    EditarPuestosComponent,
+    InsertarPuestosComponent,
+    CategoriamodulosComponent,
+    ControlPanelCategoriamodulosComponent,
+    EditarCategoriamodulosComponent,
+    InsertarCategoriamodulosComponent,
   ],
   imports: [
     HttpClientModule,

@@ -18,15 +18,13 @@
     </div>
   </mat-sidenav>
 
-  <!-- Color del fondo,nadamas tocar esto el Mat-side -->
   <mat-sidenav-content class="content animated-background">
-    <mat-toolbar style="background-color: #df9412; color: black">
+    <mat-toolbar style="background-color: #df9412; color: rgb(255, 255, 255)">
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <span>Almacen</span>
     </mat-toolbar>
-    <!-- Color del fondo,nadamas tocar esto el Mat-side -->
 
     <!-- Contenido de la página principal -->
 
@@ -42,12 +40,11 @@
           #input
         />
       </mat-form-field>
-
-      <div class="toolbar">
-        <button mat-button (click)="abrirInsertarModal()" class="orange-button">
-          Insertar Almacen
-        </button>
-      </div>
+    </div>
+    <div class="toolbar">
+      <button mat-button (click)="abrirInsertarModal()" class="orange-button">
+        Insertar Almacen
+      </button>
     </div>
 
     <div class="mat-elevation-z8">

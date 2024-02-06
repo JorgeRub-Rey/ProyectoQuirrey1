@@ -1,13 +1,14 @@
 table {
-  border-radius: 25px;
+  border-radius: 35px;
   padding-top: 0px;
   width: 100%;
 }
 
 .mat-mdc-form-field {
-  padding-top: 15px;
+  padding-left: px;
   font-size: 15px;
-  width: 50%;
+  width: 100%;
+  opacity: 50%;
 }
 
 td,
@@ -15,10 +16,7 @@ th {
   width: 25%;
 }
 .toolbar {
-  color: #e88400;
-  background-color: white;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -27,9 +25,20 @@ th {
 .table-filter {
   width: 50px; /* Ajusta según sea necesario */
 }
+mat-icon {
+  cursor: pointer;
+  color: #ffffff; /* Color rojo para el icono de eliminar, ajusta según tu paleta de colores */
+}
+
+mat-icon:hover {
+  color: #ffffff; /* Color rojo más oscuro al pasar el cursor */
+}
 
 .orange-button {
   background-color: orange;
+}
+
+div.toolbar button.orange-button {
   color: white;
 }
 
@@ -39,7 +48,8 @@ th {
 }
 
 .menu-container {
-  padding: 6px; /* Ajusta el espacio interno del contenedor del menú */
+  padding: 0px;
+  /* Ajusta el espacio interno del contenedor del menú */
 }
 
 .table-container {
@@ -66,7 +76,7 @@ body {
   text-align: center;
   margin: 0px;
   margin-top: 50px;
-  padding: 30px;
+  padding: 10px;
 }
 
 .barra a {
