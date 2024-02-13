@@ -6,7 +6,11 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Ingresa el nombre" [(ngModel)]="nombreDepartamento">
+        <input
+          matInput
+          placeholder="Ingresa el nombre"
+          [(ngModel)]="nombreDepartamento"
+        />
       </mat-form-field>
     </div>
   </div>
@@ -16,7 +20,11 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>Direccion</mat-label>
-        <input matInput placeholder="Ingresa la direccion" [(ngModel)]="direccionDepartamento">
+        <input
+          matInput
+          placeholder="Ingresa la direccion"
+          [(ngModel)]="direccionDepartamento"
+        />
       </mat-form-field>
     </div>
   </div>
@@ -26,15 +34,17 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>UsuarioActualiza</mat-label>
-        <input matInput placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="usuarioactualizaDepartamento">
+        <input
+          matInput
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="usuarioactualizaDepartamento"
+        />
       </mat-form-field>
     </div>
   </div>
   <!-- Puedes agregar más filas con más campos aquí -->
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancelar</button>
-    <button mat-button cdkFocusInitial (click)="insertar()">Insertar</button>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button cdkFocusInitial (click)="insertar()">Insertar</button>
 </div>
-
-

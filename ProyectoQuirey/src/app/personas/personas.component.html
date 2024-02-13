@@ -1,85 +1,126 @@
 <mat-sidenav-container class="sidenav-container fondo-negro">
   <mat-sidenav #sidenav mode="side" class="sidenav">
-      <!-- Contenido del menú -->
-      <mat-nav-list class="barra">
-        <a mat-list-item routerLink="/articulos" >articulos</a>
-        <a mat-list-item routerLink="/clientes">clientes</a>
-        <a mat-list-item routerLink="/existencias">existencias</a>
-        <a mat-list-item routerLink="/rutas">rutas</a>
-        <a mat-list-item routerLink="/tickets">tickets</a>
-        <a mat-list-item routerLink="/detalletickets">detalletickets</a>
-        <a mat-list-item routerLink="/movimientosinventario">movimientosinventario</a>
-        <a mat-list-item routerLink="/detallemovimiento">detallemovimiento</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content class="content">
-      <mat-toolbar color="primary">
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>Menú</span>
-      </mat-toolbar>
-      <!-- Contenido de la página principal -->
-  
-      <!-- Resto de tu código -->
-      <div class="menu-container">
-        <mat-form-field>
-          <mat-label>Filtrar</mat-label>
-          <input matInput (keyup)="applyFilter($event)" placeholder="Buscar..." #input>
-        </mat-form-field>
-  
-        <div class="toolbar">
-          <button mat-button (click)="abrirInsertarModal()" class="orange-button">Insertars Persona</button>
-        </div>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    <!-- Contenido del menú -->
+    <mat-nav-list class="barra">
+      <a mat-list-item routerLink="/articulos">articulos</a>
+      <a mat-list-item routerLink="/clientes">clientes</a>
+      <a mat-list-item routerLink="/existencias">existencias</a>
+      <a mat-list-item routerLink="/rutas">rutas</a>
+      <a mat-list-item routerLink="/tickets">tickets</a>
+      <a mat-list-item routerLink="/detalletickets">detalletickets</a>
+      <a mat-list-item routerLink="/movimientosinventario"
+        >movimientosinventario</a
+      >
 
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-        <ng-container matColumnDef="Id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Id}} </td>
-        </ng-container>
-        <ng-container matColumnDef="Nombre">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Nombre}} </td>
-        </ng-container>
-        <ng-container matColumnDef="ApPaterno">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> ApPaterno </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.ApPaterno}} </td>
-        </ng-container>
-        <ng-container matColumnDef="ApMaterno">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> ApMaterno </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.ApMaterno}} </td>
-        </ng-container>
-        <ng-container matColumnDef="Direccion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Direccion </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Direccion}} </td>
-        </ng-container>
-        <ng-container matColumnDef="Estatus">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Estatus}} </td>
-        </ng-container>
-        <ng-container matColumnDef="FechaActualiza">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> FechaActualiza </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.FechaActualiza}} </td>
-        </ng-container>
-        <ng-container matColumnDef="UsuarioActualiza">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> UsuarioActualiza </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.UsuarioActualiza}} </td>
-        </ng-container>
-        
-        
-        <ng-container matColumnDef="Acciones">
-        <th mat-header-cell *matHeaderCellDef> Acciones </th>
-        <td mat-cell *matCellDef="let elemento">
-            <mat-icon (click)="abrirEditarModal(elemento)">edit</mat-icon>
-            <mat-icon (click)="eliminarDepartamento(elemento.Id)">delete</mat-icon>
-        </td>
-        </ng-container>
+      <a mat-list-item routerLink="/detallemovimiento">detallemovimiento</a>
+      <a mat-list-item routerLink="/modulosusuario">ModulosUsuario</a>
+      <a mat-list-item routerLink="/personas">personas</a>
+      <a mat-list-item routerLink="/usuarios">Usuarios</a>
+      <a mat-list-item routerLink="/detalleperfil">detalleperfil</a>
+      <a mat-list-item routerLink="/empleados">Empleados</a>
+      <a mat-list-item routerLink="/usuarios">Usuarios</a>
+      <a mat-list-item routerLink="/modulos">Modulos</a>
+      <a mat-list-item routerLink="/perfiles">Perfiles</a>
+      <a mat-list-item routerLink="/sucursalsede">SucursalSede</a>
+      <a mat-list-item routerLink="/puestos">Puestos</a>
+      <a mat-list-item routerLink="/categoriamodulos">CategoriaModulos</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Menú</span>
+    </mat-toolbar>
+    <!-- Contenido de la página principal -->
+
+    <!-- Resto de tu código -->
+    <div class="menu-container">
+      <mat-form-field>
+        <mat-label>Filtrar</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Buscar..."
+          #input
+        />
+      </mat-form-field>
+
+      <div class="toolbar">
+        <button mat-button (click)="abrirInsertarModal()" class="orange-button">
+          Insertars Persona
+        </button>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let departamento">{{ departamento.Id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+      <td mat-cell *matCellDef="let departamento">{{ departamento.Nombre }}</td>
+    </ng-container>
+    <ng-container matColumnDef="ApPaterno">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ApPaterno</th>
+      <td mat-cell *matCellDef="let departamento">
+        {{ departamento.ApPaterno }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="ApMaterno">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ApMaterno</th>
+      <td mat-cell *matCellDef="let departamento">
+        {{ departamento.ApMaterno }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Curp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Curp</th>
+      <td mat-cell *matCellDef="let departamento">{{ departamento.Curp }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Direccion">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Direccion</th>
+      <td mat-cell *matCellDef="let departamento">
+        {{ departamento.Direccion }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="FechaHora">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>FechaHora</th>
+      <td mat-cell *matCellDef="let departamento">
+        {{ departamento.FechaHora }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Activo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Activo</th>
+      <td mat-cell *matCellDef="let departamento">{{ departamento.Activo }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Usuario">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+      <td mat-cell *matCellDef="let departamento">
+        {{ departamento.Usuario }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let elemento">
+        <mat-icon
+          style="color: rgb(4, 12, 251)"
+          (click)="abrirEditarModal(elemento)"
+          >edit</mat-icon
+        >
+        <mat-icon
+          style="color: rgb(251, 4, 4)"
+          (click)="eliminarDepartamento(elemento.Id)"
+          >delete</mat-icon
+        >
+      </td>
+    </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </table>
-  </div>
-  
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </table>
+</div>

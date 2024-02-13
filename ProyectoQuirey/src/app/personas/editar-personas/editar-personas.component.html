@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Nuevo Departamento</h1>
+<h1 mat-dialog-title>N</h1>
 <div mat-dialog-content class="mat-dialog-grid">
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
@@ -6,42 +6,73 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Ingresa el nombre" [(ngModel)]="departamento.Nombre">
+        <input
+          matInput
+          placeholder="Ingresa el nombre"
+          [(ngModel)]="departamento.Nombre"
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>ApPaterno</mat-label>
-        <input matInput placeholder="Ingresa el ApPaterno" [(ngModel)]="departamento.ApPaterno">
+        <input
+          matInput
+          placeholder="Ingresa el ApPaterno"
+          [(ngModel)]="departamento.ApPaterno"
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>ApMaterno</mat-label>
-        <input matInput placeholder="Ingresa el ApMaterno" [(ngModel)]="departamento.ApMaterno">
+        <input
+          matInput
+          placeholder="Ingresa el ApMaterno"
+          [(ngModel)]="departamento.ApMaterno"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Curp</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el Curp"
+          [(ngModel)]="departamento.curp"
+        />
       </mat-form-field>
 
-      
       <mat-form-field>
         <mat-label>Direccion</mat-label>
-        <input matInput placeholder="Ingresa la Direccion" [(ngModel)]="departamento.Direccion">
+        <input
+          matInput
+          placeholder="Ingresa la Direccion"
+          [(ngModel)]="departamento.Direccion"
+        />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>UsuarioActualiza</mat-label>
-        <input matInput type="number" placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="departamento.UsuarioActualiza" step="1">
+        <mat-label>activo</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa "
+          [(ngModel)]="departamento.Activo"
+        />
       </mat-form-field>
-      
 
       <mat-form-field>
-        <mat-label>Estatus</mat-label>
-        <input matInput type="number" placeholder="Ingresa el Estatus" [(ngModel)]="departamento.Estatus" step="1">
+        <mat-label>Usuario</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el Usuario"
+          [(ngModel)]="departamento.Usuario"
+        />
       </mat-form-field>
-      
     </div>
   </div>
   <!-- Puedes agregar más filas con más campos aquí -->
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancelar</button>
-    <button mat-button (click)="guardar()">Guardar Cambios</button>
-</div>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
 
+  <button mat-button (click)="guardar()">Guardar Cambios</button>
+</div>

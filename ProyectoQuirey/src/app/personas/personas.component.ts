@@ -10,24 +10,40 @@ import { EditarPersonasComponent } from './editar-personas/editar-personas.compo
 @Component({
   selector: 'app-personas',
   templateUrl: './personas.component.html',
-  styleUrls: ['./personas.component.css']
+  styleUrls: ['./personas.component.css'],
 })
 export class PersonasComponent {
-  displayedColumns: string[] = ['Id', 'Nombre', 'ApPaterno', 'ApMaterno', 'Direccion', 'Estatus', 'FechaActualiza', 'UsuarioActualiza','Acciones'];
+  displayedColumns: string[] = [
+    'Id',
+    'Nombre',
+    'ApPaterno',
+    'ApMaterno',
+    'Curp',
+    'Direccion',
+    'FechaHora',
+    'Activo',
+    'Usuario',
+    'Acciones',
+  ];
   dataSource: MatTableDataSource<Personas>;
 
-  constructor(private personasService: PersonasService, public dialog: MatDialog) {
+  constructor(
+    private personasService: PersonasService,
+    public dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource<Personas>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }
 
   ngOnInit() {
     this.dataSource.filterPredicate = (data: Personas, filter: string) => {
-      return data.Nombre.toLowerCase().includes(filter) || 
-             data.Id.toString().includes(filter); // Puedes añadir más campos si es necesario
+      return (
+        data.Nombre.toLowerCase().includes(filter) ||
+        data.Id.toString().includes(filter)
+      ); // Puedes añadir más campos si es necesario
     };
     this.personasService.getDepartamentos().subscribe({
       next: (response) => {
-        console.log('Respuesta del servidor:', response.response.data); 
+        console.log('Respuesta del servidor:', response.response.data);
         if (response.success) {
           this.dataSource.data = response.response.data; // Asigna los datos al atributo 'data' de dataSource
         } else {
@@ -36,7 +52,7 @@ export class PersonasComponent {
       },
       error: (error) => {
         // Manejar el error de la solicitud
-      }
+      },
     });
   }
   // Método para realizar el filtrado
@@ -49,47 +65,41 @@ export class PersonasComponent {
     }
   }
 
-  
- abrirInsertarModal() {
+  abrirInsertarModal() {
     const dialogRef = this.dialog.open(InsertarPersonasComponent, {
       width: '550px',
       // Puedes pasar datos al componente de la modal si es necesario
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       // Manejar los resultados cuando la modal se cierre
     });
   }
-  
-
 
   eliminarDepartamento(Id: number) {
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
       this.personasService.eliminarDepartamento(Id).subscribe({
         next: () => {
-          this.dataSource.data = this.dataSource.data.filter((departamento: Personas) => departamento.Id !== Id);
+          this.dataSource.data = this.dataSource.data.filter(
+            (departamento: Personas) => departamento.Id !== Id
+          );
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el departamento', error);
-        }
+        },
       });
     }
   }
-  
-  
+
   abrirEditarModal(departamento: Personas) {
     const dialogRef = this.dialog.open(EditarPersonasComponent, {
       width: '250px',
-      data: departamento // Pasa el objeto de departamento a la modal
+      data: departamento, // Pasa el objeto de departamento a la modal
     });
-  
-    dialogRef.afterClosed().subscribe(result => {
+
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        
       }
     });
   }
 }
-
-
-

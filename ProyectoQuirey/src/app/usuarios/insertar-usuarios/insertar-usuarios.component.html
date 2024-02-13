@@ -1,1 +1,51 @@
-<p>insertar-usuarios works!</p>
+<h1 mat-dialog-title>Nuevo Departamento</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>NombreUsuario</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el NombreUsuario"
+          [(ngModel)]="nombreusuarioDepartamento"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa la Password"
+          [(ngModel)]="passwordDepartamento"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>IdPersona</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el IdPersona"
+          [(ngModel)]="idpersonaDepartamento"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- Puedes agregar más filas con más campos aquí -->
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button cdkFocusInitial (click)="insertar()">Insertar</button>
+</div>

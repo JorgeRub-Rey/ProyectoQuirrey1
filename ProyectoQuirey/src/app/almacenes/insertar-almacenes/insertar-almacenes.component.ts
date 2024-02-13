@@ -5,13 +5,12 @@ import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-insertar-almacenes',
   templateUrl: './insertar-almacenes.component.html',
-  styleUrls: ['./insertar-almacenes.component.css']
+  styleUrls: ['./insertar-almacenes.component.css'],
 })
 export class InsertarAlmacenesComponent {
   nombreDepartamento: string = '';
-  direccionDepartamento: string = ''; 
+  direccionDepartamento: string = '';
   usuarioactualizaDepartamento: number = 1;
-  
 
   constructor(
     public dialogRef: MatDialogRef<InsertarAlmacenesComponent>,
@@ -29,18 +28,14 @@ export class InsertarAlmacenesComponent {
       UsuarioActualiza: this.usuarioactualizaDepartamento,
       // ...otros campos si los hay
     };
-    
+
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);
-      }
+      },
     });
   }
 }
-
-
-
-

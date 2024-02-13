@@ -5,15 +5,15 @@ import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-insertar-personas',
   templateUrl: './insertar-personas.component.html',
-  styleUrls: ['./insertar-personas.component.css']
+  styleUrls: ['./insertar-personas.component.css'],
 })
 export class InsertarPersonasComponent {
   nombreDepartamento: string = '';
   appaternoDepartamento: string = '';
   apmaternoDepartamento: string = '';
-  direccionDepartamento: string = ''; 
-  usuarioactualizaDepartamento: number = 1;
-  
+  CurpDepartamento: string = '';
+  direccionDepartamento: string = '';
+  usuarioDepartamento: number = 1;
 
   constructor(
     public dialogRef: MatDialogRef<InsertarPersonasComponent>,
@@ -29,19 +29,20 @@ export class InsertarPersonasComponent {
       Nombre: this.nombreDepartamento,
       ApPaterno: this.appaternoDepartamento,
       ApMaterno: this.apmaternoDepartamento,
+      Curp: this.CurpDepartamento,
       Direccion: this.direccionDepartamento,
+      Usuario: this.usuarioDepartamento,
 
-      UsuarioActualiza: this.usuarioactualizaDepartamento,
       // ...otros campos si los hay
     };
-    
+
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);
-      }
+      },
     });
   }
 }

@@ -1,37 +1,38 @@
 /* En tu archivo clientes.component.css */
 table {
-    width: 100%;
-  }
-  
-  .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  td, th {
-    width: 25%;
-  }
-  .toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  .table-filter {
-    width: 300px; /* Ajusta según sea necesario */
-  }
-  mat-icon {
-    cursor: pointer;
-    color: #e53935; /* Color rojo para el icono de eliminar, ajusta según tu paleta de colores */
-  }
-  
-  mat-icon:hover {
-    color: #b71c1c; /* Color rojo más oscuro al pasar el cursor */
-  }
-  
-  .orange-button {
-    background-color: orange;
-    color: white;
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.table-filter {
+  width: 300px; /* Ajusta según sea necesario */
+}
+mat-icon {
+  cursor: pointer;
+  color: #e53935; /* Color rojo para el icono de eliminar, ajusta según tu paleta de colores */
+}
+
+mat-icon:hover {
+  color: #b71c1c; /* Color rojo más oscuro al pasar el cursor */
+}
+
+.orange-button {
+  background-color: orange;
+  color: white;
 }
 /* En tu archivo clientes.component.css */
 table {
@@ -43,7 +44,8 @@ table {
   width: 100%;
 }
 
-td, th {
+td,
+th {
   width: 25%;
 }
 .toolbar {
@@ -71,61 +73,58 @@ mat-icon:hover {
 
 /* En tu archivo clientes.component.css */
 table {
-width: 100%;
+  width: 100%;
 }
 
 .mat-mdc-form-field {
-font-size: 14px;
-width: 100%;
+  font-size: 14px;
+  width: 100%;
 }
 
-td, th {
-width: 25%;
+td,
+th {
+  width: 25%;
 }
 .toolbar {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 10px;
-margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 16px;
 }
 .table-filter {
-width: 300px; /* Ajusta según sea necesario */
+  width: 300px; /* Ajusta según sea necesario */
 }
 mat-icon {
-cursor: pointer;
-color: #e53935; /* Color rojo para el icono de eliminar, ajusta según tu paleta de colores */
+  cursor: pointer;
+  color: #e53935; /* Color rojo para el icono de eliminar, ajusta según tu paleta de colores */
 }
 
 mat-icon:hover {
-color: #b71c1c; /* Color rojo más oscuro al pasar el cursor */
+  color: #b71c1c; /* Color rojo más oscuro al pasar el cursor */
 }
 
 .orange-button {
-background-color: orange;
-color: white;
+  background-color: orange;
+  color: white;
 }
 
-
 .sidenav {
-overflow-y: auto; /* Agrega una barra de desplazamiento vertical */
-height: 100%; /* Ajusta la altura del menú para que ocupe toda la pantalla */
+  overflow-y: auto; /* Agrega una barra de desplazamiento vertical */
+  height: 100%; /* Ajusta la altura del menú para que ocupe toda la pantalla */
 }
 
 .menu-container {
-padding: 16px; /* Ajusta el espacio interno del contenedor del menú */
+  padding: 16px; /* Ajusta el espacio interno del contenedor del menú */
 }
 
-
-
 .table-container {
-margin-top: 16px; /* Ajusta el espacio superior del contenedor de la tabla */
+  margin-top: 16px; /* Ajusta el espacio superior del contenedor de la tabla */
 }
 
 .barra {
-background-color: orange;
-color: black;
-
+  background-color: orange;
+  color: black;
 }
 .fondo-negro {
   background-color: black;
