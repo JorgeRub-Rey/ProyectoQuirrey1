@@ -1,0 +1,31 @@
+.mat-dialog-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(400px, 1fr)
+  ); /* ajusta el tamaño mínimo y máximo de las columnas */
+  gap: 16px; /* espacio entre los campos */
+}
+
+.mat-dialog-row {
+  display: contents;
+}
+
+.mat-dialog-cell {
+  display: grid;
+}
+
+.titulo {
+  background-color: rgb(255, 165, 30);
+  color: aliceblue;
+}
+
+.guardar {
+  background-color: rgb(58, 111, 226);
+  color: white;
+}
+
+.cancelar {
+  background-color: rgb(226, 58, 58);
+  color: white;
+}
