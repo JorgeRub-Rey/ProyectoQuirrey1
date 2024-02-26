@@ -1,6 +1,6 @@
 .titulo1{
 
-  background: linear-gradient(to left,#ebaa1f, #8a4910, #ebaa1f);
+  background: linear-gradient(to left,#fcbe15, rgb(233, 27, 12), #ebaa1f);
 }
 
 .Menuicono{
@@ -84,12 +84,19 @@ mat-icon:hover {
   1px -1px 1px #000000, 
   -1px 1px 1px #000000, 
   1px 1px 1px #000000;
-  background-color:#c48210;
+  background-color:rgb(233, 112, 12);
   box-shadow: 0px 0px 15px 15px #d69419;
   -webkit-box-shadow: 0px 0px 10px 10px #f1cd6a96;
 }
 
+
+.VVV{
+  background-color:rgb(255, 237, 132);
+  color: #ffffff;
+  }
+
 .mat-row{
+  background-color: #ffffff;
   transition: all.3s ease-in-out;
 
 }
@@ -130,7 +137,7 @@ body {
 }
 
 .contenedor {
-  background-color: #e88400;
+  background-color: #df7f12;
   padding: 20px;
 }
 
@@ -163,11 +170,11 @@ body {
 
 /* Cambia el color al pasar el ratón sobre el enlace */
 .barra a:hover {
-  background-color: #c5863d; 
+  background-color: rgb(255, 114, 21); 
   color: #ffffff;
   transition: all.5s ease-in-out;
-box-shadow: 0px 0px 15px 15px #d69419;
--webkit-box-shadow: 0px 0px 15px 15px #fdeaac96;
+box-shadow: 0px 0px 15px 15px #d6ff1f;
+-webkit-box-shadow: 0px 0px 15px 15px #b0ff48;
 transform: rotate(360deg);
 -webkit-transform: rotate(360deg);
 -webkit-transform:scale(1.3);transform:scale(1.3);

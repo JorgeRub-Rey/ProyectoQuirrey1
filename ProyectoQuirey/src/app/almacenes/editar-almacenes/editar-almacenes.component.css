@@ -18,7 +18,7 @@
 .titulo {
   margin: auto;
   font-size: 25px;
-  background: linear-gradient(to right, #8a4910, #ebaa1f);
+  background: linear-gradient(to right, rgb(233, 27, 12), #ebaa1f);
   color: aliceblue;
 }
 

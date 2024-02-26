@@ -91,7 +91,7 @@ export class CategoriamodulosComponent {
 
   abrirEditarModal(clientes: categoriamodulos) {
     const dialogRef = this.dialog.open(EditarCategoriamodulosComponent, {
-      width: '250px',
+      width: '550px',
       data: clientes, // Pasa el objeto de departamento a la modal
     });
 

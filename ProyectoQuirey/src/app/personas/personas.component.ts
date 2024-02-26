@@ -93,7 +93,7 @@ export class PersonasComponent {
 
   abrirEditarModal(departamento: Personas) {
     const dialogRef = this.dialog.open(EditarPersonasComponent, {
-      width: '250px',
+      width: '550px',
       data: departamento, // Pasa el objeto de departamento a la modal
     });
 
