@@ -31,6 +31,7 @@ export class InsertarRutasComponent {
     this.rutasService.insertarRutas(nuevaRuta).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
+        location.reload();
       },
       error: (error) => {
         console.error('Hubo un error al insertar el cliente', error);

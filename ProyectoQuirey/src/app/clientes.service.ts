@@ -44,7 +44,7 @@ export class ClientesService {
       id: clientesData.Id,
       nombre: clientesData.Nombre,
       direccion: clientesData.Direccion,
-      estatus: clientesData.Estatus || 0,
+      
       usuarioactualiza: 1,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

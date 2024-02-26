@@ -44,7 +44,6 @@ export class UsuariosService {
       id: departamentoData.Id,
       nombreusuario: departamentoData.NombreUsuario,
       password: departamentoData.Password,
-      activo: departamentoData.Activo || 0,
       idpersona: 1,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

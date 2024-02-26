@@ -33,6 +33,7 @@ export class EditarDetalleperfilComponent implements OnInit {
         next: (response) => {
           // Cerrar la modal después de guardar los cambios
           this.dialogRef.close();
+          location.reload();
         },
         error: (error) => {
           // Manejar errores aquí

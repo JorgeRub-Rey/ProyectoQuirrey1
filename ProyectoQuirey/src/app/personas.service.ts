@@ -56,7 +56,7 @@ export class PersonasService {
       ApMaterno: departamentoData.ApMaterno,
       Curp: departamentoData.curp,
       Direccion: departamentoData.Direccion,
-      Activo: departamentoData.Activo || 0,
+    
       Usuario: departamentoData.Usuario,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

@@ -33,6 +33,7 @@ export class EditarRutasComponent implements OnInit {
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.rutas);
+        location.reload();
       },
       error: (error) => {
         // Manejar errores aquí

@@ -34,7 +34,7 @@ insertarDepartamento(departamentoData: { Codigo: string; IdAlmacen: number; Cant
       codigo: departamentoData.Codigo,
       idalmacen: departamentoData.IdAlmacen,
       cantidad: departamentoData.Cantidad,
-      estatus: departamentoData.Estatus || 0
+     
     }
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
     return this.http.post<ApiResponse>(`${this.apiUrl}/UpdateExistencias`, body);

@@ -32,6 +32,7 @@ export class InsertarDetalleperfilComponent {
     this.detalleperfilService.insertarDetalleperfil(nuevoCliente).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
+        location.reload();
       },
       error: (error) => {
         console.error('Hubo un error al insertar el cliente', error);

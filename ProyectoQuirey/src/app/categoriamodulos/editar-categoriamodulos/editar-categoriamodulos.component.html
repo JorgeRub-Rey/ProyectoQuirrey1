@@ -12,15 +12,7 @@
           [(ngModel)]="tickets.categoria"
         />
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>activo</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa "
-          [(ngModel)]="tickets.Activo"
-        />
-      </mat-form-field>
+    
 
       <mat-form-field>
         <mat-label>usuario</mat-label>
@@ -33,9 +25,11 @@
       </mat-form-field>
     </div>
   </div>
-  <!-- Puedes agregar más filas con más campos aquí -->
+  <!-- Opciones botones-->
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button (click)="guardar()">Guardar Cambios</button>
+  <button class="cancelar" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="guardar" mat-button (click)="guardar()">
+    Guardar Cambios
+  </button>
 </div>

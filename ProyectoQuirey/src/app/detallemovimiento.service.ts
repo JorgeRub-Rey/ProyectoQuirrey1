@@ -41,7 +41,7 @@ insertarDepartamento(departamentoData: { Codigo: string; Idmovimiento: number; C
       codigo: departamentoData.Codigo,
       cantidad: departamentoData.Cantidad,
       costo: departamentoData.Costo,
-      estatus: departamentoData.Estatus || 0,
+      
       usuarioactualiza: 1
     }
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

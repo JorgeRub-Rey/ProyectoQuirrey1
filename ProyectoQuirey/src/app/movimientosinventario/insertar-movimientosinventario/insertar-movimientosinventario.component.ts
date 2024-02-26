@@ -33,6 +33,7 @@ export class InsertarMovimientosinventarioComponent {
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
+        location.reload();
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);

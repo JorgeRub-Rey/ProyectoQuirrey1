@@ -32,6 +32,7 @@ export class EditarExistenciasComponent implements OnInit {
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.departamento);
+        location.reload();
       },
       error: (error) => {
         // Manejar errores aquí

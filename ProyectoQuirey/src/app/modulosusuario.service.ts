@@ -45,7 +45,7 @@ export class ModulosusuarioService {
       IdModulo: usuariosData.IdModulo,
       IdPerfil: usuariosData.idPerfil,
       Usuario: usuariosData.Usuario,
-      Activo: usuariosData.Activo,
+      
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
     return this.http.post<ApiResponse>(

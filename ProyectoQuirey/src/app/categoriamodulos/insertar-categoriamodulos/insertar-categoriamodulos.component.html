@@ -1,8 +1,8 @@
-<h1 mat-dialog-title>Nueva Categoria</h1>
+<h1 mat-dialog-title class="titulo">Nueva Categoria</h1>
 <div mat-dialog-content class="mat-dialog-grid">
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
-    <!-- Columna para el campo de nombre -->
+    <!-- Opciones de Formulario -->
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>categoria</mat-label>
@@ -29,9 +29,13 @@
     </div>
   </div>
 
-  <!-- Puedes agregar más filas con más campos aquí -->
+  <!-- Opciones botones-->
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button cdkFocusInitial (click)="insertar()">Insertar</button>
+  <button class="cancelar" mat-button cdkFocusInitial (click)="onNoClick()">
+    Cancelar
+  </button>
+  <button class="guardar" mat-button cdkFocusInitial (click)="insertar()">
+    Añadir
+  </button>
 </div>

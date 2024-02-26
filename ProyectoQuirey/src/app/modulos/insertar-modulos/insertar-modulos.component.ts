@@ -8,7 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./insertar-modulos.component.css'],
 })
 export class InsertarModulosComponent {
-  moduloDepartamento: number = 1;
+  moduloDepartamento: string = '';
   usuarioDepartamento: number = 1;
   idcategoriaDepartamento: number = 1;
 
@@ -32,6 +32,7 @@ export class InsertarModulosComponent {
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
+        location.reload();
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);

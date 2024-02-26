@@ -42,7 +42,7 @@ insertarDepartamento(departamentoData: { Codigo: string; IdTicket: number; Canti
       codigo: departamentoData.Codigo,
       cantidad: departamentoData.Cantidad,
       precioventa: departamentoData.PrecioVenta,
-      estatus: departamentoData.Estatus || 0,
+     
       usuarioactualiza: 1
     }
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

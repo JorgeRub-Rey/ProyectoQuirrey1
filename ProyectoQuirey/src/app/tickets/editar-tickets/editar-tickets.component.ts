@@ -33,6 +33,7 @@ export class EditarTicketsComponent implements OnInit {
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.tickets);
+        location.reload();
       },
       error: (error) => {
         // Manejar errores aquí

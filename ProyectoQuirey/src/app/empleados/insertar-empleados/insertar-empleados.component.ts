@@ -35,6 +35,7 @@ export class InsertarEmpleadosComponent {
     this.ticketsService.insertarTickets(nuevoTickets).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
+        location.reload();
       },
       error: (error) => {
         console.error('Hubo un error al insertar el tickets', error);

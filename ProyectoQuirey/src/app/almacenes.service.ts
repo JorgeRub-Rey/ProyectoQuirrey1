@@ -44,7 +44,7 @@ export class AlmacenesService {
       id: departamentoData.Id,
       nombre: departamentoData.Nombre,
       direccion: departamentoData.Direccion,
-      estatus: departamentoData.Estatus || 0,
+    
       usuarioactualiza: 1,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

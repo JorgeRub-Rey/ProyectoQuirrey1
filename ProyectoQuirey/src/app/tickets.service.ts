@@ -41,7 +41,7 @@ insertarTickets(ticketsData: { IdSucursal: number; IdCliente: number; IdVendedor
       IdSucursal: ticketsData.IdSucursal,
     IdCliente: ticketsData.IdCliente,
     IdVendedor: ticketsData.IdVendedor,
-      estatus: ticketsData.Estatus || 0,
+     
       usuarioactualiza: 1
     }
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

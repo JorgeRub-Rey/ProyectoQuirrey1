@@ -47,7 +47,7 @@ export class SucursalsedeService {
       id: ticketsData.Id,
       Nombre: ticketsData.Nombre,
       Ubicacion: ticketsData.ubicacion,
-      Activo: ticketsData.Activo || 0,
+     
       usuario: 1,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

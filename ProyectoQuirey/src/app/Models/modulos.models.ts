@@ -1,6 +1,6 @@
 export interface Modulos {
   Id: number;
-  Modulo: number;
+  Modulo: string;
   FechaHora: string;
   Activo: string;
   Usuario: number;
@@ -19,7 +19,7 @@ export interface ApiResponse {
 
 export interface EditarDepartamento {
   Id: number;
-  Modulo: number;
+  Modulo: string;
   FechaHora: string;
   Activo: string;
   Usuario: number;

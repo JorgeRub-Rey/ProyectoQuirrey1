@@ -41,7 +41,7 @@ export class PerfilesService {
       id: departamentoData.Id,
       nombre: departamentoData.Nombre,
       usuario: 1,
-      activo: 1,
+   
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
     return this.http.post<ApiResponse>(`${this.apiUrl}/UpdateAlmacenes`, body);

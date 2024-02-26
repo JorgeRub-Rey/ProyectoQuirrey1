@@ -46,7 +46,7 @@ export class DetalleperfilService {
       id: detalleperfilData.Id,
       IdPerfil: detalleperfilData.IdPerfil || 0,
       IdModulo: detalleperfilData.IdModulo || 0,
-      Activo: detalleperfilData.Activo || 0,
+     
       Usuario: detalleperfilData.Usuario || 0,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

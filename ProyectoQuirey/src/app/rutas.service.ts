@@ -37,7 +37,7 @@ insertarRutas(rutasData: { Nombre: string; UsuarioActualiza: number }): Observab
     const body ={
       id: rutasData.Id,
       nombre: rutasData.Nombre,
-      estatus: rutasData.Estatus || 0,
+    
       usuarioactualiza: 1
     }
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

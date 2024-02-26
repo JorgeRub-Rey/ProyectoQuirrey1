@@ -21,14 +21,14 @@ export class ModulosService {
 
   // Método para insertar un nuevo departamento
   insertarDepartamento(departamentoData: {
-    Modulo: number;
+    Modulo: string;
     Usuario: number;
     IdCategoria: number;
   }): Observable<ApiResponse> {
     // El 'nombre' es la única parte variable que viene del formulario
     // 'activo' y 'usuario' son valores fijos en este ejemplo
     const body = {
-      Modulo: departamentoData.Modulo || 0,
+      Modulo: departamentoData.Modulo,
       Usuario: departamentoData.Usuario || 0, // Valor por defecto si no se proporciona
       IdCategoria: departamentoData.IdCategoria || 0, // Valor por defecto si no se proporciona
     };
@@ -42,8 +42,8 @@ export class ModulosService {
   actualizarDepartamento(departamentoData: Modulos): Observable<ApiResponse> {
     const body = {
       id: departamentoData.Id,
-      modulo: departamentoData.Modulo || 0,
-      activo: departamentoData.Activo || 0,
+      modulo: departamentoData.Modulo,
+
       usuario: departamentoData.Usuario || 0,
       idcategoria: departamentoData.IdCategoria || 0,
     };

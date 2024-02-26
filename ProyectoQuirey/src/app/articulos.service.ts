@@ -45,7 +45,7 @@ insertarDepartamento(departamentoData: { Codigo: string; Descripcion: string; Un
       unidadmedida: departamentoData.UnidadMedida,
       costo: departamentoData.Costo,
       precio: departamentoData.Precio,
-      estatus: departamentoData.Estatus || 0,
+      
       usuarioactualiza: 1
     }
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

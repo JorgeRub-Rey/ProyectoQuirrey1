@@ -42,7 +42,7 @@ export class PuestosService {
       id: departamentoData.Id,
       nombre: departamentoData.Nombre,
       usuario: departamentoData.Usuario || 0,
-      activo: departamentoData.Activo || 0,
+     
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
     return this.http.post<ApiResponse>(`${this.apiUrl}/Update_Puestos`, body);

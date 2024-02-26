@@ -42,7 +42,7 @@ insertarDepartamento(departamentoData: { IdTipoMov: number; IdAlmacen: number; U
       idtipomov: departamentoData.IdTipoMov,
       idalmacen: departamentoData.IdAlmacen,
       usuarioactualiza: departamentoData.UsuarioActualiza,
-      estatus: departamentoData.Estatus || 0
+     
     }
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
     return this.http.post<ApiResponse>(`${this.apiUrl}/UpdateMovimientosInventario`, body);

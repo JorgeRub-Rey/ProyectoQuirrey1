@@ -46,7 +46,7 @@ export class CategoriamodulosService {
     const body = {
       id: ticketsData.Id,
       categoria: ticketsData.categoria,
-      Activo: ticketsData.Activo,
+     
       usuario: ticketsData.Usuario,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
