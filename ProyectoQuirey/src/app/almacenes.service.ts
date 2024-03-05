@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiResponse, Almacenes } from './Models/almacenes.models';
-
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,6 +19,13 @@ export class AlmacenesService {
     );
   }
 
+  getDropDownText(IdAlmacen: string | number, object: any[]) {
+    const selObj = _.filter(object, function (o) {
+      return o.id === IdAlmacen;
+    });
+    return selObj;
+  }
+
   // Método para insertar un nuevo departamento
   insertarDepartamento(departamentoData: {
     Nombre: string;
@@ -32,7 +39,7 @@ export class AlmacenesService {
       direccion: departamentoData.Direccion, // Valor por defecto si no se proporciona
       usuarioactualiza: departamentoData.UsuarioActualiza || 0, // Valor por defecto si no se proporciona
     };
-    return this.http.post<ApiResponse>(`${this.apiUrl}/InsertAlmacen`, body);
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 
   eliminarDepartamento(Id: number): Observable<any> {
@@ -44,7 +51,7 @@ export class AlmacenesService {
       id: departamentoData.Id,
       nombre: departamentoData.Nombre,
       direccion: departamentoData.Direccion,
-    
+
       usuarioactualiza: 1,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
