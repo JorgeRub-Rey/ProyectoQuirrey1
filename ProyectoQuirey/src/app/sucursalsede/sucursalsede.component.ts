@@ -89,7 +89,7 @@ export class SucursalsedeComponent {
 
   abrirEditarModal(clientes: Sucursalsede) {
     const dialogRef = this.dialog.open(EditarSucursalsedeComponent, {
-      width: '250px',
+      width: '550px',
       data: clientes, // Pasa el objeto de departamento a la modal
     });
 

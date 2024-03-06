@@ -89,7 +89,7 @@ export class UsuariosComponent {
 
   abrirEditarModal(departamento: Usuario) {
     const dialogRef = this.dialog.open(EditarUsuariosComponent, {
-      width: '250px',
+      width: '550px',
       data: departamento, // Pasa el objeto de departamento a la modal
     });
 
