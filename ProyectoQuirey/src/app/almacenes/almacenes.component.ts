@@ -74,6 +74,15 @@ export class AlmacenesComponent {
   }
 
   eliminarDepartamento(Id: number) {
+    //location.reload();
+    Swal.fire({
+      title: 'Se han eliminado los datos!',
+      icon: 'success',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        location.reload();
+      }
+    });
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
       this.almacenesService.eliminarDepartamento(Id).subscribe({
         next: () => {
@@ -91,6 +100,7 @@ export class AlmacenesComponent {
             }
           });
         },
+
         error: (error) => {
           console.error('Hubo un error al eliminar el departamento', error);
         },

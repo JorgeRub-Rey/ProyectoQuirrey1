@@ -32,6 +32,9 @@ export class SucursalsedeService {
       Ubicacion: ticketsData.Ubicacion,
       usuario: ticketsData.Usuario || 0, // Valor por defecto si no se proporciona
     };
+
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
+
     return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 

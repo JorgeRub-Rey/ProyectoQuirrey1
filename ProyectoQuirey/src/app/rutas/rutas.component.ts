@@ -5,6 +5,7 @@ import { RutasService } from '../rutas.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarRutasComponent } from 'src/app/rutas/insertar-rutas/insertar-rutas.component';
 import { EditarRutasComponent } from 'src/app/rutas/editar-rutas/editar-rutas.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-rutas',
@@ -66,6 +67,23 @@ export class RutasComponent {
 
   eliminarRutas(Id: number) {
     if (confirm('¿Estás seguro de que deseas eliminar esta ruta?')) {
+      Swal.fire({
+        title: 'Se han eliminado los datos!',
+        icon: 'success',
+      }).then((result) => {
+        if (result.isConfirmed) {
+           //location.reload();
+         Swal.fire({
+          title: 'Se han editado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
+        }
+      });
+      //location.reload();
       this.rutasService.eliminarRutas(Id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter((rutas: rutas) => rutas.Id !== Id);
@@ -86,6 +104,7 @@ export class RutasComponent {
   
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        
         
       }
     });

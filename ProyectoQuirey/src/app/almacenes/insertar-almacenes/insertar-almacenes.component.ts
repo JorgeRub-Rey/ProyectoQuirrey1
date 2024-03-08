@@ -32,6 +32,7 @@ export class InsertarAlmacenesComponent {
       // Muestra un mensaje de error utilizando Swal
       Swal.fire({
         icon: 'error',
+
         title: 'Por favor, complete todos los campos obligatorios.',
         // text: 'Por favor, complete todos los campos obligatorios.',
       });

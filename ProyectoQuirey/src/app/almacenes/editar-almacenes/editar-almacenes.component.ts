@@ -65,5 +65,26 @@ export class EditarAlmacenesComponent implements OnInit {
           // Manejar errores aquí
         },
       });
+
+    this.departamentoService
+      .actualizarDepartamento(this.departamento)
+      .subscribe({
+        next: (response) => {
+          // Cerrar la modal y posiblemente actualizar la tabla
+          this.dialogRef.close(this.departamento);
+          //location.reload();
+          Swal.fire({
+            title: 'Se han modificado los datos!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
+        },
+        error: (error) => {
+          // Manejar errores aquí
+        },
+      });
   }
 }

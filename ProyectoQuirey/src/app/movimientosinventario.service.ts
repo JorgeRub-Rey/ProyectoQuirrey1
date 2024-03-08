@@ -29,7 +29,7 @@ insertarDepartamento(departamentoData: { IdTipoMov: number; IdAlmacen: number; U
     idalmacen: departamentoData.IdAlmacen,
     usuarioactualiza: departamentoData.UsuarioActualiza
   };
-  return this.http.post<ApiResponse>(`${this.apiUrl}/InsertMovimientoInventario`, body);
+  return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 
   eliminarDepartamento(Id: number): Observable<any> {

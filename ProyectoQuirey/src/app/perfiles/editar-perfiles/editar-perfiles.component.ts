@@ -2,6 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EditarDepartamento } from 'src/app/Models/perfiles.models';
 import { PerfilesService } from 'src/app/perfiles.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-editar-perfiles',
@@ -32,7 +34,17 @@ export class EditarPerfilesComponent implements OnInit {
         next: (response) => {
           // Cerrar la modal y posiblemente actualizar la tabla
           this.dialogRef.close(this.departamento);
-          location.reload();
+           // location.reload();
+
+        Swal.fire({
+          title: 'Se han modificado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
+
         },
         error: (error) => {
           // Manejar errores aquí
