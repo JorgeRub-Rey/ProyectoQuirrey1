@@ -6,13 +6,12 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-insertar-movimientosinventario',
   templateUrl: './insertar-movimientosinventario.component.html',
-  styleUrls: ['./insertar-movimientosinventario.component.css']
+  styleUrls: ['./insertar-movimientosinventario.component.css'],
 })
 export class InsertarMovimientosinventarioComponent {
   idtipomovDepartamento: number = 0;
-  idalmacenDepartamento: number = 0; 
+  idalmacenDepartamento: number = 0;
   usuarioactualizaDepartamento: number = 1;
-  
 
   constructor(
     public dialogRef: MatDialogRef<InsertarMovimientosinventarioComponent>,
@@ -28,8 +27,7 @@ export class InsertarMovimientosinventarioComponent {
     if (!this.idtipomovDepartamento || !this.idalmacenDepartamento) {
       Swal.fire({
         icon: 'error',
-        title: 'Campos obligatorios',
-        text: 'Por favor, complete todos los campos obligatorios.',
+        title: 'Por favor, complete todos los campos obligatorios.',
       });
       return;
     }
@@ -40,7 +38,7 @@ export class InsertarMovimientosinventarioComponent {
       UsuarioActualiza: this.usuarioactualizaDepartamento,
       // ...otros campos si los hay
     };
-    
+
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
       next: (response) => {
         Swal.fire({
@@ -53,11 +51,7 @@ export class InsertarMovimientosinventarioComponent {
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);
-      }
+      },
     });
   }
 }
-
-
-
-

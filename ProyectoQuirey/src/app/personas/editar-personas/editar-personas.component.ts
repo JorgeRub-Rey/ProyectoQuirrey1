@@ -27,6 +27,24 @@ export class EditarPersonasComponent implements OnInit {
   }
 
   guardar(): void {
+    // Validación de campos obligatorios
+    if (
+      !this.departamento.Nombre ||
+      !this.departamento.ApPaterno ||
+      !this.departamento.ApMaterno ||
+      !this.departamento.curp ||
+      !this.departamento.Direccion ||
+      !this.departamento.Usuario
+    ) {
+      // Mostrar mensaje de error con SweetAlert2
+      Swal.fire({
+        title: 'Por favor completa todos los campos obligatorios',
+        // text: 'Por favor completa todos los campos obligatorios',
+        icon: 'error',
+      });
+      return;
+    }
+
     this.departamentoService
       .actualizarDepartamento(this.departamento)
       .subscribe({
@@ -35,15 +53,14 @@ export class EditarPersonasComponent implements OnInit {
           this.dialogRef.close(this.departamento);
           // location.reload();
 
-        Swal.fire({
-          title: 'Se han modificado correctamente los datos!',
-          icon: 'success',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            location.reload();
-          }
-        });
-
+          Swal.fire({
+            title: 'Se han modificado correctamente los datos!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           // Manejar errores aquí

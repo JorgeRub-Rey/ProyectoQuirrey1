@@ -27,6 +27,16 @@ export class EditarPuestosComponent implements OnInit {
   }
 
   guardar(): void {
+    if (!this.departamento.Nombre || !this.departamento.Usuario) {
+      // Mostrar mensaje de error con SweetAlert2
+      Swal.fire({
+        title: 'Por favor completa todos los campos obligatorios',
+
+        icon: 'error',
+      });
+      return;
+    }
+
     this.departamentoService
       .actualizarDepartamento(this.departamento)
       .subscribe({
@@ -35,15 +45,14 @@ export class EditarPuestosComponent implements OnInit {
           this.dialogRef.close(this.departamento);
           // location.reload();
 
-        Swal.fire({
-          title: 'Se han modificado correctamente los datos!',
-          icon: 'success',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            location.reload();
-          }
-        });
-
+          Swal.fire({
+            title: 'Se han modificado correctamente los datos!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           // Manejar errores aquí

@@ -26,8 +26,8 @@ export class InsertarPerfilesComponent {
     if (!this.nombreDepartamento || !this.usuarioDepartamento) {
       Swal.fire({
         icon: 'error',
-        title: 'Campos Obligatorios',
-        text: 'Por favor, completa todos los campos obligatorios.',
+        title: 'Por favor, completa todos los campos obligatorios.',
+        // text: 'Por favor, completa todos los campos obligatorios.',
       });
       return;
     }
@@ -55,4 +55,3 @@ export class InsertarPerfilesComponent {
     });
   }
 }
-

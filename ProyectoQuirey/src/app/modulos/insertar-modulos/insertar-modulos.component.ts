@@ -24,10 +24,14 @@ export class InsertarModulosComponent {
 
   insertar(): void {
     // Check if mandatory fields are filled
-    if (!this.moduloDepartamento || !this.usuarioDepartamento || !this.idcategoriaDepartamento) {
+    if (
+      !this.moduloDepartamento ||
+      !this.usuarioDepartamento ||
+      !this.idcategoriaDepartamento
+    ) {
       Swal.fire({
-        title: 'Campos obligatorios',
-        text: 'Por favor, complete todos los campos obligatorios.',
+        title: 'Por favor, complete todos los campos obligatorios.',
+        // text: 'Por favor, complete todos los campos obligatorios.',
         icon: 'warning',
         confirmButtonText: 'Ok',
       });

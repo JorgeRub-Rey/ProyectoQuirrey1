@@ -3,7 +3,6 @@ import { PersonasService } from 'src/app/personas.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 
-
 @Component({
   selector: 'app-insertar-personas',
   templateUrl: './insertar-personas.component.html',
@@ -38,12 +37,11 @@ export class InsertarPersonasComponent {
     ) {
       Swal.fire({
         icon: 'error',
-        title: 'Error',
-        text: 'Todos los campos son obligatorios',
+        title: 'Todos los campos son obligatorios',
       });
       return;
     }
-  
+
     const nuevoDepartamento = {
       Nombre: this.nombreDepartamento,
       ApPaterno: this.appaternoDepartamento,
@@ -53,7 +51,7 @@ export class InsertarPersonasComponent {
       Usuario: this.usuarioDepartamento,
       // ...otros campos si los hay
     };
-  
+
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
@@ -65,11 +63,10 @@ export class InsertarPersonasComponent {
             location.reload();
           }
         });
-
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);
       },
     });
   }
-  }
+}
