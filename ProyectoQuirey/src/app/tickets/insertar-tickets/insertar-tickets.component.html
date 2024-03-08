@@ -3,11 +3,10 @@
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
     <!-- Opciones de Formulario -->
-  
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdSucursal</mat-label>
-        <input matInput placeholder="Ingresa el IdSucursal" [(ngModel)]="IdSucursal">
+        <input matInput placeholder="Ingresa el IdSucursal" [(ngModel)]="IdSucursal" required aria-required="true">
       </mat-form-field>
     </div>
   </div>
@@ -17,7 +16,7 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdCliente</mat-label>
-        <input matInput placeholder="Ingresa el IdCliente" [(ngModel)]="IdCliente">
+        <input matInput placeholder="Ingresa el IdCliente" [(ngModel)]="IdCliente" required aria-required="true">
       </mat-form-field>
     </div>
   </div>
@@ -27,19 +26,17 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdVendedor</mat-label>
-        <input matInput placeholder="Ingresa el IdVendedor" [(ngModel)]="IdVendedor">
+        <input matInput placeholder="Ingresa el IdVendedor" [(ngModel)]="IdVendedor" required aria-required="true">
       </mat-form-field>
     </div>
   </div>
-
-  
 
   <div class="mat-dialog-row">
     <!-- Columna para el campo de nombre -->
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>UsuarioActualiza</mat-label>
-        <input matInput placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="UsuarioActualiza">
+        <input matInput placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="UsuarioActualiza" required aria-required="true">
       </mat-form-field>
     </div>
   </div>

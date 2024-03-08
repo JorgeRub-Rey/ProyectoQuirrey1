@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModulosService } from 'src/app/modulos.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-insertar-modulos',
@@ -22,6 +23,17 @@ export class InsertarModulosComponent {
   }
 
   insertar(): void {
+    // Check if mandatory fields are filled
+    if (!this.moduloDepartamento || !this.usuarioDepartamento || !this.idcategoriaDepartamento) {
+      Swal.fire({
+        title: 'Campos obligatorios',
+        text: 'Por favor, complete todos los campos obligatorios.',
+        icon: 'warning',
+        confirmButtonText: 'Ok',
+      });
+      return; // Stop the execution if fields are not filled
+    }
+
     const nuevoDepartamento = {
       Modulo: this.moduloDepartamento,
       Usuario: this.usuarioDepartamento,
@@ -36,6 +48,12 @@ export class InsertarModulosComponent {
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Hubo un error al insertar el departamento. Por favor, inténtelo de nuevo.',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
       },
     });
   }

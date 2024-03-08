@@ -32,7 +32,7 @@ export class UsuariosService {
       Password: departamentoData.Password, // Valor por defecto si no se proporciona
       IdPersona: departamentoData.IdPersona || 0, // Valor por defecto si no se proporciona
     };
-    return this.http.post<ApiResponse>(`${this.apiUrl}/InsertUsuarioUno`, body);
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 
   eliminarDepartamento(Id: number): Observable<any> {

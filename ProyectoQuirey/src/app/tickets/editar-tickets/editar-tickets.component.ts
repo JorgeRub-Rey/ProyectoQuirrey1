@@ -2,6 +2,7 @@ import { Component,Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EditarTickets } from 'src/app/Models/tickets.models';
 import { TicketsService } from 'src/app/tickets.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-tickets',
@@ -33,7 +34,15 @@ export class EditarTicketsComponent implements OnInit {
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.tickets);
-        location.reload();
+        //location.reload();
+        Swal.fire({
+          title: 'Se han modificado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         // Manejar errores aquí

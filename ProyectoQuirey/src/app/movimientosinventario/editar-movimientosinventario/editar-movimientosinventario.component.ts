@@ -2,6 +2,7 @@ import { Component,Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EditarMovimientosInventario } from 'src/app/Models/movimientosinventario.models';
 import { MovimientosinventarioService } from 'src/app/movimientosinventario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-movimientosinventario',
@@ -32,7 +33,17 @@ export class EditarMovimientosinventarioComponent implements OnInit {
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.departamento);
-        location.reload();
+        // location.reload();
+
+        Swal.fire({
+          title: 'Se han modificado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
+
       },
       error: (error) => {
         // Manejar errores aquí

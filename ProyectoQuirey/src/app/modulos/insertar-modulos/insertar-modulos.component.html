@@ -10,6 +10,8 @@
           matInput
           placeholder="Ingresa el nombre"
           [(ngModel)]="moduloDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
@@ -25,6 +27,8 @@
           matInput
           placeholder="Ingresa el Usuario"
           [(ngModel)]="usuarioDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
@@ -40,6 +44,8 @@
           matInput
           placeholder="Ingresa el IdCategoria"
           [(ngModel)]="idcategoriaDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
@@ -54,3 +60,4 @@
     Añadir
   </button>
 </div>
+

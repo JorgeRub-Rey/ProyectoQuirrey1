@@ -3,6 +3,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EditarDepartamento } from 'src/app/Models/almacenes.models';
 import { AlmacenesService } from 'src/app/almacenes.service';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-editar-almacenes',
   templateUrl: './editar-almacenes.component.html',
@@ -32,7 +34,15 @@ export class EditarAlmacenesComponent implements OnInit {
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.departamento);
-        location.reload();
+        //location.reload();
+        Swal.fire({
+          title: 'Se han modificado los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         // Manejar errores aquí

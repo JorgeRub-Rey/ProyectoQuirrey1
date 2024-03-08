@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EditarSucursalsede } from 'src/app/Models/sucursalsede.models';
 import { SucursalsedeService } from 'src/app/sucursalsede.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-sucursalsede',
@@ -30,7 +31,15 @@ export class EditarSucursalsedeComponent implements OnInit {
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.tickets);
-        location.reload();
+        //location.reload();
+        Swal.fire({
+          title: 'Se han modificado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         // Manejar errores aquí

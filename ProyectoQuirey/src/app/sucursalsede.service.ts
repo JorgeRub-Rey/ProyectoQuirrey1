@@ -33,7 +33,7 @@ export class SucursalsedeService {
       usuario: ticketsData.Usuario || 0, // Valor por defecto si no se proporciona
     };
     return this.http.post<ApiResponse>(
-      `${this.apiUrl}/Insert_SucursalSede`,
+      `${this.apiUrl}/Insert`,
       body
     );
   }

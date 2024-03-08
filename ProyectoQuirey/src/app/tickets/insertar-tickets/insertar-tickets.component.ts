@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { TicketsService } from 'src/app/tickets.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-insertar-tickets',
@@ -24,6 +25,16 @@ export class InsertarTicketsComponent {
   }
 
   insertar(): void {
+    // Simple validation for required fields
+    if (!this.IdSucursal || !this.IdCliente || !this.IdVendedor) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Por favor, completa todos los campos obligatorios.',
+        icon: 'error',
+      });
+      return;
+    }
+
     const nuevoTickets = {
       IdSucursal: this.IdSucursal,
       IdCliente: this.IdCliente,
@@ -35,13 +46,19 @@ export class InsertarTicketsComponent {
     this.ticketsService.insertarTickets(nuevoTickets).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
-        location.reload();
+        
+        Swal.fire({
+          title: 'Se han insertado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         console.error('Hubo un error al insertar el tickets', error);
       }
     });
   }
-
-
 }

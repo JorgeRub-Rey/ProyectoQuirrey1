@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EditarModulousuarios } from 'src/app/Models/modulosusuarios.models';
 import { ModulosusuarioService } from 'src/app/modulosusuario.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-editar-modulosusuario',
   templateUrl: './editar-modulosusuario.component.html',
@@ -29,7 +30,17 @@ export class EditarModulosusuarioComponent implements OnInit {
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.departamento);
-        location.reload();
+       // location.reload();
+
+       Swal.fire({
+        title: 'Se han modificado correctamente los datos!',
+        icon: 'success',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.reload();
+        }
+      });
+;
       },
       error: (error) => {
         // Manejar errores aquí

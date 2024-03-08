@@ -6,6 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarAlmacenesComponent } from './insertar-almacenes/insertar-almacenes.component';
 import { EditarAlmacenesComponent } from './editar-almacenes/editar-almacenes.component';
 
+import Swal from 'sweetalert2'
+
+
 @Component({
   selector: 'app-almacenes',
   templateUrl: './almacenes.component.html',
@@ -73,13 +76,25 @@ export class AlmacenesComponent {
   }
 
   eliminarDepartamento(Id: number) {
+    //location.reload();
+    Swal.fire({
+      title: 'Se han eliminado los datos!',
+      icon: 'success',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        location.reload();
+      }
+    });
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
+
+      
       this.almacenesService.eliminarDepartamento(Id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter(
             (departamento: Almacenes) => departamento.Id !== Id
-          );
+          ); 
         },
+        
         error: (error) => {
           console.error('Hubo un error al eliminar el departamento', error);
         },
