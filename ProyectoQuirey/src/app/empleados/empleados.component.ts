@@ -5,6 +5,7 @@ import { EmpleadosService } from '../empleados.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarEmpleadosComponent } from 'src/app/empleados/insertar-empleados/insertar-empleados.component';
 import { EditarEmpleadosComponent } from 'src/app/empleados/editar-empleados/editar-empleados.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-empleados',
@@ -81,6 +82,15 @@ export class EmpleadosComponent {
           this.dataSource.data = this.dataSource.data.filter(
             (clientes: empleados) => clientes.Id !== Id
           );
+          // Agregar la notificación de éxito aquí
+          Swal.fire({
+            title: 'Se ha eliminado correctamente!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el cliente', error);

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { EmpleadosService } from 'src/app/empleados.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-insertar-empleados',
   templateUrl: './insertar-empleados.component.html',
@@ -23,19 +25,44 @@ export class InsertarEmpleadosComponent {
   }
 
   insertar(): void {
+    // Verifica si algún campo obligatorio está vacío
+    if (
+      !this.Matricula ||
+      !this.Puestos ||
+      !this.Perfil ||
+      !this.Usuario ||
+      !this.IdPersona
+    ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Por favor, complete todos los campos obligatorios.',
+        // text: 'Por favor, complete todos los campos obligatorios.',
+      });
+      return; // Detiene la ejecución del método
+    }
+
     const nuevoTickets = {
       Matricula: this.Matricula,
       Puestos: this.Puestos,
       Perfil: this.Perfil,
       Usuario: this.Usuario,
-      IdPersona: this.Usuario,
+      IdPersona: this.IdPersona,
       // ...otros campos si los hay
     };
 
     this.ticketsService.insertarTickets(nuevoTickets).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
-        location.reload();
+        // location.reload();
+
+        Swal.fire({
+          title: 'Se han insertado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         console.error('Hubo un error al insertar el tickets', error);

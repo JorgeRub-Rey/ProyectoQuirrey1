@@ -3,7 +3,7 @@
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
     <!-- Opciones de Formulario -->
-  
+
     <div class="mat-dialog-row">
       <!-- Columna para el campo de nombre -->
       <div class="mat-dialog-cell">
@@ -13,6 +13,8 @@
             matInput
             placeholder="Ingresa el usuario"
             [(ngModel)]="Matricula"
+            required
+            aria-required="true"
           />
         </mat-form-field>
       </div>
@@ -26,6 +28,8 @@
             matInput
             placeholder="Ingresa el Puestos"
             [(ngModel)]="Puestos"
+            required
+            aria-required="true"
           />
         </mat-form-field>
       </div>
@@ -39,6 +43,8 @@
             matInput
             placeholder="Ingresa el Perfil"
             [(ngModel)]="Perfil"
+            required
+            aria-required="true"
           />
         </mat-form-field>
       </div>
@@ -52,6 +58,8 @@
             matInput
             placeholder="Ingresa el usuario"
             [(ngModel)]="Usuario"
+            required
+            aria-required="true"
           />
         </mat-form-field>
       </div>
@@ -66,18 +74,21 @@
             matInput
             placeholder="Ingresa el IdPersona"
             [(ngModel)]="IdPersona"
+            required
+            aria-required="true"
           />
         </mat-form-field>
       </div>
     </div>
 
-  <!-- Opciones botones-->
-</div>
-<div mat-dialog-actions>
-  <button class="cancelar" mat-button cdkFocusInitial (click)="onNoClick()">
-    Cancelar
-  </button>
-  <button class="guardar" mat-button cdkFocusInitial (click)="insertar()">
-    Añadir
-  </button>
+    <!-- Opciones botones-->
+  </div>
+  <div mat-dialog-actions>
+    <button class="cancelar" mat-button cdkFocusInitial (click)="onNoClick()">
+      Cancelar
+    </button>
+    <button class="guardar" mat-button cdkFocusInitial (click)="insertar()">
+      Añadir
+    </button>
+  </div>
 </div>

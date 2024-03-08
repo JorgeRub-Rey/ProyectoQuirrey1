@@ -32,10 +32,7 @@ export class CategoriamodulosService {
       categoria: ticketsData.Categoria,
       usuario: ticketsData.Usuario, // Valor por defecto si no se proporciona
     };
-    return this.http.post<ApiResponse>(
-      `${this.apiUrl}/Insert_CategoriasModulos`,
-      body
-    );
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 
   eliminarTickets(Id: number): Observable<any> {
@@ -46,7 +43,7 @@ export class CategoriamodulosService {
     const body = {
       id: ticketsData.Id,
       categoria: ticketsData.categoria,
-     
+
       usuario: ticketsData.Usuario,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

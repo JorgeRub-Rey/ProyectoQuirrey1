@@ -10,34 +10,40 @@
           matInput
           placeholder="Ingresa el nombre"
           [(ngModel)]="nombreDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
   </div>
 
   <div class="mat-dialog-row">
-    <!-- Columna para el campo de nombre -->
+    <!-- Columna para el campo de dirección -->
     <div class="mat-dialog-cell">
       <mat-form-field>
-        <mat-label>Direccion</mat-label>
+        <mat-label>Dirección</mat-label>
         <input
           matInput
-          placeholder="Ingresa la direccion"
+          placeholder="Ingresa la dirección"
           [(ngModel)]="direccionDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
   </div>
 
   <div class="mat-dialog-row">
-    <!-- Columna para el campo de nombre -->
+    <!-- Columna para el campo de usuario que actualiza -->
     <div class="mat-dialog-cell">
       <mat-form-field>
-        <mat-label>UsuarioActualiza</mat-label>
+        <mat-label>Usuario Actualiza</mat-label>
         <input
           matInput
-          placeholder="Ingresa el UsuarioActualiza"
+          placeholder="Ingresa el Usuario que actualiza"
           [(ngModel)]="usuarioactualizaDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>

@@ -1,28 +1,25 @@
-import { Component,Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EditarRutas } from 'src/app/Models/rutas.models';
-import { RutasService} from 'src/app/rutas.service';
+import { RutasService } from 'src/app/rutas.service';
 
 @Component({
   selector: 'app-editar-rutas',
   templateUrl: './editar-rutas.component.html',
-  styleUrls: ['./editar-rutas.component.css']
+  styleUrls: ['./editar-rutas.component.css'],
 })
 export class EditarRutasComponent implements OnInit {
-
   rutas: EditarRutas;
   constructor(
     public dialogRef: MatDialogRef<EditarRutasComponent>,
     private rutasService: RutasService,
     @Inject(MAT_DIALOG_DATA) public data: EditarRutas
-    
   ) {
     // Clona los datos recibidos para evitar la mutación directa
-    this.rutas = {...data};
+    this.rutas = { ...data };
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -37,8 +34,7 @@ export class EditarRutasComponent implements OnInit {
       },
       error: (error) => {
         // Manejar errores aquí
-      }
+      },
     });
   }
-
 }

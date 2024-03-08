@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarAlmacenesComponent } from './insertar-almacenes/insertar-almacenes.component';
 import { EditarAlmacenesComponent } from './editar-almacenes/editar-almacenes.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-almacenes',
@@ -79,6 +80,16 @@ export class AlmacenesComponent {
           this.dataSource.data = this.dataSource.data.filter(
             (departamento: Almacenes) => departamento.Id !== Id
           );
+
+          // Agregar la notificación de éxito aquí
+          Swal.fire({
+            title: 'Se ha eliminado correctamente!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el departamento', error);

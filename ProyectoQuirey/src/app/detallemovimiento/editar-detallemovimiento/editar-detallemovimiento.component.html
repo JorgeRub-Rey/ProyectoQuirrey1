@@ -3,36 +3,63 @@
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
     <!-- Opciones de formulario -->
-  
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdMovimiento</mat-label>
-        <input matInput placeholder="Ingresa el IdTicket" [(ngModel)]="departamento.IdMovimiento">
+        <input
+          matInput
+          placeholder="Ingresa el IdTicket"
+          [(ngModel)]="departamento.IdMovimiento"
+          required
+          aria-required="true"
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Codigo</mat-label>
-        <input matInput placeholder="Ingresa el Codigo" [(ngModel)]="departamento.Codigo">
+        <input
+          matInput
+          placeholder="Ingresa el Codigo"
+          [(ngModel)]="departamento.Codigo"
+          required
+          aria-required="true"
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Cantidad</mat-label>
-        <input matInput placeholder="Ingresa la Cantidad" [(ngModel)]="departamento.Cantidad">
+        <input
+          matInput
+          placeholder="Ingresa la Cantidad"
+          [(ngModel)]="departamento.Cantidad"
+          required
+          aria-required="true"
+        />
       </mat-form-field>
-    
+
       <mat-form-field>
         <mat-label>Costo</mat-label>
-        <input matInput   placeholder="Ingresa el Costo" [(ngModel)]="departamento.Costo">
+        <input
+          matInput
+          placeholder="Ingresa el Costo"
+          [(ngModel)]="departamento.Costo"
+          required
+          aria-required="true"
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>UsuarioActualiza</mat-label>
-        <input matInput type="number" placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="departamento.UsuarioActualiza" step="1">
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="departamento.UsuarioActualiza"
+          step="1"
+          required
+          aria-required="true"
+        />
       </mat-form-field>
-      
-
-   
-      
     </div>
   </div>
   <!-- Opciones botones-->

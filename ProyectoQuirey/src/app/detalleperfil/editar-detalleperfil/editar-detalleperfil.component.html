@@ -10,6 +10,8 @@
           matInput
           placeholder="Ingresa el IdPerfil"
           [(ngModel)]="detalleperfil.IdPerfil"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -19,10 +21,10 @@
           matInput
           placeholder="Ingresa la IdModulo"
           [(ngModel)]="detalleperfil.IdModulo"
+          required
+          aria-required="true"
         />
       </mat-form-field>
-
-   
 
       <mat-form-field>
         <mat-label>Usuario</mat-label>
@@ -31,6 +33,8 @@
           placeholder="Ingresa el Usuario"
           [(ngModel)]="detalleperfil.Usuario"
           step="1"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
