@@ -25,12 +25,16 @@ export class InsertarUsuariosComponent {
 
   insertar(): void {
     // Check if required fields are filled
-    if (!this.nombreusuarioDepartamento || !this.passwordDepartamento || !this.idpersonaDepartamento) {
+    if (
+      !this.nombreusuarioDepartamento ||
+      !this.passwordDepartamento ||
+      !this.idpersonaDepartamento
+    ) {
       // Display SweetAlert2 message for missing fields
       Swal.fire({
         icon: 'error',
-        title: 'Oops...',
-        text: 'Por favor, completa todos los campos obligatorios.',
+        title: 'Por favor, completa todos los campos obligatorios.',
+        // text: 'Por favor, completa todos los campos obligatorios.',
       });
       return; // Stop execution if fields are missing
     }
@@ -54,7 +58,6 @@ export class InsertarUsuariosComponent {
             location.reload();
           }
         });
-
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);

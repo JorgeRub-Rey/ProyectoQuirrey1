@@ -27,8 +27,7 @@ export class InsertarSucursalsedeComponent {
     if (!this.Nombre || !this.Ubicacion || !this.Usuario) {
       Swal.fire({
         icon: 'error',
-        title: 'Campos Obligatorios',
-        text: 'Por favor, complete todos los campos obligatorios.',
+        title: 'Por favor, complete todos los campos obligatorios.',
       });
       return; // Stop execution if validation fails
     }
@@ -59,4 +58,3 @@ export class InsertarSucursalsedeComponent {
     });
   }
 }
-

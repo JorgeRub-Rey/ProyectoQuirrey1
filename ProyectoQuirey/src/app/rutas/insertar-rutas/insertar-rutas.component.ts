@@ -6,10 +6,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-insertar-rutas',
   templateUrl: './insertar-rutas.component.html',
-  styleUrls: ['./insertar-rutas.component.css']
+  styleUrls: ['./insertar-rutas.component.css'],
 })
 export class InsertarRutasComponent {
-
   Nombre: string = '';
   UsuarioActualiza: number = 1;
 
@@ -26,8 +25,8 @@ export class InsertarRutasComponent {
     // Validar campos obligatorios
     if (!this.Nombre) {
       Swal.fire({
-        title: 'Error',
-        text: 'Por favor completa todos los campos obligatorios',
+        title: 'Por favor completa todos los campos obligatorios',
+        // text: 'Por favor completa todos los campos obligatorios',
         icon: 'error',
       });
       return;
@@ -38,7 +37,7 @@ export class InsertarRutasComponent {
       UsuarioActualiza: this.UsuarioActualiza,
       // ...otros campos si los hay
     };
-    
+
     this.rutasService.insertarRutas(nuevaRuta).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
@@ -51,14 +50,11 @@ export class InsertarRutasComponent {
             location.reload();
           }
         });
-
-        
       },
-      
+
       error: (error) => {
         console.error('Hubo un error al insertar el cliente', error);
-      }
+      },
     });
   }
-
 }

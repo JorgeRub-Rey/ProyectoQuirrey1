@@ -3,8 +3,6 @@
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
     <!-- Opciones de formulario -->
-  <div class="mat-dialog-row">
-    <!-- Columna para el campo de nombre -->
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>NombreUsuario</mat-label>
@@ -12,6 +10,8 @@
           matInput
           placeholder="Ingresa el NombreUsuario"
           [(ngModel)]="departamento.NombreUsuario"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -21,10 +21,10 @@
           matInput
           placeholder="Ingresa la Contraseña"
           [(ngModel)]="departamento.Password"
+          required
+          aria-required="true"
         />
       </mat-form-field>
-
-
 
       <mat-form-field>
         <mat-label>IdPersona</mat-label>
@@ -34,6 +34,8 @@
           placeholder="Ingresa el IdPersona"
           [(ngModel)]="departamento.IdPersona"
           step="1"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>

@@ -1,9 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EditarRutas } from 'src/app/Models/rutas.models';
-
 import { RutasService } from 'src/app/rutas.service';
-
 import Swal from 'sweetalert2';
 
 @Component({
@@ -29,6 +27,17 @@ export class EditarRutasComponent implements OnInit {
   }
 
   guardar(): void {
+    // Validación de campos obligatorios
+    if (!this.rutas.Nombre || !this.rutas.UsuarioActualiza) {
+      Swal.fire({
+        title: 'Por favor complete todos los campos obligatorios',
+
+        icon: 'error',
+      });
+      return; // Detiene la ejecución de la función si hay campos vacíos
+    }
+
+    // Si todos los campos están completos, se procede con la actualización
     this.rutasService.actualizarRutas(this.rutas).subscribe({
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla

@@ -1,4 +1,3 @@
-
 <h1 mat-dialog-title class="titulo">Editar Ticket</h1>
 <div mat-dialog-content class="mat-dialog-grid">
   <!-- Fila para el formulario -->
@@ -7,29 +6,52 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdSucursal</mat-label>
-        <input matInput type="number" placeholder="Ingresa el IdSucursal" [(ngModel)]="tickets.IdSucursal">
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el IdSucursal"
+          [(ngModel)]="tickets.IdSucursal"
+          required
+          aria-required="true"
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>IdCliente</mat-label>
-        <input matInput type="number" placeholder="Ingresa la IdCliente" [(ngModel)]="tickets.IdCliente">
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa la IdCliente"
+          [(ngModel)]="tickets.IdCliente"
+          required
+          aria-required="true"
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>IdVendedor</mat-label>
-        <input matInput type="number" placeholder="Ingresa la IdVendedor" [(ngModel)]="tickets.IdVendedor">
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa la IdVendedor"
+          [(ngModel)]="tickets.IdVendedor"
+          required
+          aria-required="true"
+        />
       </mat-form-field>
-
-      
 
       <mat-form-field>
         <mat-label>UsuarioActualiza</mat-label>
-        <input matInput type="number" placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="tickets.UsuarioActualiza" step="1">
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="tickets.UsuarioActualiza"
+          step="1"
+          required
+          aria-required="true"
+        />
       </mat-form-field>
-      
-
-    
-      
     </div>
   </div>
   <!-- Opciones botones-->
@@ -40,4 +62,3 @@
     Guardar Cambios
   </button>
 </div>
-

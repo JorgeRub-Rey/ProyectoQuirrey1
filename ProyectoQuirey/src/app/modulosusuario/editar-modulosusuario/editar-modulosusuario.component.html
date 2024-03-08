@@ -3,7 +3,7 @@
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
     <!-- Opciones de formulario -->
-  
+
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>idPerfil</mat-label>
@@ -12,6 +12,8 @@
           type="number"
           placeholder="Ingresa el "
           [(ngModel)]="departamento.idPerfil"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -22,6 +24,8 @@
           type="number"
           placeholder="Ingresa el "
           [(ngModel)]="departamento.IdModulo"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -33,6 +37,8 @@
           placeholder="Ingresa el "
           [(ngModel)]="departamento.Usuario"
           step="1"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -44,11 +50,13 @@
           placeholder="Ingresa el "
           [(ngModel)]="departamento.Activo"
           step="1"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
   </div>
-  
+
   <!-- Opciones botones-->
 </div>
 <div mat-dialog-actions>

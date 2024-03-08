@@ -26,8 +26,8 @@ export class InsertarPuestosComponent {
       // Show SweetAlert2 message for mandatory fields
       Swal.fire({
         icon: 'error',
-        title: 'Error',
-        text: 'Todos los campos son obligatorios',
+        title: 'Se han insertado correctamente los datos!',
+        // text: 'Todos los campos son obligatorios',
       });
       return; // Exit the method if fields are not valid
     }
@@ -50,7 +50,6 @@ export class InsertarPuestosComponent {
             location.reload();
           }
         });
-
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);

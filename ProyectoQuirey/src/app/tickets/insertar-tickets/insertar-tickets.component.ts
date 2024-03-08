@@ -6,10 +6,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-insertar-tickets',
   templateUrl: './insertar-tickets.component.html',
-  styleUrls: ['./insertar-tickets.component.css']
+  styleUrls: ['./insertar-tickets.component.css'],
 })
 export class InsertarTicketsComponent {
-
   IdSucursal: number = 0;
   IdCliente: number = 0;
   IdVendedor: number = 0;
@@ -28,8 +27,8 @@ export class InsertarTicketsComponent {
     // Simple validation for required fields
     if (!this.IdSucursal || !this.IdCliente || !this.IdVendedor) {
       Swal.fire({
-        title: 'Error',
-        text: 'Por favor, completa todos los campos obligatorios.',
+        title: 'Por favor, completa todos los campos obligatorios.',
+
         icon: 'error',
       });
       return;
@@ -39,14 +38,14 @@ export class InsertarTicketsComponent {
       IdSucursal: this.IdSucursal,
       IdCliente: this.IdCliente,
       IdVendedor: this.IdVendedor,
-      UsuarioActualiza: this.UsuarioActualiza
+      UsuarioActualiza: this.UsuarioActualiza,
       // ...otros campos si los hay
     };
-    
+
     this.ticketsService.insertarTickets(nuevoTickets).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
-        
+
         Swal.fire({
           title: 'Se han insertado correctamente los datos!',
           icon: 'success',
@@ -58,7 +57,7 @@ export class InsertarTicketsComponent {
       },
       error: (error) => {
         console.error('Hubo un error al insertar el tickets', error);
-      }
+      },
     });
   }
 }

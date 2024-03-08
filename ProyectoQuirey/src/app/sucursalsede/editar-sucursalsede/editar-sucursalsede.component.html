@@ -6,7 +6,13 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Ingresa " [(ngModel)]="tickets.Nombre" />
+        <input
+          matInput
+          placeholder="Ingresa "
+          [(ngModel)]="tickets.Nombre"
+          required
+          aria-required="true"
+        />
       </mat-form-field>
       <mat-form-field>
         <mat-label>ubicacion</mat-label>
@@ -14,9 +20,10 @@
           matInput
           placeholder="Ingresa "
           [(ngModel)]="tickets.ubicacion"
+          required
+          aria-required="true"
         />
       </mat-form-field>
-     
 
       <mat-form-field>
         <mat-label>usuario</mat-label>
@@ -25,6 +32,8 @@
           type="number"
           placeholder="Ingresa "
           [(ngModel)]="tickets.Usuario"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
