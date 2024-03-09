@@ -3,9 +3,9 @@
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
     <!-- Opciones de formulario -->
-  
+
     <div class="mat-dialog-cell">
-      <mat-form-field>
+      <!-- <mat-form-field>
         <mat-label>idPerfil</mat-label>
         <input
           matInput
@@ -13,9 +13,22 @@
           placeholder="Ingresa el "
           [(ngModel)]="departamento.idPerfil"
         />
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <mat-form-field>
+      <!-- lista -->
+      <mat-label>idPerfil</mat-label>
+      <select
+        [(ngModel)]="idperfileslistDepartamento"
+        (change)="selectChangePerfiles()"
+      >
+        <option *ngFor="let item of perfiles" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+      <!-- lista -->
+
+      <!-- <mat-form-field>
         <mat-label>idModulo</mat-label>
         <input
           matInput
@@ -23,7 +36,20 @@
           placeholder="Ingresa el "
           [(ngModel)]="departamento.IdModulo"
         />
-      </mat-form-field>
+      </mat-form-field> -->
+
+      <!-- lista -->
+      <mat-label>IdModulo</mat-label>
+      <select
+        [(ngModel)]="idmoduloslistDepartamento"
+        (change)="selectChangeModulos()"
+      >
+        <option *ngFor="let item of modulos" [value]="item.Id">
+          {{ item.Modulo }}
+        </option>
+      </select>
+
+      <!-- lista -->
 
       <mat-form-field>
         <mat-label>Usuario</mat-label>
@@ -48,7 +74,7 @@
       </mat-form-field>
     </div>
   </div>
-  
+
   <!-- Opciones botones-->
 </div>
 <div mat-dialog-actions>

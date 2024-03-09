@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiResponse, clientes } from './Models/clientes.models';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,6 +19,13 @@ export class ClientesService {
     );
   }
 
+  getDropDownText(IdClientes: string | number, object: any[]) {
+    const selObj = _.filter(object, function (o) {
+      return o.Id === IdClientes;
+    });
+    return selObj;
+  }
+
   // Método para insertar un nuevo departamento
   insertarClientes(clientesData: {
     Nombre: string;
@@ -32,7 +39,7 @@ export class ClientesService {
       direccion: clientesData.Direccion, // Valor por defecto si no se proporciona
       usuarioactualiza: clientesData.UsuarioActualiza || 0, // Valor por defecto si no se proporciona
     };
-    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert_Clientes`, body);
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 
   eliminarClientes(Id: number): Observable<any> {
@@ -44,7 +51,7 @@ export class ClientesService {
       id: clientesData.Id,
       nombre: clientesData.Nombre,
       direccion: clientesData.Direccion,
-      
+
       usuarioactualiza: 1,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

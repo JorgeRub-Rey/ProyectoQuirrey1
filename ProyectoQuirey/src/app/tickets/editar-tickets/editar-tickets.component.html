@@ -1,35 +1,70 @@
-
 <h1 mat-dialog-title class="titulo">Editar Ticket</h1>
 <div mat-dialog-content class="mat-dialog-grid">
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
     <!-- Opciones de formulario -->
     <div class="mat-dialog-cell">
-      <mat-form-field>
+      <!-- <mat-form-field>
         <mat-label>IdSucursal</mat-label>
         <input matInput type="number" placeholder="Ingresa el IdSucursal" [(ngModel)]="tickets.IdSucursal">
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <mat-form-field>
+      <!-- lista -->
+      <mat-label>IdSucursal</mat-label>
+      <select
+        [(ngModel)]="idsucursalsedelistDepartamento"
+        (change)="selectChangeSucursales()"
+      >
+        <option *ngFor="let item of sucursales" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+      <!-- lista -->
+
+      <!-- <mat-form-field>
         <mat-label>IdCliente</mat-label>
-        <input matInput type="number" placeholder="Ingresa la IdCliente" [(ngModel)]="tickets.IdCliente">
-      </mat-form-field>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa la IdCliente"
+          [(ngModel)]="tickets.IdCliente"
+        />
+      </mat-form-field> -->
+
+      <!-- lista -->
+      <mat-label>IdCliente</mat-label>
+      <select
+        [(ngModel)]="idclienteslistDepartamento"
+        (change)="selectChangeClientes()"
+      >
+        <option *ngFor="let item of clientes" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+      <!-- lista -->
 
       <mat-form-field>
         <mat-label>IdVendedor</mat-label>
-        <input matInput type="number" placeholder="Ingresa la IdVendedor" [(ngModel)]="tickets.IdVendedor">
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa la IdVendedor"
+          [(ngModel)]="tickets.IdVendedor"
+        />
       </mat-form-field>
-
-      
 
       <mat-form-field>
         <mat-label>UsuarioActualiza</mat-label>
-        <input matInput type="number" placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="tickets.UsuarioActualiza" step="1">
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="tickets.UsuarioActualiza"
+          step="1"
+        />
       </mat-form-field>
-      
-
-    
-      
     </div>
   </div>
   <!-- Opciones botones-->
@@ -40,4 +75,3 @@
     Guardar Cambios
   </button>
 </div>
-

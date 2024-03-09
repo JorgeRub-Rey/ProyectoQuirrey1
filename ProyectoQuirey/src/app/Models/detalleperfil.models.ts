@@ -1,7 +1,7 @@
 export interface DetallePerfil {
   Id: number;
-  IdPerfil: string;
-  IdModulo: string;
+  IdPerfil: number;
+  IdModulo: number;
   FechaHora: string;
   Activo: string;
   Usuario: string;
@@ -19,8 +19,8 @@ export interface ApiResponse {
 
 export interface EditarDetallePerfil {
   Id: number;
-  IdPerfil: string;
-  IdModulo: string;
+  IdPerfil: number;
+  IdModulo: number;
   FechaHora: string;
   Activo: string;
   Usuario: string;

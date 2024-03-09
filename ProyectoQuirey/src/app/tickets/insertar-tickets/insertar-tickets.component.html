@@ -1,49 +1,88 @@
 <h1 mat-dialog-title class="titulo">Nuevo Ticket</h1>
 <div mat-dialog-content class="mat-dialog-grid">
   <!-- Fila para el formulario -->
-  <div class="mat-dialog-row">
-    <!-- Opciones de Formulario -->
-  
-    <div class="mat-dialog-cell">
+
+  <!-- <div class="mat-dialog-row"> -->
+  <!-- Opciones de Formulario -->
+
+  <!-- <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdSucursal</mat-label>
         <input matInput placeholder="Ingresa el IdSucursal" [(ngModel)]="IdSucursal">
       </mat-form-field>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
 
-  <div class="mat-dialog-row">
+  <!-- lista -->
+  <mat-label>Sucursales</mat-label>
+  <select
+    name="my-select"
+    [(ngModel)]="idsucursalsedeDepartamento"
+    (change)="selectChange()"
+  >
+    <option *ngFor="let item of users" [value]="item.Id">
+      {{ item.Nombre }}
+    </option>
+  </select>
+
+  <!-- lista -->
+
+  <!-- <div class="mat-dialog-row">
     <!-- Columna para el campo de nombre -->
-    <div class="mat-dialog-cell">
+  <!-- <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdCliente</mat-label>
-        <input matInput placeholder="Ingresa el IdCliente" [(ngModel)]="IdCliente">
+        <input
+          matInput
+          placeholder="Ingresa el IdCliente"
+          [(ngModel)]="idclienteDepartamento"
+        />
       </mat-form-field>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
+
+  <!-- lista -->
+  <mat-label>Clientes</mat-label>
+  <select
+    name="my-select"
+    [(ngModel)]="idclientesDepartamento"
+    (change)="selectChange1()"
+  >
+    <option *ngFor="let item of users1" [value]="item.Id">
+      {{ item.Nombre }}
+    </option>
+  </select>
+
+  <!-- lista -->
 
   <div class="mat-dialog-row">
     <!-- Columna para el campo de nombre -->
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdVendedor</mat-label>
-        <input matInput placeholder="Ingresa el IdVendedor" [(ngModel)]="IdVendedor">
+        <input
+          matInput
+          placeholder="Ingresa el IdVendedor"
+          [(ngModel)]="idvendedorDepartamento"
+        />
       </mat-form-field>
     </div>
   </div>
-
-  
 
   <div class="mat-dialog-row">
     <!-- Columna para el campo de nombre -->
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>UsuarioActualiza</mat-label>
-        <input matInput placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="UsuarioActualiza">
+        <input
+          matInput
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="usuarioactualizaDepartamento"
+        />
       </mat-form-field>
     </div>
   </div>
-  
+
   <!-- Opciones botones-->
 </div>
 <div mat-dialog-actions>

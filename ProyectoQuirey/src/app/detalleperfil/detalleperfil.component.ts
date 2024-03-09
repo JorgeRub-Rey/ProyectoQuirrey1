@@ -32,7 +32,7 @@ export class DetalleperfilComponent {
   ngOnInit() {
     this.dataSource.filterPredicate = (data: DetallePerfil, filter: string) => {
       return (
-        data.IdModulo.toLowerCase().includes(filter) ||
+        data.IdPerfil.toString().includes(filter) ||
         data.Id.toString().includes(filter)
       ); // Puedes añadir más campos si es necesario
     };

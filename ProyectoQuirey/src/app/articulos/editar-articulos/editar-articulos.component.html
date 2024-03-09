@@ -6,36 +6,72 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>Codigo</mat-label>
-        <input matInput placeholder="Ingresa el Codigo" [(ngModel)]="departamento.Codigo">
+        <input
+          matInput
+          placeholder="Ingresa el Codigo"
+          [(ngModel)]="departamento.Codigo"
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Descripcion</mat-label>
-        <input matInput placeholder="Ingresa la Descripcion" [(ngModel)]="departamento.Descripcion">
+        <input
+          matInput
+          placeholder="Ingresa la Descripcion"
+          [(ngModel)]="departamento.Descripcion"
+        />
       </mat-form-field>
 
-      <mat-form-field>
+      <!-- <mat-form-field>
         <mat-label>UnidadMedida</mat-label>
-        <input matInput  placeholder="Ingresa la UnidadMedida" [(ngModel)]="departamento.UnidadMedida"  >
-      </mat-form-field>
+        <input
+          matInput
+          placeholder="Ingresa la UnidadMedida"
+          [(ngModel)]="departamento.UnidadMedida"
+        />
+      </mat-form-field> -->
+
+      <!-- lista -->
+      <mat-label>UnidadMedida</mat-label>
+      <select
+        [(ngModel)]="idunidadmedidalistDepartamento"
+        (change)="selectChangeUnidadMedida()"
+      >
+        <option *ngFor="let item of unidadmedida" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+      <!-- lista -->
 
       <mat-form-field>
         <mat-label>Costo</mat-label>
-        <input matInput placeholder="Ingresa el Costo" [(ngModel)]="departamento.Costo" >
+        <input
+          matInput
+          placeholder="Ingresa el Costo"
+          [(ngModel)]="departamento.Costo"
+        />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Precio</mat-label>
-        <input matInput placeholder="Ingresa el Precio" [(ngModel)]="departamento.Precio">
+        <input
+          matInput
+          placeholder="Ingresa el Precio"
+          [(ngModel)]="departamento.Precio"
+        />
       </mat-form-field>
-
-   
 
       <mat-form-field>
         <mat-label>UsuarioActualiza</mat-label>
-        <input matInput type="number" placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="departamento.UsuarioActualiza" step="1">
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="departamento.UsuarioActualiza"
+          step="1"
+        />
       </mat-form-field>
-      
     </div>
   </div>
   <!-- Opciones botones-->

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiResponse, Sucursalsede } from './Models/sucursalsede.models';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,6 +19,13 @@ export class SucursalsedeService {
     );
   }
 
+  getDropDownText(IdSucursalSede: string | number, object: any[]) {
+    const selObj = _.filter(object, function (o) {
+      return o.Id === IdSucursalSede;
+    });
+    return selObj;
+  }
+
   // Método para insertar un nuevo departamento
   insertarTickets(ticketsData: {
     Nombre: string;
@@ -32,10 +39,7 @@ export class SucursalsedeService {
       Ubicacion: ticketsData.Ubicacion,
       usuario: ticketsData.Usuario || 0, // Valor por defecto si no se proporciona
     };
-    return this.http.post<ApiResponse>(
-      `${this.apiUrl}/Insert_SucursalSede`,
-      body
-    );
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 
   eliminarTickets(Id: number): Observable<any> {
@@ -47,9 +51,10 @@ export class SucursalsedeService {
       id: ticketsData.Id,
       Nombre: ticketsData.Nombre,
       Ubicacion: ticketsData.ubicacion,
-     
+
       usuario: 1,
     };
+
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
     return this.http.post<ApiResponse>(
       `${this.apiUrl}/Update_SucursalSede`,
