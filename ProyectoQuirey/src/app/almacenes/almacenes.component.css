@@ -1,5 +1,38 @@
-.titulo1{
+/* Agrega una clase para la transición de fade */
+.fade-transition {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
 
+/* Aplica la clase a la sección que deseas animar */
+.content_animated-background{
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1; /* Asegúrate de que la opacidad inicial sea 1 */
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Aplica la clase a la sección que deseas animar */
+.content_animated-background {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1; /* Asegúrate de que la opacidad inicial sea 1 */
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Agrega una clase para la animación de fade-out */
+.fade-out {
+  opacity: 0 !important;
+}
+
+
+.titulo1{
   background: linear-gradient(to left,#fcbe15, rgb(233, 82, 12), #ebaa1f);
 }
 
@@ -60,6 +93,19 @@ td,th {
   border-radius: 25px;
 }
 
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-800px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
 mat-icon {
   cursor: pointer;
   color: #ffffff; /* Color rojo para el icono de eliminar, ajusta según tu paleta de colores */
@@ -116,6 +162,11 @@ div.toolbar button.orange-button {
 .sidenav {
   overflow-y: auto; /* Agrega una barra de desplazamiento vertical */
   height: 100%; /* Ajusta la altura del menú para que ocupe toda la pantalla */
+}
+
+.sidenav-container{
+
+  transition: all.5s ease-in-out;
 }
 
 .menu-container {
