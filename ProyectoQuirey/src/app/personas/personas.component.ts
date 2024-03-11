@@ -6,7 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { InsertarPersonasComponent } from './insertar-personas/insertar-personas.component';
 import { EditarPersonasComponent } from './editar-personas/editar-personas.component';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-personas',
@@ -79,16 +78,6 @@ export class PersonasComponent {
 
   eliminarDepartamento(Id: number) {
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
-      Swal.fire({
-        title: 'Se han eliminado los datos!',
-        icon: 'success',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          location.reload();
-        }
-      });
-      //location.reload();
-  
       this.personasService.eliminarDepartamento(Id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter(
@@ -104,7 +93,7 @@ export class PersonasComponent {
 
   abrirEditarModal(departamento: Personas) {
     const dialogRef = this.dialog.open(EditarPersonasComponent, {
-      width: '250px',
+      width: '550px',
       data: departamento, // Pasa el objeto de departamento a la modal
     });
 

@@ -7,9 +7,28 @@
   gap: 16px; /* espacio entre los campos */
 }
 
-.mat-dialog-row {
-  display: contents;
+.LisLebel{
+  color: black;
 }
+
+.ListaDes {
+  width: 170px;
+  height: 30px;
+  font-size: 20px;
+  transition: all.5s ease-in-out;
+  background-color: white;
+}
+.ListaDes:hover{
+  background-color: rgb(114, 114, 114);
+  transition: all.5s ease-in-out;
+  color: white;
+}
+
+/* Estilo para la animación de despliegue */
+option {
+  display: block;
+}
+
 
 .mat-dialog-cell {
   display: grid;

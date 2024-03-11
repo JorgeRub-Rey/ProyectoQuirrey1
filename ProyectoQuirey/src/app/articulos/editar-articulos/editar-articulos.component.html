@@ -10,8 +10,6 @@
           matInput
           placeholder="Ingresa el Codigo"
           [(ngModel)]="departamento.Codigo"
-          required
-          aria-required="true"
         />
       </mat-form-field>
 
@@ -21,21 +19,30 @@
           matInput
           placeholder="Ingresa la Descripcion"
           [(ngModel)]="departamento.Descripcion"
-          required
-          aria-required="true"
         />
       </mat-form-field>
 
-      <mat-form-field>
+      <!-- <mat-form-field>
         <mat-label>UnidadMedida</mat-label>
         <input
           matInput
           placeholder="Ingresa la UnidadMedida"
           [(ngModel)]="departamento.UnidadMedida"
-          required
-          aria-required="true"
         />
-      </mat-form-field>
+      </mat-form-field> -->
+
+      <!-- lista -->
+    <p><mat-label class="LisLebel">UnidadMedida</mat-label>
+      <select class="ListaDes"
+        [(ngModel)]="idunidadmedidalistDepartamento"
+        (change)="selectChangeUnidadMedida()"
+      >
+        <option *ngFor="let item of unidadmedida" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select></p>
+
+      <!-- lista -->
 
       <mat-form-field>
         <mat-label>Costo</mat-label>
@@ -43,8 +50,6 @@
           matInput
           placeholder="Ingresa el Costo"
           [(ngModel)]="departamento.Costo"
-          required
-          aria-required="true"
         />
       </mat-form-field>
 
@@ -54,8 +59,6 @@
           matInput
           placeholder="Ingresa el Precio"
           [(ngModel)]="departamento.Precio"
-          required
-          aria-required="true"
         />
       </mat-form-field>
 
@@ -67,8 +70,6 @@
           placeholder="Ingresa el UsuarioActualiza"
           [(ngModel)]="departamento.UsuarioActualiza"
           step="1"
-          required
-          aria-required="true"
         />
       </mat-form-field>
     </div>

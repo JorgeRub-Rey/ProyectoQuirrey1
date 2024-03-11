@@ -5,7 +5,6 @@ import { CategoriamodulosService } from '../categoriamodulos.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarCategoriamodulosComponent } from 'src/app/categoriamodulos/insertar-categoriamodulos/insertar-categoriamodulos.component';
 import { EditarCategoriamodulosComponent } from 'src/app/categoriamodulos/editar-categoriamodulos/editar-categoriamodulos.component';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-categoriamodulos',
@@ -82,15 +81,6 @@ export class CategoriamodulosComponent {
           this.dataSource.data = this.dataSource.data.filter(
             (clientes: categoriamodulos) => clientes.Id !== Id
           );
-          // Agregar la notificación de éxito aquí
-          Swal.fire({
-            title: 'Se ha eliminado correctamente!',
-            icon: 'success',
-          }).then((result) => {
-            if (result.isConfirmed) {
-              location.reload();
-            }
-          });
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el cliente', error);
@@ -101,7 +91,7 @@ export class CategoriamodulosComponent {
 
   abrirEditarModal(clientes: categoriamodulos) {
     const dialogRef = this.dialog.open(EditarCategoriamodulosComponent, {
-      width: '250px',
+      width: '550px',
       data: clientes, // Pasa el objeto de departamento a la modal
     });
 

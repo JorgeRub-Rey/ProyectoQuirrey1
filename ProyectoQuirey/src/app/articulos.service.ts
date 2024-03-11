@@ -23,6 +23,7 @@ export class ArticulosService {
   insertarDepartamento(departamentoData: {
     Codigo: string;
     Descripcion: string;
+    // IdUnidadMedida: number;
     UnidadMedida: number;
     Costo: number;
     Precio: number;

@@ -5,8 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarDetalleperfilComponent } from './insertar-detalleperfil/insertar-detalleperfil.component';
 import { EditarDetalleperfilComponent } from './editar-detalleperfil/editar-detalleperfil.component';
 import { DetalleperfilService } from '../detalleperfil.service';
-import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-detalleperfil',
   templateUrl: './detalleperfil.component.html',
@@ -34,7 +32,7 @@ export class DetalleperfilComponent {
   ngOnInit() {
     this.dataSource.filterPredicate = (data: DetallePerfil, filter: string) => {
       return (
-        data.IdModulo.toLowerCase().includes(filter) ||
+        data.IdPerfil.toString().includes(filter) ||
         data.Id.toString().includes(filter)
       ); // Puedes añadir más campos si es necesario
     };
@@ -76,15 +74,6 @@ export class DetalleperfilComponent {
           this.dataSource.data = this.dataSource.data.filter(
             (detalleperfil: DetallePerfil) => detalleperfil.Id !== Id
           );
-          // Agregar la notificación de éxito aquí
-          Swal.fire({
-            title: 'Se ha eliminado correctamente!',
-            icon: 'success',
-          }).then((result) => {
-            if (result.isConfirmed) {
-              location.reload();
-            }
-          });
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el cliente', error);
@@ -95,7 +84,7 @@ export class DetalleperfilComponent {
 
   abrirEditarModal(detalleperfil: DetallePerfil) {
     const dialogRef = this.dialog.open(EditarDetalleperfilComponent, {
-      width: '250px',
+      width: '550px',
       data: detalleperfil, // Pasa el objeto de departamento a la modal
     });
 

@@ -5,48 +5,27 @@ import { MatDialog } from '@angular/material/dialog';
 import { Detallemovimiento } from '../Models/detallemovimiento.models';
 import { EditarDetallemovimientoComponent } from './editar-detallemovimiento/editar-detallemovimiento.component';
 import { InsertarDetallemovimientoComponent } from './insertar-detallemovimiento/insertar-detallemovimiento.component';
-import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-detallemovimiento',
   templateUrl: './detallemovimiento.component.html',
-  styleUrls: ['./detallemovimiento.component.css'],
+  styleUrls: ['./detallemovimiento.component.css']
 })
 export class DetallemovimientoComponent {
-  displayedColumns: string[] = [
-    'Id',
-    'Codigo',
-    'IdMovimiento',
-    'Cantidad',
-    'Costo',
-    'Estatus',
-    'FechaActualiza',
-    'UsuarioActualiza',
-    'Descripcion',
-    'Acciones',
-  ];
+  displayedColumns: string[] = ['Id', 'Codigo', 'IdMovimiento', 'Cantidad', 'Costo','Estatus', 'FechaActualiza', 'UsuarioActualiza', 'Descripcion', 'Acciones'];
   dataSource: MatTableDataSource<Detallemovimiento>;
 
-  constructor(
-    private detallemovimientoService: DetallemovimientoService,
-    public dialog: MatDialog
-  ) {
+  constructor(private detallemovimientoService: DetallemovimientoService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource<Detallemovimiento>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }
 
   ngOnInit() {
-    this.dataSource.filterPredicate = (
-      data: Detallemovimiento,
-      filter: string
-    ) => {
-      return (
-        data.Codigo.toLowerCase().includes(filter) ||
-        data.Id.toString().includes(filter)
-      ); // Puedes añadir más campos si es necesario
+    this.dataSource.filterPredicate = (data: Detallemovimiento, filter: string) => {
+      return data.Codigo.toLowerCase().includes(filter) || 
+             data.Id.toString().includes(filter); // Puedes añadir más campos si es necesario
     };
     this.detallemovimientoService.getDepartamentos().subscribe({
       next: (response) => {
-        console.log('Respuesta del servidor:', response.response.data);
+        console.log('Respuesta del servidor:', response.response.data); 
         if (response.success) {
           this.dataSource.data = response.response.data; // Asigna los datos al atributo 'data' de dataSource
         } else {
@@ -55,7 +34,7 @@ export class DetallemovimientoComponent {
       },
       error: (error) => {
         // Manejar el error de la solicitud
-      },
+      }
     });
   }
   // Método para realizar el filtrado
@@ -68,50 +47,43 @@ export class DetallemovimientoComponent {
     }
   }
 
-  abrirInsertarModal() {
+  
+ abrirInsertarModal() {
     const dialogRef = this.dialog.open(InsertarDetallemovimientoComponent, {
       width: '550px',
       // Puedes pasar datos al componente de la modal si es necesario
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(result => {
       // Manejar los resultados cuando la modal se cierre
     });
   }
+  
+
 
   eliminarDepartamento(Id: number) {
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
       this.detallemovimientoService.eliminarDepartamento(Id).subscribe({
         next: () => {
-          this.dataSource.data = this.dataSource.data.filter(
-            (departamento: Detallemovimiento) => departamento.Id !== Id
-          );
-
-          // Agregar la notificación de éxito aquí
-          Swal.fire({
-            title: 'Se ha eliminado correctamente!',
-            icon: 'success',
-          }).then((result) => {
-            if (result.isConfirmed) {
-              location.reload();
-            }
-          });
+          this.dataSource.data = this.dataSource.data.filter((departamento: Detallemovimiento) => departamento.Id !== Id);
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el departamento', error);
-        },
+        }
       });
     }
   }
-
+  
+  
   abrirEditarModal(departamento: Detallemovimiento) {
     const dialogRef = this.dialog.open(EditarDetallemovimientoComponent, {
-      width: '250px',
-      data: departamento, // Pasa el objeto de departamento a la modal
+      width: '550px',
+      data: departamento // Pasa el objeto de departamento a la modal
     });
-
-    dialogRef.afterClosed().subscribe((result) => {
+  
+    dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        
       }
     });
   }

@@ -1,9 +1,9 @@
 <h1 mat-dialog-title class="titulo">Nuevo Modulo</h1>
 <div mat-dialog-content class="mat-dialog-grid">
   <!-- Fila para el formulario -->
-  <div class="mat-dialog-row">
-    <!-- Opciones de Formulario -->
-    <div class="mat-dialog-cell">
+  <!-- <div class="mat-dialog-row"> -->
+  <!-- Opciones de Formulario -->
+  <!-- <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>idPerfil</mat-label>
         <input
@@ -11,16 +11,30 @@
           type="number"
           placeholder="Ingresa el idtipomov"
           [(ngModel)]="idPerfil"
-          required
-          aria-required="true"
         />
       </mat-form-field>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
 
-  <div class="mat-dialog-row">
-    <!-- Columna para el campo de nombre -->
-    <div class="mat-dialog-cell">
+  <!-- lista -->
+  <h1></h1>
+  <h1></h1>
+  <mat-label class="LisLebel">Perfiles</mat-label>
+  <select class="ListaDes"
+    name="my-select"
+    [(ngModel)]="idperfileslistDepartamento"
+    (change)="selectChangePerfiles()"
+  >
+    <option *ngFor="let item of perfiles" [value]="item.Id">
+      {{ item.Nombre }}
+    </option>
+  </select>
+
+  <!-- lista -->
+
+  <!-- <div class="mat-dialog-row"> -->
+  <!-- Columna para el campo de nombre -->
+  <!-- <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>idmodulo</mat-label>
         <input
@@ -28,12 +42,25 @@
           type="number"
           placeholder="Ingresa el idalmacen"
           [(ngModel)]="idmodulo"
-          required
-          aria-required="true"
         />
       </mat-form-field>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
+
+  <!-- lista -->
+
+<mat-label class="LisLebel">Modulos</mat-label>
+  <select class="ListaDes"
+    name="my-select"
+    [(ngModel)]="idmoduloslistDepartamento"
+    (change)="selectChangeModulos()"
+  >
+    <option *ngFor="let item of modulos" [value]="item.Id">
+      {{ item.Modulo }}
+    </option>
+  </select>
+
+  <!-- lista -->
 
   <div class="mat-dialog-row">
     <!-- Columna para el campo de nombre -->
@@ -44,9 +71,7 @@
           matInput
           type="number"
           placeholder="Ingresa el UsuarioActualiza"
-          [(ngModel)]="Usuario"
-          required
-          aria-required="true"
+          [(ngModel)]="usuarioDepartamento"
         />
       </mat-form-field>
     </div>

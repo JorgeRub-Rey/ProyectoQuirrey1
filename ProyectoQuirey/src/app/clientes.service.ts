@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiResponse, clientes } from './Models/clientes.models';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,6 +17,13 @@ export class ClientesService {
       `${this.apiUrl}/Get_Clientes`,
       requestBody
     );
+  }
+
+  getDropDownText(IdClientes: string | number, object: any[]) {
+    const selObj = _.filter(object, function (o) {
+      return o.Id === IdClientes;
+    });
+    return selObj;
   }
 
   // Método para insertar un nuevo departamento

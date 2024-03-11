@@ -21,7 +21,7 @@ export class AlmacenesService {
 
   getDropDownText(IdAlmacen: string | number, object: any[]) {
     const selObj = _.filter(object, function (o) {
-      return o.id === IdAlmacen;
+      return o.Id === IdAlmacen;
     });
     return selObj;
   }

@@ -4,27 +4,56 @@
   <div class="mat-dialog-row">
     <!-- Opciones de formulario -->
     <div class="mat-dialog-cell">
-      <mat-form-field>
-        <mat-label>IdPerfil</mat-label>
+      <!-- <mat-form-field> -->
+      <!-- <mat-label>IdPerfil</mat-label>
         <input
           matInput
           placeholder="Ingresa el IdPerfil"
           [(ngModel)]="detalleperfil.IdPerfil"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
+        /> -->
+      <!-- </mat-form-field> -->
 
+      <!-- lista -->
+      <h1></h1>
+      <h1></h1>
+    <mat-label class="LisLebel">Perfiles</mat-label>
+      <select class="ListaDes"
+        name="my-select"
+        [(ngModel)]="idperfileslistDepartamento"
+        (change)="selectChangePerfiles()"
+      >
+        <option *ngFor="let item of perfiles" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+  
+
+      <!-- lista -->
+      <!-- 
       <mat-form-field>
         <mat-label>IdModulo</mat-label>
         <input
           matInput
           placeholder="Ingresa la IdModulo"
           [(ngModel)]="detalleperfil.IdModulo"
-          required
-          aria-required="true"
         />
-      </mat-form-field>
+      </mat-form-field> -->
+
+      <!-- lista -->
+  
+      <mat-label class="LisLebel">IdModulo</mat-label>
+      <select class="ListaDes"
+        name="my-select"
+        [(ngModel)]="idmoduloslistDepartamento"
+        (change)="selectChangeModulos()"
+      >
+        <option *ngFor="let item of modulos" [value]="item.Id">
+          {{ item.Modulo }}
+        </option>
+      </select>
+
+
+      <!-- lista -->
 
       <mat-form-field>
         <mat-label>Usuario</mat-label>
@@ -33,8 +62,6 @@
           placeholder="Ingresa el Usuario"
           [(ngModel)]="detalleperfil.Usuario"
           step="1"
-          required
-          aria-required="true"
         />
       </mat-form-field>
     </div>

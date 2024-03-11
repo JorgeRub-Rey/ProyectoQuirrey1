@@ -5,29 +5,54 @@
     <!-- Opciones de formulario -->
 
     <div class="mat-dialog-cell">
-      <mat-form-field>
+      <!-- <mat-form-field>
         <mat-label>idPerfil</mat-label>
         <input
           matInput
           type="number"
           placeholder="Ingresa el "
           [(ngModel)]="departamento.idPerfil"
-          required
-          aria-required="true"
         />
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <mat-form-field>
+      <!-- lista -->
+     <h1></h1>
+    <h1></h1>
+    <p><mat-label class="LisLebel">Perfiles</mat-label>
+  <select class="ListaDes"
+    name="my-select"
+    [(ngModel)]="idperfileslistDepartamento"
+    (change)="selectChangePerfiles()"
+  >
+    <option *ngFor="let item of perfiles" [value]="item.Id">
+      {{ item.Nombre }}
+    </option>
+  </select>
+
+      <!-- lista -->
+
+      <!-- <mat-form-field>
         <mat-label>idModulo</mat-label>
         <input
           matInput
           type="number"
           placeholder="Ingresa el "
           [(ngModel)]="departamento.IdModulo"
-          required
-          aria-required="true"
         />
-      </mat-form-field>
+      </mat-form-field> -->
+
+      <!-- lista -->
+      <mat-label class="LisLebel">IdModulo</mat-label>
+      <select class="ListaDes"
+        [(ngModel)]="idmoduloslistDepartamento"
+        (change)="selectChangeModulos()"
+      >
+        <option *ngFor="let item of modulos" [value]="item.Id">
+          {{ item.Modulo }}
+        </option>
+      </select></p>
+
+      <!-- lista -->
 
       <mat-form-field>
         <mat-label>Usuario</mat-label>
@@ -37,8 +62,6 @@
           placeholder="Ingresa el "
           [(ngModel)]="departamento.Usuario"
           step="1"
-          required
-          aria-required="true"
         />
       </mat-form-field>
 
@@ -50,8 +73,6 @@
           placeholder="Ingresa el "
           [(ngModel)]="departamento.Activo"
           step="1"
-          required
-          aria-required="true"
         />
       </mat-form-field>
     </div>

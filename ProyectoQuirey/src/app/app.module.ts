@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AlmacenesComponent } from './almacenes/almacenes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -109,6 +110,10 @@ import { CategoriamodulosComponent } from './categoriamodulos/categoriamodulos.c
 import { ControlPanelCategoriamodulosComponent } from './categoriamodulos/control-panel-categoriamodulos/control-panel-categoriamodulos.component';
 import { EditarCategoriamodulosComponent } from './categoriamodulos/editar-categoriamodulos/editar-categoriamodulos.component';
 import { InsertarCategoriamodulosComponent } from './categoriamodulos/insertar-categoriamodulos/insertar-categoriamodulos.component';
+import { UnidadmedidaComponent } from './unidadmedida/unidadmedida.component';
+import { ControlPanelUnidadmedidaComponent } from './unidadmedida/control-panel-unidadmedida/control-panel-unidadmedida.component';
+import { EditarUnidadMedidaComponent } from './unidadmedida/editar-unidadmedida/editar-unidadmedida.component';
+import { InsertarUnidadmedidaComponent } from './unidadmedida/insertar-unidadmedida/insertar-unidadmedida.component';
 
 const appRoutes: Routes = [
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
@@ -120,7 +125,6 @@ const appRoutes: Routes = [
   { path: 'tickets', component: TicketsComponent },
 
   { path: 'existencias', component: ExistenciasComponent },
-  { path: 'movimientos', component: MovimientosinventarioComponent },
   { path: 'personas', component: PersonasComponent },
   { path: 'detalletickets', component: DetalleticketsComponent },
 
@@ -147,6 +151,8 @@ const appRoutes: Routes = [
   { path: 'puestos', component: PuestosComponent },
 
   { path: 'categoriamodulos', component: CategoriamodulosComponent },
+
+  { path: 'unidadmedida', component: UnidadmedidaComponent },
 ];
 
 @NgModule({
@@ -233,6 +239,10 @@ const appRoutes: Routes = [
     ControlPanelCategoriamodulosComponent,
     EditarCategoriamodulosComponent,
     InsertarCategoriamodulosComponent,
+    UnidadmedidaComponent,
+    ControlPanelUnidadmedidaComponent,
+    EditarUnidadMedidaComponent,
+    InsertarUnidadmedidaComponent,
   ],
   imports: [
     HttpClientModule,
@@ -256,6 +266,7 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

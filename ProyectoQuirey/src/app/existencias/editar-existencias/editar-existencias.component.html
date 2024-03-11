@@ -11,22 +11,26 @@
           matInput
           placeholder="Ingresa el Codigo"
           [(ngModel)]="departamento.Codigo"
-          required
-          aria-required="true"
         />
       </mat-form-field>
 
-      <mat-form-field>
+      <!-- <mat-form-field>
         <mat-label>IdAlmacen</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa el IdAlmacen"
-          [(ngModel)]="departamento.IdAlmacen"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
+        <input matInput type="number" placeholder="Ingresa el IdAlmacen" [(ngModel)]="departamento.IdAlmacen">
+      </mat-form-field> -->
+
+      <!-- lista -->
+    <p><mat-label class="LisLebel">IdAlmacen</mat-label>
+      <select class="ListaDes"
+        [(ngModel)]="idalmaceneslistDepartamento"
+        (change)="selectChangealmacenes()"
+      >
+        <option *ngFor="let item of almacenes" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select></p>
+
+      <!-- lista -->
 
       <mat-form-field>
         <mat-label>Cantidad</mat-label>
@@ -34,8 +38,6 @@
           matInput
           placeholder="Ingresa la Cantidad"
           [(ngModel)]="departamento.Cantidad"
-          required
-          aria-required="true"
         />
       </mat-form-field>
 
@@ -47,8 +49,6 @@
           placeholder="Ingresa el Estatus"
           [(ngModel)]="departamento.Estatus"
           step="1"
-          required
-          aria-required="true"
         />
       </mat-form-field>
     </div>

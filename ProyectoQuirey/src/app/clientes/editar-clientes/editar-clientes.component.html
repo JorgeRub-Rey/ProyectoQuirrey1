@@ -10,12 +10,7 @@
           matInput
           placeholder="Ingresa el nombre"
           [(ngModel)]="clientes.Nombre"
-          name="nombre"
-          required
-          aria-required="true"
         />
-        <mat-error *ngIf="!clientes.Nombre">Nombre es requerido</mat-error>
-        <!-- Muestra este mensaje de error si el campo está vacío -->
       </mat-form-field>
 
       <mat-form-field>
@@ -24,14 +19,7 @@
           matInput
           placeholder="Ingresa la Direccion"
           [(ngModel)]="clientes.Direccion"
-          name="direccion"
-          required
-          aria-required="true"
         />
-        <mat-error *ngIf="!clientes.Direccion"
-          >Dirección es requerida</mat-error
-        >
-        <!-- Muestra este mensaje de error si el campo está vacío -->
       </mat-form-field>
 
       <mat-form-field>
@@ -41,16 +29,11 @@
           type="number"
           placeholder="Ingresa el UsuarioActualiza"
           [(ngModel)]="clientes.UsuarioActualiza"
-          name="usuarioActualiza"
-          required
-          aria-required="true"
           step="1"
         />
-        <mat-error *ngIf="!clientes.UsuarioActualiza"
-          >Usuario Actualiza es requerido</mat-error
-        >
-        <!-- Muestra este mensaje de error si el campo está vacío -->
       </mat-form-field>
+
+  
     </div>
   </div>
   <!-- Opciones botones-->

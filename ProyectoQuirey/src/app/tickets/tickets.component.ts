@@ -5,7 +5,6 @@ import { TicketsService } from '../tickets.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarTicketsComponent } from 'src/app/tickets/insertar-tickets/insertar-tickets.component';
 import { EditarTicketsComponent } from 'src/app/tickets/editar-tickets/editar-tickets.component';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tickets',
@@ -66,18 +65,7 @@ export class TicketsComponent {
 
 
   eliminarTickets(Id: number) {
-    
     if (confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
-      Swal.fire({
-        title: 'Se han eliminado los datos!',
-        icon: 'success',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          location.reload();
-        }
-      });
-      //location.reload();
-    
       this.ticketsService.eliminarTickets(Id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter((clientes: tickets) => clientes.Id !== Id);
@@ -85,7 +73,6 @@ export class TicketsComponent {
         error: (error) => {
           console.error('Hubo un error al eliminar el cliente', error);
         }
-        
       });
     }
   }
@@ -93,7 +80,7 @@ export class TicketsComponent {
   
   abrirEditarModal(clientes: tickets) {
     const dialogRef = this.dialog.open(EditarTicketsComponent, {
-      width: '250px',
+      width: '550px',
       data: clientes // Pasa el objeto de departamento a la modal
     });
   

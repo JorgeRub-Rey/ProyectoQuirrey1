@@ -6,30 +6,21 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>Nombre</mat-label>
-        <input
-          matInput
-          placeholder="Ingresa el nombre"
-          [(ngModel)]="rutas.Nombre"
-          required
-          aria-required="true"
-        />
+        <input matInput placeholder="Ingresa el nombre" [(ngModel)]="rutas.Nombre">
       </mat-form-field>
+
 
       <mat-form-field>
         <mat-label>UsuarioActualiza</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa el UsuarioActualiza"
-          [(ngModel)]="rutas.UsuarioActualiza"
-          step="1"
-          required
-          aria-required="true"
-        />
+        <input matInput type="number" placeholder="Ingresa el UsuarioActualiza" [(ngModel)]="rutas.UsuarioActualiza" step="1">
       </mat-form-field>
+      
+
+     
+      
     </div>
   </div>
-
+  
   <!-- Opciones botones-->
 </div>
 <div mat-dialog-actions>
@@ -38,3 +29,4 @@
     Guardar Cambios
   </button>
 </div>
+

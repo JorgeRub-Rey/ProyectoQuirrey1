@@ -30,7 +30,7 @@ export class PuestosService {
       nombre: departamentoData.Nombre, // Valor por defecto si no se proporciona
       usuario: departamentoData.Usuario || 0, // Valor por defecto si no se proporciona
     };
-    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert_Puestos`, body);
   }
 
   eliminarDepartamento(Id: number): Observable<any> {

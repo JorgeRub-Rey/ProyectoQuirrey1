@@ -7,6 +7,30 @@
   gap: 16px; /* espacio entre los campos */
 }
 
+.LisLebel{
+  color: black;
+  padding-right: 20px;
+  margin: auto;
+}
+
+.ListaDes {
+  width: 170px;
+  height: 30px;
+  margin: auto;
+  font-size: 20px;
+  transition: all.5s ease-in-out;
+}
+.ListaDes:hover{
+  background-color: rgb(114, 114, 114);
+  transition: all.5s ease-in-out;
+  color: white;
+}
+
+/* Estilo para la animación de despliegue */
+option {
+  display: block;
+}
+
 .mat-dialog-row {
   display: contents;
 }

@@ -5,7 +5,6 @@ import { SucursalsedeService } from '../sucursalsede.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarSucursalsedeComponent } from 'src/app/sucursalsede/insertar-sucursalsede/insertar-sucursalsede.component';
 import { EditarSucursalsedeComponent } from 'src/app/sucursalsede/editar-sucursalsede/editar-sucursalsede.component';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sucursalsede',
@@ -74,16 +73,6 @@ export class SucursalsedeComponent {
   }
 
   eliminarTickets(Id: number) {
-    Swal.fire({
-      title: 'Se han eliminado los datos!',
-      icon: 'success',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        location.reload();
-      }
-    });
-    //location.reload();
-  
     if (confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
       this.ticketsService.eliminarTickets(Id).subscribe({
         next: () => {
@@ -100,7 +89,7 @@ export class SucursalsedeComponent {
 
   abrirEditarModal(clientes: Sucursalsede) {
     const dialogRef = this.dialog.open(EditarSucursalsedeComponent, {
-      width: '250px',
+      width: '550px',
       data: clientes, // Pasa el objeto de departamento a la modal
     });
 
