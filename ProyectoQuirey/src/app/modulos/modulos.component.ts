@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarModulosComponent } from './insertar-modulos/insertar-modulos.component';
 import { EditarModulosComponent } from './editar-modulos/editar-modulos.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modulos',
@@ -74,6 +75,16 @@ export class ModulosComponent {
 
   eliminarDepartamento(Id: number) {
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
+      Swal.fire({
+        title: 'Se han eliminado los datos!',
+        icon: 'success',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.reload();
+        }
+      });
+      //location.reload();
+  
       this.modulosService.eliminarDepartamento(Id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter(

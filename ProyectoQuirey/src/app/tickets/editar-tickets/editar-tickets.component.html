@@ -8,7 +8,15 @@
         <mat-label>IdSucursal</mat-label>
         <input matInput type="number" placeholder="Ingresa el IdSucursal" [(ngModel)]="tickets.IdSucursal">
       </mat-form-field> -->
-
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el IdSucursal"
+          [(ngModel)]="tickets.IdSucursal"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
       <!-- lista -->
       <mat-label>IdSucursal</mat-label>
       <select
@@ -45,6 +53,11 @@
 
       <!-- lista -->
 
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
       <mat-form-field>
         <mat-label>IdVendedor</mat-label>
         <input
@@ -52,6 +65,8 @@
           type="number"
           placeholder="Ingresa la IdVendedor"
           [(ngModel)]="tickets.IdVendedor"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -63,7 +78,9 @@
           placeholder="Ingresa el UsuarioActualiza"
           [(ngModel)]="tickets.UsuarioActualiza"
           step="1"
-        />
+          required
+          aria-required="true"
+                  />
       </mat-form-field>
     </div>
   </div>

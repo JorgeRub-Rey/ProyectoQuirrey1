@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ExistenciasService } from 'src/app/existencias.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AlmacenesService } from 'src/app/almacenes.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-insertar-existencias',
@@ -48,6 +49,20 @@ export class InsertarExistenciasComponent {
   }
 
   insertar(): void {
+    // Verificar si algún campo obligatorio está vacío
+    if (
+      !this.codigoDepartamento ||
+      !this.idalmacenDepartamento ||
+      !this.cantidadDepartamento
+    ) {
+      Swal.fire({
+        title: 'Por favor, complete todos los campos obligatorios.',
+        // text: 'Todos los campos son obligatorios. Por favor, complete todos los campos.',
+        icon: 'error',
+      });
+      return; // Detener la ejecución del método si algún campo está vacío
+    }
+
     const nuevoDepartamento = {
       Codigo: this.codigoDepartamento,
       IdAlmacen: this.idalmacenDepartamento,
@@ -58,7 +73,15 @@ export class InsertarExistenciasComponent {
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
-        location.reload();
+
+        Swal.fire({
+          title: 'Se han insertado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);

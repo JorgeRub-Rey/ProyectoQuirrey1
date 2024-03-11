@@ -3,6 +3,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { TicketsService } from 'src/app/tickets.service';
 import { SucursalsedeService } from 'src/app/sucursalsede.service';
 import { ClientesService } from 'src/app/clientes.service';
+
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-insertar-tickets',
   templateUrl: './insertar-tickets.component.html',
@@ -21,6 +24,11 @@ export class InsertarTicketsComponent {
   idclientesDepartamento: number = 0;
   idvendedorDepartamento: number = 0;
   usuarioactualizaDepartamento: number = 1;
+
+  IdSucursal: number = 0;
+  IdCliente: number = 0;
+  IdVendedor: number = 0;
+  UsuarioActualiza: number = 1;
 
   constructor(
     public dialogRef: MatDialogRef<InsertarTicketsComponent>,
@@ -71,6 +79,16 @@ export class InsertarTicketsComponent {
   }
 
   insertar(): void {
+    // Simple validation for required fields
+    if (!this.IdSucursal || !this.IdCliente || !this.IdVendedor) {
+      Swal.fire({
+        title: 'Por favor, completa todos los campos obligatorios.',
+
+        icon: 'error',
+      });
+      return;
+    }
+
     const nuevoTickets = {
       IdSucursal: this.idsucursalsedeDepartamento,
       IdSucursalSede: this.idsucursalsedeDepartamento,
@@ -78,13 +96,26 @@ export class InsertarTicketsComponent {
       IdCliente: this.idclientesDepartamento,
       IdVendedor: this.idvendedorDepartamento,
       UsuarioActualiza: this.usuarioactualizaDepartamento,
+
+      IdSucursal: this.IdSucursal,
+      IdCliente: this.IdCliente,
+      IdVendedor: this.IdVendedor,
+      UsuarioActualiza: this.UsuarioActualiza,
       // ...otros campos si los hay
     };
 
     this.ticketsService.insertarTickets(nuevoTickets).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
-        location.reload();
+
+        Swal.fire({
+          title: 'Se han insertado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         console.error('Hubo un error al insertar el tickets', error);

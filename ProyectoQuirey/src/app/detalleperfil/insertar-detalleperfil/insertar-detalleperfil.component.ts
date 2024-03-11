@@ -3,6 +3,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { DetalleperfilService } from 'src/app/detalleperfil.service';
 import { PerfilesService } from 'src/app/perfiles.service';
 import { ModulosService } from 'src/app/modulos.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-insertar-detalleperfil',
   templateUrl: './insertar-detalleperfil.component.html',
@@ -70,6 +72,16 @@ export class InsertarDetalleperfilComponent {
   }
 
   insertar(): void {
+    // Validar campos obligatorios
+    if (!this.IdPerfil || !this.IdModulo || !this.Usuario) {
+      Swal.fire({
+        title: 'Por favor completa todos los campos obligatorios',
+        // text: 'Por favor completa todos los campos obligatorios',
+        icon: 'error',
+      });
+      return;
+    }
+
     const nuevoCliente = {
       IdPerfil: this.idperfileslistDepartamento,
       IdPerfiles: this.idperfileslistDepartamento,
@@ -82,7 +94,15 @@ export class InsertarDetalleperfilComponent {
     this.detalleperfilService.insertarDetalleperfil(nuevoCliente).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
-        location.reload();
+        // location.reload();
+        Swal.fire({
+          title: 'Se han insertado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         console.error('Hubo un error al insertar el cliente', error);

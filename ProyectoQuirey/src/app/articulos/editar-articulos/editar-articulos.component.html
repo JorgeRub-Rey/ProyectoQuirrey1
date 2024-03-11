@@ -10,6 +10,9 @@
           matInput
           placeholder="Ingresa el Codigo"
           [(ngModel)]="departamento.Codigo"
+          required
+          aria-required="true"
+
         />
       </mat-form-field>
 
@@ -19,6 +22,9 @@
           matInput
           placeholder="Ingresa la Descripcion"
           [(ngModel)]="departamento.Descripcion"
+          required
+          aria-required="true"
+
         />
       </mat-form-field>
 
@@ -43,6 +49,10 @@
       </select>
 
       <!-- lista -->
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
 
       <mat-form-field>
         <mat-label>Costo</mat-label>
@@ -50,6 +60,8 @@
           matInput
           placeholder="Ingresa el Costo"
           [(ngModel)]="departamento.Costo"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -59,6 +71,8 @@
           matInput
           placeholder="Ingresa el Precio"
           [(ngModel)]="departamento.Precio"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -70,6 +84,8 @@
           placeholder="Ingresa el UsuarioActualiza"
           [(ngModel)]="departamento.UsuarioActualiza"
           step="1"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>

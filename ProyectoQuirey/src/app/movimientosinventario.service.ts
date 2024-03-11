@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {
-  ApiResponse,
-  MovimientosInventario,
-} from './Models/movimientosinventario.models';
+import {ApiResponse,MovimientosInventario} from './Models/movimientosinventario.models';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +22,7 @@ export class MovimientosinventarioService {
     );
   }
 
+
   // Método para insertar un nuevo departamento
   insertarDepartamento(departamentoData: {
     IdTipoMov: number;
@@ -39,6 +37,18 @@ export class MovimientosinventarioService {
       usuarioactualiza: departamentoData.UsuarioActualiza,
     };
     return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
+
+
+// Método para insertar un nuevo departamento
+insertarDepartamento(departamentoData: { IdTipoMov: number; IdAlmacen: number; UsuarioActualiza: number }): Observable<ApiResponse> {
+  // El 'nombre' es la única parte variable que viene del formulario
+  // 'activo' y 'usuario' son valores fijos en este ejemplo
+  const body = {
+    idtipomov: departamentoData.IdTipoMov,
+    idalmacen: departamentoData.IdAlmacen,
+    usuarioactualiza: departamentoData.UsuarioActualiza
+  };
+  return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 
   eliminarDepartamento(Id: number): Observable<any> {

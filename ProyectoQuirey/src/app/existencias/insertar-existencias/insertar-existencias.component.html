@@ -5,11 +5,13 @@
     <!-- Opciones de Formulario -->
     <div class="mat-dialog-cell">
       <mat-form-field>
-        <mat-label>Coidgo</mat-label>
+        <mat-label>Código</mat-label>
         <input
           matInput
           placeholder="Ingresa el nombre"
           [(ngModel)]="codigoDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
@@ -24,6 +26,8 @@
           matInput
           placeholder="Ingresa el IdAlmacen"
           [(ngModel)]="idalmacenDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div> -->
@@ -35,6 +39,9 @@
     name="my-select"
     [(ngModel)]="idalmacenDepartamento"
     (change)="selectChange()"
+    title="Selecciona un usuario de la lista"
+    required
+    aria-required="true"
   >
     <option *ngFor="let item of users" [value]="item.Id">
       {{ item.Nombre }}
@@ -52,6 +59,8 @@
           matInput
           placeholder="Ingresa la Cantidad"
           [(ngModel)]="cantidadDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>

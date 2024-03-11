@@ -49,7 +49,7 @@ export class EmpleadosService {
       Puesto: ticketsData.Puesto || 0,
       Perfil: ticketsData.Perfil || 0,
       Usuario: ticketsData.Usuario || 0,
-     
+
       IdPersona: ticketsData.idPersona || 0,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

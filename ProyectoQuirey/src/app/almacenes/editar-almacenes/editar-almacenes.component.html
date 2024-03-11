@@ -10,6 +10,8 @@
           matInput
           placeholder="Ingresa el nombre"
           [(ngModel)]="departamento.Nombre"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -19,6 +21,8 @@
           matInput
           placeholder="Ingresa la Direccion"
           [(ngModel)]="departamento.Direccion"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -30,10 +34,10 @@
           placeholder="Ingresa el UsuarioActualiza"
           [(ngModel)]="departamento.UsuarioActualiza"
           step="1"
+          required
+          aria-required="true"
         />
       </mat-form-field>
-
-      
     </div>
   </div>
   <!-- Opciones botones-->

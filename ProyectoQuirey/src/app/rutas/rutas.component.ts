@@ -5,15 +5,22 @@ import { RutasService } from '../rutas.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarRutasComponent } from 'src/app/rutas/insertar-rutas/insertar-rutas.component';
 import { EditarRutasComponent } from 'src/app/rutas/editar-rutas/editar-rutas.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-rutas',
   templateUrl: './rutas.component.html',
-  styleUrls: ['./rutas.component.css']
+  styleUrls: ['./rutas.component.css'],
 })
 export class RutasComponent {
-
-  displayedColumns: string[] = ['Id', 'Nombre','Estatus', 'UsuarioActualiza','FechaActualiza', 'Acciones'];
+  displayedColumns: string[] = [
+    'Id',
+    'Nombre',
+    'Estatus',
+    'UsuarioActualiza',
+    'FechaActualiza',
+    'Acciones',
+  ];
   dataSource: MatTableDataSource<rutas>;
 
   constructor(private rutasService: RutasService, public dialog: MatDialog) {
@@ -22,12 +29,14 @@ export class RutasComponent {
 
   ngOnInit() {
     this.dataSource.filterPredicate = (data: rutas, filter: string) => {
-      return data.Nombre.toLowerCase().includes(filter) || 
-             data.Id.toString().includes(filter); // Puedes añadir más campos si es necesario
+      return (
+        data.Nombre.toLowerCase().includes(filter) ||
+        data.Id.toString().includes(filter)
+      ); // Puedes añadir más campos si es necesario
     };
     this.rutasService.getRutas().subscribe({
       next: (response) => {
-        console.log('Respuesta del servidor:', response.response.data); 
+        console.log('Respuesta del servidor:', response.response.data);
         if (response.success) {
           this.dataSource.data = response.response.data; // Asigna los datos al atributo 'data' de dataSource
         } else {
@@ -36,7 +45,7 @@ export class RutasComponent {
       },
       error: (error) => {
         // Manejar el error de la solicitud
-      }
+      },
     });
   }
   // Método para realizar el filtrado
@@ -49,46 +58,50 @@ export class RutasComponent {
     }
   }
 
-  
-
- abrirInsertarModal() {
+  abrirInsertarModal() {
     const dialogRef = this.dialog.open(InsertarRutasComponent, {
       width: '550px',
       // Puedes pasar datos al componente de la modal si es necesario
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       // Manejar los resultados cuando la modal se cierre
     });
   }
-  
-
 
   eliminarRutas(Id: number) {
     if (confirm('¿Estás seguro de que deseas eliminar esta ruta?')) {
+      Swal.fire({
+        title: 'Se han eliminado los datos!',
+        icon: 'success',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.reload();
+        }
+      });
+      //location.reload();
       this.rutasService.eliminarRutas(Id).subscribe({
         next: () => {
-          this.dataSource.data = this.dataSource.data.filter((rutas: rutas) => rutas.Id !== Id);
+          this.dataSource.data = this.dataSource.data.filter(
+            (rutas: rutas) => rutas.Id !== Id
+          );
         },
         error: (error) => {
           console.error('Hubo un error al eliminar la ruta', error);
-        }
+        },
       });
     }
   }
-  
-  
+
   abrirEditarModal(rutas: rutas) {
     const dialogRef = this.dialog.open(EditarRutasComponent, {
       width: '250px',
-      data: rutas // Pasa el objeto de departamento a la modal
+      data: rutas, // Pasa el objeto de departamento a la modal
     });
-  
-    dialogRef.afterClosed().subscribe(result => {
+
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        
       }
     });
   }
-
 }

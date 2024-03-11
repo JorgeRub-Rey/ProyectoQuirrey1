@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarUsuariosComponent } from './insertar-usuarios/insertar-usuarios.component';
 import { EditarUsuariosComponent } from './editar-usuarios/editar-usuarios.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios',
@@ -73,6 +74,15 @@ export class UsuariosComponent {
   }
 
   eliminarDepartamento(Id: number) {
+    //location.reload();
+    Swal.fire({
+      title: 'Se han eliminado los datos!',
+      icon: 'success',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        location.reload();
+      }
+    });
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
       this.usuariosService.eliminarDepartamento(Id).subscribe({
         next: () => {

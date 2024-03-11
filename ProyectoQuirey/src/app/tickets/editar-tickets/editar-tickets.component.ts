@@ -4,6 +4,8 @@ import { EditarTickets } from 'src/app/Models/tickets.models';
 import { TicketsService } from 'src/app/tickets.service';
 import { SucursalsedeService } from 'src/app/sucursalsede.service';
 import { ClientesService } from 'src/app/clientes.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-editar-tickets',
   templateUrl: './editar-tickets.component.html',
@@ -15,6 +17,7 @@ export class EditarTicketsComponent implements OnInit {
   selectedValueClientes: any;
   sucursales: any;
   clientes: any;
+
 
   tickets: EditarTickets;
   idsucursalsedelistDepartamento = 0;
@@ -66,6 +69,10 @@ export class EditarTicketsComponent implements OnInit {
     this.getClientes();
   }
 
+  }
+
+  ngOnInit(): void {}
+
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -74,11 +81,35 @@ export class EditarTicketsComponent implements OnInit {
     this.tickets.IdSucursal = this.idsucursalsedelistDepartamento;
     this.tickets.IdCliente = this.idclienteslistDepartamento;
 
+    // Validación de campos obligatorios
+    if (
+      !this.tickets.IdSucursal ||
+      !this.tickets.IdCliente ||
+      !this.tickets.IdVendedor ||
+      !this.tickets.UsuarioActualiza
+    ) {
+      Swal.fire({
+        title: 'Por favor complete todos los campos obligatorios',
+        // text: 'Por favor complete todos los campos obligatorios',
+        icon: 'error',
+      });
+      return; // Detiene la ejecución de la función si hay campos vacíos
+    }
+
+    // Si todos los campos están completos, se procede con la actualización
     this.ticketsService.actualizarTickets(this.tickets).subscribe({
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.tickets);
-        location.reload();
+        //location.reload();
+        Swal.fire({
+          title: 'Se han modificado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         // Manejar errores aquí

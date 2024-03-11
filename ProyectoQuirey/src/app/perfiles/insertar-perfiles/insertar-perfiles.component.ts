@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PerfilesService } from 'src/app/perfiles.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-insertar-perfiles',
@@ -21,6 +22,16 @@ export class InsertarPerfilesComponent {
   }
 
   insertar(): void {
+    // Check if required fields are not empty
+    if (!this.nombreDepartamento || !this.usuarioDepartamento) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Por favor, completa todos los campos obligatorios.',
+        // text: 'Por favor, completa todos los campos obligatorios.',
+      });
+      return;
+    }
+
     const nuevoDepartamento = {
       Nombre: this.nombreDepartamento,
       Usuario: this.usuarioDepartamento,
@@ -29,8 +40,14 @@ export class InsertarPerfilesComponent {
 
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
       next: (response) => {
-        this.dialogRef.close(response);
-        location.reload();
+        Swal.fire({
+          title: 'Se han insertado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);

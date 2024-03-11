@@ -5,6 +5,7 @@ import { ClientesService } from '../clientes.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarClientesComponent } from 'src/app/clientes/insertar-clientes/insertar-clientes.component';
 import { EditarClientesComponent } from 'src/app/clientes/editar-clientes/editar-clientes.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-clientes',
@@ -79,6 +80,15 @@ export class ClientesComponent {
           this.dataSource.data = this.dataSource.data.filter(
             (clientes: clientes) => clientes.Id !== Id
           );
+          // Agregar la notificación de éxito aquí
+          Swal.fire({
+            title: 'Se ha eliminado correctamente!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el cliente', error);

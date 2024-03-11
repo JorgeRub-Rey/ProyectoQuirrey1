@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarDetalleperfilComponent } from './insertar-detalleperfil/insertar-detalleperfil.component';
 import { EditarDetalleperfilComponent } from './editar-detalleperfil/editar-detalleperfil.component';
 import { DetalleperfilService } from '../detalleperfil.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-detalleperfil',
   templateUrl: './detalleperfil.component.html',
@@ -74,6 +76,15 @@ export class DetalleperfilComponent {
           this.dataSource.data = this.dataSource.data.filter(
             (detalleperfil: DetallePerfil) => detalleperfil.Id !== Id
           );
+          // Agregar la notificación de éxito aquí
+          Swal.fire({
+            title: 'Se ha eliminado correctamente!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el cliente', error);

@@ -12,6 +12,10 @@
           [(ngModel)]="detalleperfil.IdPerfil"
         /> -->
       <!-- </mat-form-field> -->
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
 
       <!-- lista -->
       <mat-label>IdPerfil</mat-label>
@@ -32,9 +36,10 @@
           matInput
           placeholder="Ingresa la IdModulo"
           [(ngModel)]="detalleperfil.IdModulo"
+          required
+          aria-required="true"
         />
       </mat-form-field> -->
-
       <!-- lista -->
       <mat-label>IdModulo</mat-label>
       <select
@@ -48,6 +53,7 @@
 
       <!-- lista -->
 
+
       <mat-form-field>
         <mat-label>Usuario</mat-label>
         <input
@@ -55,6 +61,8 @@
           placeholder="Ingresa el Usuario"
           [(ngModel)]="detalleperfil.Usuario"
           step="1"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>

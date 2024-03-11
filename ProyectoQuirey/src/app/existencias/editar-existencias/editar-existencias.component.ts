@@ -3,6 +3,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EditarExistencias } from 'src/app/Models/existencias.models';
 import { ExistenciasService } from 'src/app/existencias.service';
 import { AlmacenesService } from 'src/app/almacenes.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-editar-existencias',
   templateUrl: './editar-existencias.component.html',
@@ -42,6 +44,9 @@ export class EditarExistenciasComponent implements OnInit {
   ngOnInit(): void {
     this.getAlmacenes();
   }
+  }
+
+  ngOnInit(): void {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -50,6 +55,22 @@ export class EditarExistenciasComponent implements OnInit {
   guardar(): void {
     this.departamento.IdAlmacen = this.idalmaceneslistDepartamento;
 
+    // Verificar si algún campo obligatorio está vacío
+    if (
+      !this.departamento.Codigo ||
+      !this.departamento.IdAlmacen ||
+      !this.departamento.Cantidad ||
+      !this.departamento.Estatus
+    ) {
+      // Mostrar un mensaje de error utilizando SweetAlert2
+      Swal.fire({
+        icon: 'error',
+        title: 'Por favor, complete todos los campos obligatorios.',
+      });
+      return;
+    }
+
+    // Realizar la actualización del departamento
     this.departamentoService
       .actualizarDepartamento(this.departamento)
       .subscribe({
@@ -57,6 +78,15 @@ export class EditarExistenciasComponent implements OnInit {
           // Cerrar la modal y posiblemente actualizar la tabla
           this.dialogRef.close(this.departamento);
           location.reload();
+
+          Swal.fire({
+            title: 'Se han modificado correctamente los datos!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           // Manejar errores aquí

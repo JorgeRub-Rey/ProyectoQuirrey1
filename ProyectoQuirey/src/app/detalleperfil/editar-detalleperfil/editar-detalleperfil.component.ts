@@ -4,6 +4,8 @@ import { EditarDetallePerfil } from 'src/app/Models/detalleperfil.models';
 import { DetalleperfilService } from 'src/app/detalleperfil.service';
 import { PerfilesService } from 'src/app/perfiles.service';
 import { ModulosService } from 'src/app/modulos.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-editar-detalleperfil',
   templateUrl: './editar-detalleperfil.component.html',
@@ -71,6 +73,19 @@ export class EditarDetalleperfilComponent implements OnInit {
   guardar(): void {
     this.detalleperfil.IdPerfil = this.idperfileslistDepartamento;
     this.detalleperfil.IdModulo = this.idmoduloslistDepartamento;
+    // Validar campos obligatorios
+    if (
+      !this.detalleperfil.IdPerfil ||
+      !this.detalleperfil.IdModulo ||
+      !this.detalleperfil.Usuario
+    ) {
+      Swal.fire({
+        title: 'Por favor completa todos los campos obligatorios',
+        // text: 'Por favor completa todos los campos obligatorios',
+        icon: 'error',
+      });
+      return;
+    }
 
     this.detalleperfilService
       .actualizarDetalleperfil(this.detalleperfil)
@@ -79,6 +94,16 @@ export class EditarDetalleperfilComponent implements OnInit {
           // Cerrar la modal después de guardar los cambios
           this.dialogRef.close(this.detalleperfil);
           location.reload();
+          this.dialogRef.close();
+          // location.reload();
+          Swal.fire({
+            title: 'Se han modificado correctamente los datos!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           // Manejar errores aquí

@@ -10,6 +10,8 @@
           matInput
           placeholder="Ingresa el codigo"
           [(ngModel)]="codigoDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
@@ -23,6 +25,8 @@
           matInput
           placeholder="Ingresa la descripcion"
           [(ngModel)]="descripcionDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
@@ -41,6 +45,21 @@
   </select>
 
   <!-- lista -->
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>UnidadMedida</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa la unidadmedida"
+          [(ngModel)]="unidadmedidaDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
 
   <div class="mat-dialog-row">
     <!-- Columna para el campo de nombre -->
@@ -51,6 +70,8 @@
           matInput
           placeholder="Ingresa el costo"
           [(ngModel)]="costoDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
@@ -65,6 +86,8 @@
           matInput
           placeholder="Ingresa el precio"
           [(ngModel)]="precioDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>
@@ -79,6 +102,8 @@
           matInput
           placeholder="Ingresa el UsuarioActualiza"
           [(ngModel)]="usuarioactualizaDepartamento"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>

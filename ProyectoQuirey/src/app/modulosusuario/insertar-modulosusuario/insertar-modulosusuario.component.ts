@@ -3,6 +3,8 @@ import { ModulosusuarioService } from 'src/app/modulosusuario.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { PerfilesService } from 'src/app/perfiles.service';
 import { ModulosService } from 'src/app/modulos.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-insertar-modulosusuario',
   templateUrl: './insertar-modulosusuario.component.html',
@@ -70,6 +72,16 @@ export class InsertarModulosusuarioComponent {
   }
 
   insertar(): void {
+    // Verificar si algún campo obligatorio está vacío
+    if (!this.idPerfil || !this.idmodulo || !this.Usuario) {
+      // Mostrar un mensaje de error utilizando SweetAlert2
+      Swal.fire({
+        icon: 'error',
+        title: 'Por favor, complete todos los campos obligatorios.',
+      });
+      return;
+    }
+
     const nuevoDepartamento = {
       IdPerfil: this.idperfileslistDepartamento,
       IdPerfiles: this.idperfileslistDepartamento,
@@ -82,7 +94,14 @@ export class InsertarModulosusuarioComponent {
     this.departamentoService.insertarusuarios(nuevoDepartamento).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
-        location.reload();
+        Swal.fire({
+          title: 'Se han insertado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);

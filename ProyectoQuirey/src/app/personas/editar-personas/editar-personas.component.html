@@ -3,7 +3,7 @@
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
     <!-- Opciones de formulario -->
-  
+
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>Nombre</mat-label>
@@ -11,6 +11,8 @@
           matInput
           placeholder="Ingresa el nombre"
           [(ngModel)]="departamento.Nombre"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -20,6 +22,8 @@
           matInput
           placeholder="Ingresa el ApPaterno"
           [(ngModel)]="departamento.ApPaterno"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -29,14 +33,19 @@
           matInput
           placeholder="Ingresa el ApMaterno"
           [(ngModel)]="departamento.ApMaterno"
+          required
+          aria-required="true"
         />
       </mat-form-field>
+
       <mat-form-field>
         <mat-label>Curp</mat-label>
         <input
           matInput
           placeholder="Ingresa el Curp"
           [(ngModel)]="departamento.curp"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -46,10 +55,10 @@
           matInput
           placeholder="Ingresa la Direccion"
           [(ngModel)]="departamento.Direccion"
+          required
+          aria-required="true"
         />
       </mat-form-field>
-
-    
 
       <mat-form-field>
         <mat-label>Usuario</mat-label>
@@ -58,6 +67,8 @@
           type="number"
           placeholder="Ingresa el Usuario"
           [(ngModel)]="departamento.Usuario"
+          required
+          aria-required="true"
         />
       </mat-form-field>
     </div>

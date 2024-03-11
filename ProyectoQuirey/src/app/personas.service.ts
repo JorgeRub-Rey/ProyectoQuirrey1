@@ -39,7 +39,7 @@ export class PersonasService {
       Usuario: departamentoData.Usuario, // Valor por defecto si no se proporciona
     };
     return this.http.post<ApiResponse>(
-      `${this.apiUrl}/Insert_PersonaPrincipal`,
+      `${this.apiUrl}/Insert`,
       body
     );
   }

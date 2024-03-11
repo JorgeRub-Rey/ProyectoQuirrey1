@@ -4,6 +4,8 @@ import { EditarModulousuarios } from 'src/app/Models/modulosusuarios.models';
 import { ModulosusuarioService } from 'src/app/modulosusuario.service';
 import { PerfilesService } from 'src/app/perfiles.service';
 import { ModulosService } from 'src/app/modulos.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-editar-modulosusuario',
   templateUrl: './editar-modulosusuario.component.html',
@@ -73,11 +75,34 @@ export class EditarModulosusuarioComponent implements OnInit {
     this.departamento.idPerfil = this.idperfileslistDepartamento;
     this.departamento.IdModulo = this.idmoduloslistDepartamento;
 
+    // Verificar si algún campo obligatorio está vacío
+    if (
+      !this.departamento.idPerfil ||
+      !this.departamento.IdModulo ||
+      !this.departamento.Usuario
+    ) {
+      // Mostrar un mensaje de error utilizando SweetAlert2
+      Swal.fire({
+        icon: 'error',
+        title: 'Por favor, complete todos los campos obligatorios.',
+      });
+      return;
+    }
+
     this.departamentoService.actualizarusuarios(this.departamento).subscribe({
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.departamento);
-        location.reload();
+        // location.reload();
+
+        Swal.fire({
+          title: 'Se han modificado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         // Manejar errores aquí

@@ -6,6 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { InsertarMovimientosinventarioComponent } from './insertar-movimientosinventario/insertar-movimientosinventario.component';
 import { EditarMovimientosinventarioComponent } from './editar-movimientosinventario/editar-movimientosinventario.component';
+
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-movimientosinventario',
   templateUrl: './movimientosinventario.component.html',
@@ -64,6 +67,16 @@ export class MovimientosinventarioComponent{
 
   eliminarDepartamento(Id: number) {
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
+      Swal.fire({
+        title: 'Se han eliminado los datos!',
+        icon: 'success',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.reload();
+        }
+      });
+      //location.reload();
+  
       this.movimientosinventarioService.eliminarDepartamento(Id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter((departamento: MovimientosInventario) => departamento.Id !== Id);

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ArticulosService } from 'src/app/articulos.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UnidadmedidaService } from 'src/app/unidadmedida.service';
+import Swal from 'sweetalert2';
 
-// import de unidad medida service
 @Component({
   selector: 'app-insertar-articulos',
   templateUrl: './insertar-articulos.component.html',
@@ -21,7 +21,7 @@ export class InsertarArticulosComponent {
   costoDepartamento: number = 0;
   precioDepartamento: number = 0;
   usuarioactualizaDepartamento: number = 1;
-  //variable para comboUM: Any;
+
   constructor(
     public dialogRef: MatDialogRef<InsertarArticulosComponent>,
     private departamentoService: ArticulosService,
@@ -52,6 +52,24 @@ export class InsertarArticulosComponent {
   }
 
   insertar(): void {
+    // Verifica si los campos obligatorios están completos
+    if (
+      !this.codigoDepartamento ||
+      !this.descripcionDepartamento ||
+      !this.unidadmedidaDepartamento ||
+      !this.costoDepartamento ||
+      !this.precioDepartamento ||
+      !this.usuarioactualizaDepartamento
+    ) {
+      // Muestra un mensaje de error utilizando SweetAlert2
+      Swal.fire({
+        icon: 'error',
+        title: 'Por favor, complete todos los campos obligatorios.',
+      });
+      return;
+    }
+
+    // Si todos los campos obligatorios están completos, procede con la inserción
     const nuevoDepartamento = {
       Codigo: this.codigoDepartamento,
       Descripcion: this.descripcionDepartamento,
@@ -66,7 +84,15 @@ export class InsertarArticulosComponent {
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
       next: (response) => {
         this.dialogRef.close(response);
-        location.reload();
+        // location.reload();
+        Swal.fire({
+          title: 'Se han insertado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);

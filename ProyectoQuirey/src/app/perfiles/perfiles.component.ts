@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarPerfilesComponent } from './insertar-perfiles/insertar-perfiles.component';
 import { EditarPerfilesComponent } from './editar-perfiles/editar-perfiles.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-perfiles',
@@ -73,6 +74,15 @@ export class PerfilesComponent {
 
   eliminarDepartamento(Id: number) {
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
+      Swal.fire({
+        title: 'Se han eliminado los datos!',
+        icon: 'success',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.reload();
+        }
+      });
+      //location.reload();
       this.perfilesService.eliminarDepartamento(Id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter(
