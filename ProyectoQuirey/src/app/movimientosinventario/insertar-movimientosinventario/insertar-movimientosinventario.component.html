@@ -11,12 +11,6 @@
           type="number"
           placeholder="Ingresa el idtipomov"
           [(ngModel)]="idtipomovDepartamento"
-        />
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa el idtipomov"
-          [(ngModel)]="idtipomovDepartamento"
           required
           aria-required="true"
         />
@@ -29,7 +23,7 @@
   <!-- <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdAlmacen</mat-label>
-        <input matInput type="number" placeholder="Ingresa el idalmacen" [(ngModel)]="idalmacenDepartamento" required aria-required="true">
+        <input matInput type="number" placeholder="Ingresa el idalmacen" [(ngModel)]="idalmacenDepartamento">
       </mat-form-field>
     </div> -->
   <!-- </div> -->
@@ -39,6 +33,8 @@
   <select
     name="my-select"
     [(ngModel)]="idalmaceneslistDepartamento"
+    required
+    aria-required="true"
     (change)="selectChange()"
   >
     <option *ngFor="let item of users" [value]="item.Id">
@@ -53,12 +49,6 @@
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>UsuarioActualiza</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa el UsuarioActualiza"
-          [(ngModel)]="usuarioactualizaDepartamento"
-        />
         <input
           matInput
           type="number"

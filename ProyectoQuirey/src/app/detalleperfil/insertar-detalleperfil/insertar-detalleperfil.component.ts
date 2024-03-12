@@ -73,7 +73,11 @@ export class InsertarDetalleperfilComponent {
 
   insertar(): void {
     // Validar campos obligatorios
-    if (!this.IdPerfil || !this.IdModulo || !this.Usuario) {
+    if (
+      !this.idperfileslistDepartamento ||
+      !this.idmoduloslistDepartamento ||
+      !this.usuarioDepartamento
+    ) {
       Swal.fire({
         title: 'Por favor completa todos los campos obligatorios',
         // text: 'Por favor completa todos los campos obligatorios',

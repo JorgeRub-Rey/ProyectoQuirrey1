@@ -56,7 +56,8 @@ export class InsertarArticulosComponent {
     if (
       !this.codigoDepartamento ||
       !this.descripcionDepartamento ||
-      !this.unidadmedidaDepartamento ||
+      !this.idunidadDepartamento ||
+      !this.idunidadDepartamento ||
       !this.costoDepartamento ||
       !this.precioDepartamento ||
       !this.usuarioactualizaDepartamento

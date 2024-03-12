@@ -98,7 +98,7 @@ export class PuestosComponent {
 
   abrirEditarModal(departamento: Puestos) {
     const dialogRef = this.dialog.open(EditarPuestosComponent, {
-      width: '250px',
+      width: '550px',
       data: departamento, // Pasa el objeto de departamento a la modal
     });
 

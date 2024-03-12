@@ -101,7 +101,7 @@ export class EmpleadosComponent {
 
   abrirEditarModal(clientes: empleados) {
     const dialogRef = this.dialog.open(EditarEmpleadosComponent, {
-      width: '250px',
+      width: '550px',
       data: clientes, // Pasa el objeto de departamento a la modal
     });
 

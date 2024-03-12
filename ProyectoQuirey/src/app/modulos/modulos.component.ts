@@ -84,7 +84,7 @@ export class ModulosComponent {
         }
       });
       //location.reload();
-  
+
       this.modulosService.eliminarDepartamento(Id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter(
@@ -100,7 +100,7 @@ export class ModulosComponent {
 
   abrirEditarModal(departamento: Modulos) {
     const dialogRef = this.dialog.open(EditarModulosComponent, {
-      width: '250px',
+      width: '550px',
       data: departamento, // Pasa el objeto de departamento a la modal
     });
 

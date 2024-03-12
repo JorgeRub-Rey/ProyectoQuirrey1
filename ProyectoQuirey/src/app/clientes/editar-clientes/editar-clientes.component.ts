@@ -47,7 +47,7 @@ export class EditarClientesComponent implements OnInit {
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.clientes);
-        // location.reload();
+        location.reload();
 
         // Mostrar mensaje de éxito
         Swal.fire({

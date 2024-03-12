@@ -6,36 +6,29 @@
   <!-- Opciones de Formulario -->
 
   <!-- <div class="mat-dialog-cell">
-
-  <div class="mat-dialog-row">
-    <!-- Opciones de Formulario -->
-  <div class="mat-dialog-cell">
-    <mat-form-field>
-      <mat-label>IdSucursal</mat-label>
-      <input
-        matInput
-        placeholder="Ingresa el IdSucursal"
-        [(ngModel)]="IdSucursal"
-        required
-        aria-required="true"
-      />
-    </mat-form-field>
-  </div>
-  -->
+      <mat-form-field>
+        <mat-label>IdSucursal</mat-label>
+        <input matInput placeholder="Ingresa el IdSucursal" [(ngModel)]="IdSucursal">
+      </mat-form-field>
+    </div> -->
   <!-- </div> -->
 
   <!-- lista -->
-  <mat-label>Sucursales</mat-label>
+  <h1></h1>
+  <mat-label class="LisLebel">Sucursales</mat-label>
   <select
+    class="ListaDes"
     name="my-select"
     [(ngModel)]="idsucursalsedeDepartamento"
+    required
+    aria-required="true"
     (change)="selectChange()"
+    [@dropDownAnimation]
   >
-    <option *ngFor="let item of users" [value]="item.Id">
+    <option *ngFor="let item of users" [value]="item.Id" [@dropDownAnimation]>
       {{ item.Nombre }}
     </option>
   </select>
-
   <!-- lista -->
 
   <!-- <div class="mat-dialog-row">
@@ -48,18 +41,20 @@
           placeholder="Ingresa el IdCliente"
           [(ngModel)]="idclienteDepartamento"
         />
-
-        <input matInput placeholder="Ingresa el IdCliente" [(ngModel)]="IdCliente" required aria-required="true">
       </mat-form-field>
     </div> -->
   <!-- </div> -->
 
   <!-- lista -->
-  <mat-label>Clientes</mat-label>
+  <mat-label class="LisLebel">Clientes</mat-label>
   <select
+    class="ListaDes"
     name="my-select"
     [(ngModel)]="idclientesDepartamento"
+    required
+    aria-required="true"
     (change)="selectChange1()"
+    [@dropDownAnimation]
   >
     <option *ngFor="let item of users1" [value]="item.Id">
       {{ item.Nombre }}
@@ -77,12 +72,6 @@
           matInput
           placeholder="Ingresa el IdVendedor"
           [(ngModel)]="idvendedorDepartamento"
-        />
-
-        <input
-          matInput
-          placeholder="Ingresa el IdVendedor"
-          [(ngModel)]="IdVendedor"
           required
           aria-required="true"
         />
@@ -99,12 +88,6 @@
           matInput
           placeholder="Ingresa el UsuarioActualiza"
           [(ngModel)]="usuarioactualizaDepartamento"
-        />
-
-        <input
-          matInput
-          placeholder="Ingresa el UsuarioActualiza"
-          [(ngModel)]="UsuarioActualiza"
           required
           aria-required="true"
         />

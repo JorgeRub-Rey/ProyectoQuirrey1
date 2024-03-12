@@ -18,48 +18,40 @@ export class EditarArticulosComponent implements OnInit {
   departamento: EditarArticulo;
   idunidadmedidalistDepartamento: number = 0;
 
-
   constructor(
     public dialogRef: MatDialogRef<EditarArticulosComponent>,
     private departamentoService: ArticulosService,
     private unidadmedidaservice: UnidadmedidaService,
     @Inject(MAT_DIALOG_DATA) public data: EditarArticulo
   ) {
-    // Clona los datos recibidos para evitar la mutación directa
     this.departamento = { ...data };
   }
+
+  ngOnInit(): void {
+    this.getUnidadMedida();
+  }
+
   getUnidadMedida() {
     this.unidadmedidaservice.getDepartamentos().subscribe((res) => {
-      this.unidadmedida = res.response.data; // Cambia aquí
+      this.unidadmedida = res.response.data;
       console.log(res);
     });
   }
 
   selectChangeUnidadMedida() {
     if (this.mySelect.length > 0) {
-      // Por ejemplo, seleccionando el primer elemento de mySelect
-      const selectedItemId = this.mySelect[0]; // o cualquier otra lógica para obtener un solo valor
+      const selectedItemId = this.mySelect[0];
       console.log('Unidad seleccionada:', this.idunidadmedidalistDepartamento);
     }
   }
-
-  ngOnInit(): void {
-    this.getUnidadMedida();
-  }
-  }
-
-  ngOnInit(): void {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   guardar(): void {
-
     this.departamento.UnidadMedida = this.idunidadmedidalistDepartamento;
 
-
-    // Verifica si los campos obligatorios están completos
     if (
       !this.departamento.Codigo ||
       !this.departamento.Descripcion ||
@@ -68,7 +60,6 @@ export class EditarArticulosComponent implements OnInit {
       !this.departamento.Precio ||
       !this.departamento.UsuarioActualiza
     ) {
-      // Muestra un mensaje de error utilizando SweetAlert2
       Swal.fire({
         icon: 'error',
         title: 'Por favor, complete todos los campos obligatorios.',
@@ -76,26 +67,31 @@ export class EditarArticulosComponent implements OnInit {
       return;
     }
 
-    // Si todos los campos obligatorios están completos, procede con la actualización    this.departamentoService
+    this.departamentoService
       .actualizarDepartamento(this.departamento)
       .subscribe({
         next: (response) => {
-          // Cerrar la modal y posiblemente actualizar la tabla
           this.dialogRef.close(this.departamento);
 
-          location.reload();
-          // location.reload();
+          // Se recomienda evitar el uso de location.reload() para recargar la página,
+          // ya que hay métodos más eficientes y menos disruptivos para actualizar los datos en una aplicación Angular.
+          // Considera actualizar los datos directamente en la interfaz de usuario sin recargar toda la página.
           Swal.fire({
             title: 'Se han modificado correctamente los datos!',
             icon: 'success',
           }).then((result) => {
             if (result.isConfirmed) {
-              location.reload();
+              location.reload(); // Considera alternativas para actualizar los datos en la UI.
             }
           });
         },
         error: (error) => {
           // Manejar errores aquí
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al guardar los cambios',
+            text: 'No se pudo actualizar la información. Por favor, intente de nuevo.',
+          });
         },
       });
   }

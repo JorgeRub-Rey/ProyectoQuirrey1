@@ -20,33 +20,31 @@ export class EditarExistenciasComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditarExistenciasComponent>,
-    private departamentoService: ExistenciasService,
-    private almacenesservice: AlmacenesService,
+    private existenciasService: ExistenciasService,
+    private almacenesService: AlmacenesService,
     @Inject(MAT_DIALOG_DATA) public data: EditarExistencias
   ) {
     // Clona los datos recibidos para evitar la mutación directa
     this.departamento = { ...data };
   }
+
+  ngOnInit(): void {
+    this.getAlmacenes();
+  }
+
   getAlmacenes() {
-    this.almacenesservice.getDepartamentos().subscribe((res) => {
-      this.almacenes = res.response.data; // Cambia aquí
+    this.almacenesService.getDepartamentos().subscribe((res) => {
+      this.almacenes = res.response.data;
       console.log(res);
     });
   }
 
   selectChangealmacenes() {
     if (this.mySelect.length > 0) {
-      // Por ejemplo, seleccionando el primer elemento de mySelect
-      const selectedItemId = this.mySelect[0]; // o cualquier otra lógica para obtener un solo valor
-      console.log('Almacen seleccionado:', this.idalmaceneslistDepartamento);
+      const selectedItemId = this.mySelect[0];
+      console.log('Unidad seleccionada:', this.idalmaceneslistDepartamento);
     }
   }
-  ngOnInit(): void {
-    this.getAlmacenes();
-  }
-  }
-
-  ngOnInit(): void {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -55,14 +53,12 @@ export class EditarExistenciasComponent implements OnInit {
   guardar(): void {
     this.departamento.IdAlmacen = this.idalmaceneslistDepartamento;
 
-    // Verificar si algún campo obligatorio está vacío
     if (
       !this.departamento.Codigo ||
       !this.departamento.IdAlmacen ||
       !this.departamento.Cantidad ||
       !this.departamento.Estatus
     ) {
-      // Mostrar un mensaje de error utilizando SweetAlert2
       Swal.fire({
         icon: 'error',
         title: 'Por favor, complete todos los campos obligatorios.',
@@ -70,15 +66,12 @@ export class EditarExistenciasComponent implements OnInit {
       return;
     }
 
-    // Realizar la actualización del departamento
-    this.departamentoService
+    // Realizar la actualización de la existencia
+    this.existenciasService
       .actualizarDepartamento(this.departamento)
       .subscribe({
         next: (response) => {
-          // Cerrar la modal y posiblemente actualizar la tabla
           this.dialogRef.close(this.departamento);
-          location.reload();
-
           Swal.fire({
             title: 'Se han modificado correctamente los datos!',
             icon: 'success',
@@ -89,7 +82,8 @@ export class EditarExistenciasComponent implements OnInit {
           });
         },
         error: (error) => {
-          // Manejar errores aquí
+          console.error('Hubo un error al actualizar la existencia', error);
+          Swal.fire('Error al actualizar', '', 'error');
         },
       });
   }

@@ -80,7 +80,12 @@ export class InsertarTicketsComponent {
 
   insertar(): void {
     // Simple validation for required fields
-    if (!this.IdSucursal || !this.IdCliente || !this.IdVendedor) {
+    if (
+      !this.idsucursalsedeDepartamento ||
+      !this.idsucursalsedeDepartamento ||
+      !this.idclientesDepartamento ||
+      !this.idvendedorDepartamento
+    ) {
       Swal.fire({
         title: 'Por favor, completa todos los campos obligatorios.',
 
@@ -96,12 +101,6 @@ export class InsertarTicketsComponent {
       IdCliente: this.idclientesDepartamento,
       IdVendedor: this.idvendedorDepartamento,
       UsuarioActualiza: this.usuarioactualizaDepartamento,
-
-      IdSucursal: this.IdSucursal,
-      IdCliente: this.IdCliente,
-      IdVendedor: this.IdVendedor,
-      UsuarioActualiza: this.UsuarioActualiza,
-      // ...otros campos si los hay
     };
 
     this.ticketsService.insertarTickets(nuevoTickets).subscribe({

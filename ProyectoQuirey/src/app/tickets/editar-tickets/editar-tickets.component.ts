@@ -17,8 +17,6 @@ export class EditarTicketsComponent implements OnInit {
   selectedValueClientes: any;
   sucursales: any;
   clientes: any;
-
-
   tickets: EditarTickets;
   idsucursalsedelistDepartamento = 0;
   idclienteslistDepartamento = 0;
@@ -30,26 +28,26 @@ export class EditarTicketsComponent implements OnInit {
     private clientesservice: ClientesService,
     @Inject(MAT_DIALOG_DATA) public data: EditarTickets
   ) {
-    // Clona los datos recibidos para evitar la mutación directa
     this.tickets = { ...data };
   }
+
   getSucursales() {
     this.sucursalesservice.getTickets().subscribe((res) => {
-      this.sucursales = res.response.data; // Cambia aquí
+      this.sucursales = res.response.data;
       console.log(res);
     });
   }
+
   getClientes() {
     this.clientesservice.getClientes().subscribe((res) => {
-      this.clientes = res.response.data; // Cambia aquí
+      this.clientes = res.response.data;
       console.log(res);
     });
   }
 
   selectChangeSucursales() {
     if (this.mySelect.length > 0) {
-      // Por ejemplo, seleccionando el primer elemento de mySelect
-      const selectedItemId = this.mySelect[0]; // o cualquier otra lógica para obtener un solo valor
+      const selectedItemId = this.mySelect[0];
       console.log(
         'Sucursal seleccionada:',
         this.idsucursalsedelistDepartamento
@@ -59,19 +57,15 @@ export class EditarTicketsComponent implements OnInit {
 
   selectChangeClientes() {
     if (this.mySelect.length > 0) {
-      // Por ejemplo, seleccionando el primer elemento de mySelect
-      const selectedItemId = this.mySelect[0]; // o cualquier otra lógica para obtener un solo valor
+      const selectedItemId = this.mySelect[0];
       console.log('Cliente seleccionado:', this.idclienteslistDepartamento);
     }
   }
+
   ngOnInit(): void {
     this.getSucursales();
     this.getClientes();
   }
-
-  }
-
-  ngOnInit(): void {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -81,7 +75,6 @@ export class EditarTicketsComponent implements OnInit {
     this.tickets.IdSucursal = this.idsucursalsedelistDepartamento;
     this.tickets.IdCliente = this.idclienteslistDepartamento;
 
-    // Validación de campos obligatorios
     if (
       !this.tickets.IdSucursal ||
       !this.tickets.IdCliente ||
@@ -90,18 +83,14 @@ export class EditarTicketsComponent implements OnInit {
     ) {
       Swal.fire({
         title: 'Por favor complete todos los campos obligatorios',
-        // text: 'Por favor complete todos los campos obligatorios',
         icon: 'error',
       });
-      return; // Detiene la ejecución de la función si hay campos vacíos
+      return;
     }
 
-    // Si todos los campos están completos, se procede con la actualización
     this.ticketsService.actualizarTickets(this.tickets).subscribe({
       next: (response) => {
-        // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.tickets);
-        //location.reload();
         Swal.fire({
           title: 'Se han modificado correctamente los datos!',
           icon: 'success',

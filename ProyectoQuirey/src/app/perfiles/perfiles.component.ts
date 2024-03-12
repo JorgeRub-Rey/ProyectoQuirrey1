@@ -98,7 +98,7 @@ export class PerfilesComponent {
 
   abrirEditarModal(departamento: Perfiles) {
     const dialogRef = this.dialog.open(EditarPerfilesComponent, {
-      width: '250px',
+      width: '550px',
       data: departamento, // Pasa el objeto de departamento a la modal
     });
 

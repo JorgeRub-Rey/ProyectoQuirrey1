@@ -53,7 +53,7 @@ export class InsertarMovimientosinventarioComponent {
 
   insertar(): void {
     // Check if mandatory fields are filled
-    if (!this.idtipomovDepartamento || !this.idalmacenDepartamento) {
+    if (!this.idtipomovDepartamento || !this.idalmaceneslistDepartamento) {
       Swal.fire({
         icon: 'error',
         title: 'Por favor, complete todos los campos obligatorios.',
@@ -71,13 +71,16 @@ export class InsertarMovimientosinventarioComponent {
 
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
       next: (response) => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Departamento insertado',
-          text: 'El departamento se ha insertado correctamente.',
-        });
         this.dialogRef.close(response);
-        location.reload();
+        // location.reload();
+        Swal.fire({
+          title: 'Se han insertado correctamente los datos!',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload();
+          }
+        });
       },
       error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);

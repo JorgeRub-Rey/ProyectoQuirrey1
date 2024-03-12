@@ -11,16 +11,14 @@
           placeholder="Ingresa el IdPerfil"
           [(ngModel)]="detalleperfil.IdPerfil"
         /> -->
-      <!-- </mat-form-field> -->
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
+      <!-- <mat-form-field> required aria-required="true" /> </mat-form-field> -->
 
       <!-- lista -->
       <mat-label>IdPerfil</mat-label>
       <select
         [(ngModel)]="idperfileslistDepartamento"
+        required
+        aria-required="true"
         (change)="selectChangePerfiles()"
       >
         <option *ngFor="let item of perfiles" [value]="item.Id">
@@ -44,6 +42,8 @@
       <mat-label>IdModulo</mat-label>
       <select
         [(ngModel)]="idmoduloslistDepartamento"
+        required
+        aria-required="true"
         (change)="selectChangeModulos()"
       >
         <option *ngFor="let item of modulos" [value]="item.Id">
@@ -53,13 +53,14 @@
 
       <!-- lista -->
 
-
       <mat-form-field>
         <mat-label>Usuario</mat-label>
         <input
           matInput
           placeholder="Ingresa el Usuario"
           [(ngModel)]="detalleperfil.Usuario"
+          required
+          aria-required="true"
           step="1"
           required
           aria-required="true"

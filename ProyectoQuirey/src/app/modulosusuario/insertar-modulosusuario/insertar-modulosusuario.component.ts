@@ -73,7 +73,11 @@ export class InsertarModulosusuarioComponent {
 
   insertar(): void {
     // Verificar si algún campo obligatorio está vacío
-    if (!this.idPerfil || !this.idmodulo || !this.Usuario) {
+    if (
+      !this.idperfileslistDepartamento ||
+      !this.idmoduloslistDepartamento ||
+      !this.usuarioDepartamento
+    ) {
       // Mostrar un mensaje de error utilizando SweetAlert2
       Swal.fire({
         icon: 'error',
