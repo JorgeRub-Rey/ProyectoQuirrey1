@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AlmacenesService } from 'src/app/almacenes.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http'; // Importación añadida
 
 @Component({
   selector: 'app-insertar-almacenes',
@@ -33,7 +32,9 @@ export class InsertarAlmacenesComponent {
       // Muestra un mensaje de error utilizando Swal
       Swal.fire({
         icon: 'error',
+
         title: 'Por favor, complete todos los campos obligatorios.',
+        // text: 'Por favor, complete todos los campos obligatorios.',
       });
 
       // También puedes imprimir el mensaje en la consola si lo deseas
@@ -50,9 +51,8 @@ export class InsertarAlmacenesComponent {
     };
 
     this.departamentoService.insertarDepartamento(nuevoDepartamento).subscribe({
-      next: (response: HttpResponse<any>) => {
-        // Especificamos el tipo de 'response'
-        this.dialogRef.close(response.body);
+      next: (response) => {
+        this.dialogRef.close(response);
 
         Swal.fire({
           title: 'Se han insertado correctamente los datos!',
@@ -63,8 +63,7 @@ export class InsertarAlmacenesComponent {
           }
         });
       },
-      error: (error: HttpErrorResponse) => {
-        // Especificamos el tipo de 'error'
+      error: (error) => {
         console.error('Hubo un error al insertar el departamento', error);
       },
     });
