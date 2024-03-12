@@ -10,25 +10,38 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.component.html',
-  styleUrls: ['./tickets.component.css']
+  styleUrls: ['./tickets.component.css'],
 })
 export class TicketsComponent {
-
-  displayedColumns: string[] = ['Id', 'IdSucursal', 'IdCliente', 'IdVendedor', 'FechaVenta','UsuarioActualiza','Estatus' ,'Acciones'];
+  displayedColumns: string[] = [
+    'Id',
+    'IdSucursal',
+    'IdCliente',
+    'IdVendedor',
+    'FechaVenta',
+    'UsuarioActualiza',
+    'Estatus',
+    'Acciones',
+  ];
   dataSource: MatTableDataSource<tickets>;
 
-  constructor(private ticketsService: TicketsService, public dialog: MatDialog) {
+  constructor(
+    private ticketsService: TicketsService,
+    public dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource<tickets>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }
 
   ngOnInit() {
     this.dataSource.filterPredicate = (data: tickets, filter: string) => {
-      return data.IdCliente.toString().includes(filter) || 
-             data.Id.toString().includes(filter); // Puedes añadir más campos si es necesario
+      return (
+        data.IdCliente.toString().includes(filter) ||
+        data.Id.toString().includes(filter)
+      ); // Puedes añadir más campos si es necesario
     };
     this.ticketsService.getTickets().subscribe({
       next: (response) => {
-        console.log('Respuesta del servidor:', response.response.data); 
+        console.log('Respuesta del servidor:', response.response.data);
         if (response.success) {
           this.dataSource.data = response.response.data; // Asigna los datos al atributo 'data' de dataSource
         } else {
@@ -37,7 +50,7 @@ export class TicketsComponent {
       },
       error: (error) => {
         // Manejar el error de la solicitud
-      }
+      },
     });
   }
   // Método para realizar el filtrado
@@ -50,23 +63,18 @@ export class TicketsComponent {
     }
   }
 
-  
-
- abrirInsertarModal() {
+  abrirInsertarModal() {
     const dialogRef = this.dialog.open(InsertarTicketsComponent, {
       width: '550px',
       // Puedes pasar datos al componente de la modal si es necesario
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       // Manejar los resultados cuando la modal se cierre
     });
   }
-  
-
 
   eliminarTickets(Id: number) {
-    
     if (confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
       Swal.fire({
         title: 'Se han eliminado los datos!',
@@ -76,32 +84,30 @@ export class TicketsComponent {
           location.reload();
         }
       });
-      //location.reload();
-    
+      // location.reload();
+
       this.ticketsService.eliminarTickets(Id).subscribe({
         next: () => {
-          this.dataSource.data = this.dataSource.data.filter((clientes: tickets) => clientes.Id !== Id);
+          this.dataSource.data = this.dataSource.data.filter(
+            (clientes: tickets) => clientes.Id !== Id
+          );
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el cliente', error);
-        }
-        
+        },
       });
     }
   }
-  
-  
+
   abrirEditarModal(clientes: tickets) {
     const dialogRef = this.dialog.open(EditarTicketsComponent, {
-      width: '250px',
-      data: clientes // Pasa el objeto de departamento a la modal
+      width: '550px',
+      data: clientes, // Pasa el objeto de departamento a la modal
     });
-  
-    dialogRef.afterClosed().subscribe(result => {
+
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        
       }
     });
   }
-
 }

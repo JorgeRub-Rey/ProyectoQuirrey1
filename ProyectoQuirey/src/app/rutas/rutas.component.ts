@@ -95,7 +95,7 @@ export class RutasComponent {
 
   abrirEditarModal(rutas: rutas) {
     const dialogRef = this.dialog.open(EditarRutasComponent, {
-      width: '250px',
+      width: '550px',
       data: rutas, // Pasa el objeto de departamento a la modal
     });
 

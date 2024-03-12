@@ -3,6 +3,9 @@
   <!-- Fila para el formulario -->
   <div class="mat-dialog-row">
     <!-- Opciones de Formulario -->
+
+    <!-- <div class="mat-dialog-cell"> -->
+    <!-- <mat-form-field>
     <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdPerfil</mat-label>
@@ -15,12 +18,39 @@
           aria-required="true"
         />
       </mat-form-field>
-    </div>
-  </div>
+    </div> -->
+    <!-- </div> -->
 
-  <div class="mat-dialog-row">
+    <!-- lista -->
+    <mat-label>Perfiles</mat-label>
+    <select
+      name="my-select"
+      [(ngModel)]="idperfileslistDepartamento"
+      (change)="selectChangePerfiles()"
+    >
+      <option *ngFor="let item of perfiles" [value]="item.Id">
+        {{ item.Nombre }}
+      </option>
+    </select>
+
+    <!-- lista -->
+
+    <mat-label>Modulos</mat-label>
+    <select
+      name="my-select"
+      [(ngModel)]="idmoduloslistDepartamento"
+      (change)="selectChangeModulos()"
+    >
+      <option *ngFor="let item of modulos" [value]="item.Id">
+        {{ item.Modulo }}
+      </option>
+    </select>
+
+    <!-- lista -->
+
+    <!-- <div class="mat-dialog-row"> -->
     <!-- Columna para el campo de nombre -->
-    <div class="mat-dialog-cell">
+    <!-- <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdModulo</mat-label>
         <input
@@ -32,32 +62,31 @@
           aria-required="true"
         />
       </mat-form-field>
-    </div>
-  </div>
+    </div> -->
+    <!-- </div> -->
 
-  <div class="mat-dialog-row">
-    <!-- Columna para el campo de nombre -->
-    <div class="mat-dialog-cell">
-      <mat-form-field>
-        <mat-label>Usuario</mat-label>
-        <input
-          type="number"
-          matInput
-          placeholder="Ingresa el Usuario"
-          [(ngModel)]="Usuario"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
+    <div class="mat-dialog-row">
+      <!-- Columna para el campo de nombre -->
+      <div class="mat-dialog-cell">
+        <mat-form-field>
+          <mat-label>Usuario</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Ingresa el Usuario"
+            [(ngModel)]="usuarioDepartamento"
+          />
+        </mat-form-field>
+      </div>
+      <!-- Opciones botones-->
+    </div>
+    <div mat-dialog-actions>
+      <button class="cancelar" mat-button cdkFocusInitial (click)="onNoClick()">
+        Cancelar
+      </button>
+      <button class="guardar" mat-button cdkFocusInitial (click)="insertar()">
+        Añadir
+      </button>
     </div>
   </div>
-  <!-- Opciones botones-->
-</div>
-<div mat-dialog-actions>
-  <button class="cancelar" mat-button cdkFocusInitial (click)="onNoClick()">
-    Cancelar
-  </button>
-  <button class="guardar" mat-button cdkFocusInitial (click)="insertar()">
-    Añadir
-  </button>
 </div>

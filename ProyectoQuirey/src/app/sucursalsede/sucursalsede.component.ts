@@ -83,7 +83,7 @@ export class SucursalsedeComponent {
       }
     });
     //location.reload();
-  
+
     if (confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
       this.ticketsService.eliminarTickets(Id).subscribe({
         next: () => {
@@ -100,7 +100,7 @@ export class SucursalsedeComponent {
 
   abrirEditarModal(clientes: Sucursalsede) {
     const dialogRef = this.dialog.open(EditarSucursalsedeComponent, {
-      width: '250px',
+      width: '550px',
       data: clientes, // Pasa el objeto de departamento a la modal
     });
 

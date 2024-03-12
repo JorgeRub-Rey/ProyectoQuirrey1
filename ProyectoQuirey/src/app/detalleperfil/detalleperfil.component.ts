@@ -34,7 +34,7 @@ export class DetalleperfilComponent {
   ngOnInit() {
     this.dataSource.filterPredicate = (data: DetallePerfil, filter: string) => {
       return (
-        data.IdModulo.toLowerCase().includes(filter) ||
+        data.IdPerfil.toString().includes(filter) ||
         data.Id.toString().includes(filter)
       ); // Puedes añadir más campos si es necesario
     };
@@ -95,7 +95,7 @@ export class DetalleperfilComponent {
 
   abrirEditarModal(detalleperfil: DetallePerfil) {
     const dialogRef = this.dialog.open(EditarDetalleperfilComponent, {
-      width: '250px',
+      width: '550px',
       data: detalleperfil, // Pasa el objeto de departamento a la modal
     });
 

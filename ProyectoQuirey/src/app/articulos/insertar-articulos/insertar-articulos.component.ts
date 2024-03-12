@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ArticulosService } from 'src/app/articulos.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UnidadmedidaService } from 'src/app/unidadmedida.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,18 +10,43 @@ import Swal from 'sweetalert2';
   styleUrls: ['./insertar-articulos.component.css'],
 })
 export class InsertarArticulosComponent {
+  mySelect: (string | number)[] = [];
+  selectedValue: any;
+  users: any;
+
   codigoDepartamento: string = '';
   descripcionDepartamento: string = '';
-  unidadmedidaDepartamento: number = 1;
+  idunidadDepartamento: number = 0;
+  unidadmedidaDepartamento: number = 0;
   costoDepartamento: number = 0;
   precioDepartamento: number = 0;
   usuarioactualizaDepartamento: number = 1;
 
   constructor(
     public dialogRef: MatDialogRef<InsertarArticulosComponent>,
-    private departamentoService: ArticulosService
+    private departamentoService: ArticulosService,
+    private _service: UnidadmedidaService
   ) {}
+  get() {
+    this._service.getDepartamentos().subscribe((res) => {
+      this.users = res.response.data; // Cambia aquí
+      console.log(res);
+    });
+  }
 
+  selectChange() {
+    if (this.mySelect.length > 0) {
+      // Por ejemplo, seleccionando el primer elemento de mySelect
+      const selectedItemId = this.mySelect[0]; // o cualquier otra lógica para obtener un solo valor
+      this.selectedValue = this._service.getDropDownText(
+        selectedItemId,
+        this.users
+      );
+    }
+  }
+  ngOnInit(): void {
+    this.get();
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -30,7 +56,8 @@ export class InsertarArticulosComponent {
     if (
       !this.codigoDepartamento ||
       !this.descripcionDepartamento ||
-      !this.unidadmedidaDepartamento ||
+      !this.idunidadDepartamento ||
+      !this.idunidadDepartamento ||
       !this.costoDepartamento ||
       !this.precioDepartamento ||
       !this.usuarioactualizaDepartamento
@@ -47,7 +74,8 @@ export class InsertarArticulosComponent {
     const nuevoDepartamento = {
       Codigo: this.codigoDepartamento,
       Descripcion: this.descripcionDepartamento,
-      UnidadMedida: this.unidadmedidaDepartamento,
+      IdUnidadMedida: this.idunidadDepartamento,
+      UnidadMedida: this.idunidadDepartamento,
       Costo: this.costoDepartamento,
       Precio: this.precioDepartamento,
       UsuarioActualiza: this.usuarioactualizaDepartamento,

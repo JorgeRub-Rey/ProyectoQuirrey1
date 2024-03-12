@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiResponse, Perfiles } from './Models/perfiles.models';
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,6 +17,13 @@ export class PerfilesService {
       `${this.apiUrl}/Get_Perfiles`,
       requestBody
     );
+  }
+
+  getDropDownText(IdPerfiles: string | number, object: any[]) {
+    const selObj = _.filter(object, function (o) {
+      return o.Id === IdPerfiles;
+    });
+    return selObj;
   }
 
   // Método para insertar un nuevo departamento
@@ -41,7 +49,6 @@ export class PerfilesService {
       id: departamentoData.Id,
       nombre: departamentoData.Nombre,
       usuario: 1,
-   
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
     return this.http.post<ApiResponse>(`${this.apiUrl}/UpdateAlmacenes`, body);

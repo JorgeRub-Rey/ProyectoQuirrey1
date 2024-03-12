@@ -109,7 +109,7 @@ export class MovimientosinventarioComponent {
 
   abrirEditarModal(departamento: MovimientosInventario) {
     const dialogRef = this.dialog.open(EditarMovimientosinventarioComponent, {
-      width: '250px',
+      width: '550px',
       data: departamento, // Pasa el objeto de departamento a la modal
     });
 

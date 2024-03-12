@@ -28,8 +28,8 @@ export class DetalleperfilService {
     // El 'nombre' es la única parte variable que viene del formulario
     // 'activo' y 'usuario' son valores fijos en este ejemplo
     const body = {
-      IdPerfil: detalleperfilData.IdPerfil || 0,
-      IdModulo: detalleperfilData.IdModulo || 0, // Valor por defecto si no se proporciona
+      IdPerfil: detalleperfilData.IdPerfil,
+      IdModulo: detalleperfilData.IdModulo, // Valor por defecto si no se proporciona
       Usuario: detalleperfilData.Usuario || 0, // Valor por defecto si no se proporciona
     };
     return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
@@ -44,9 +44,8 @@ export class DetalleperfilService {
   ): Observable<ApiResponse> {
     const body = {
       id: detalleperfilData.Id,
-      IdPerfil: detalleperfilData.IdPerfil || 0,
-      IdModulo: detalleperfilData.IdModulo || 0,
-     
+      IdPerfil: detalleperfilData.IdPerfil,
+      IdModulo: detalleperfilData.IdModulo,
       Usuario: detalleperfilData.Usuario || 0,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);

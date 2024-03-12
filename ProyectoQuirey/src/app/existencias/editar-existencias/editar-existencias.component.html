@@ -16,17 +16,21 @@
         />
       </mat-form-field>
 
-      <mat-form-field>
+      <!-- <mat-form-field>
         <mat-label>IdAlmacen</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa el IdAlmacen"
-          [(ngModel)]="departamento.IdAlmacen"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
+        <input matInput type="number" placeholder="Ingresa el IdAlmacen" [(ngModel)]="departamento.IdAlmacen">
+      </mat-form-field> -->
+
+      <!-- lista -->
+      <mat-label>IdAlmacen</mat-label>
+      <select
+        [(ngModel)]="idalmaceneslistDepartamento"
+        (change)="selectChangealmacenes()"
+      >
+        <option *ngFor="let item of almacenes" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
 
       <mat-form-field>
         <mat-label>Cantidad</mat-label>

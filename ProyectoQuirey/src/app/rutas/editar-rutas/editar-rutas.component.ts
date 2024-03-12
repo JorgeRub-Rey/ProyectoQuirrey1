@@ -42,7 +42,7 @@ export class EditarRutasComponent implements OnInit {
       next: (response) => {
         // Cerrar la modal y posiblemente actualizar la tabla
         this.dialogRef.close(this.rutas);
-        // location.reload();
+        location.reload();
 
         Swal.fire({
           title: 'Se han modificado correctamente los datos!',

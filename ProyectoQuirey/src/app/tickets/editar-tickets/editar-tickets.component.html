@@ -4,29 +4,41 @@
   <div class="mat-dialog-row">
     <!-- Opciones de formulario -->
     <div class="mat-dialog-cell">
-      <mat-form-field>
+      <!-- <mat-form-field>
         <mat-label>IdSucursal</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa el IdSucursal"
-          [(ngModel)]="tickets.IdSucursal"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
+        <input matInput type="number" placeholder="Ingresa el IdSucursal" [(ngModel)]="tickets.IdSucursal">
+      </mat-form-field> -->
 
-      <mat-form-field>
-        <mat-label>IdCliente</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa la IdCliente"
-          [(ngModel)]="tickets.IdCliente"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
+      <!-- lista -->
+      <h1></h1>
+      <h1></h1>
+      <mat-label class="LisLebel">IdSucursal</mat-label>
+      <select
+        class="ListaDes"
+        [(ngModel)]="idsucursalsedelistDepartamento"
+        required
+        aria-required="true"
+        (change)="selectChangeSucursales()"
+      >
+        <option *ngFor="let item of sucursales" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+      <!-- lista -->
+      <mat-label class="LisLebel">IdCliente</mat-label>
+      <select
+        class="ListaDes"
+        [(ngModel)]="idclienteslistDepartamento"
+        required
+        aria-required="true"
+        (change)="selectChangeClientes()"
+      >
+        <option *ngFor="let item of clientes" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+      <!-- lista -->
 
       <mat-form-field>
         <mat-label>IdVendedor</mat-label>
@@ -40,6 +52,7 @@
         />
       </mat-form-field>
 
+      <!-- lista -->
       <mat-form-field>
         <mat-label>UsuarioActualiza</mat-label>
         <input
@@ -47,9 +60,9 @@
           type="number"
           placeholder="Ingresa el UsuarioActualiza"
           [(ngModel)]="tickets.UsuarioActualiza"
-          step="1"
           required
           aria-required="true"
+          step="1"
         />
       </mat-form-field>
     </div>
