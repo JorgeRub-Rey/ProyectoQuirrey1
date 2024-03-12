@@ -97,10 +97,10 @@ export class InsertarTicketsComponent {
       IdVendedor: this.idvendedorDepartamento,
       UsuarioActualiza: this.usuarioactualizaDepartamento,
 
-      IdSucursal: this.IdSucursal,
-      IdCliente: this.IdCliente,
-      IdVendedor: this.IdVendedor,
-      UsuarioActualiza: this.UsuarioActualiza,
+      // IdSucursal: this.IdSucursal,
+      // IdCliente: this.IdCliente,
+      // IdVendedor: this.IdVendedor,
+      // UsuarioActualiza: this.UsuarioActualiza,
       // ...otros campos si los hay
     };
 

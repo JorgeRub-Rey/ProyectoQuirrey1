@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class EditarMovimientosinventarioComponent implements OnInit {
   departamento: EditarMovimientosInventario;
+
   constructor(
     public dialogRef: MatDialogRef<EditarMovimientosinventarioComponent>,
     private departamentoService: MovimientosinventarioService,
@@ -37,14 +38,13 @@ export class EditarMovimientosinventarioComponent implements OnInit {
       // Mostrar mensaje de error con SweetAlert2
       Swal.fire({
         title: 'Por favor completa todos los campos obligatorios',
-        // text: 'Por favor completa todos los campos obligatorios',
         icon: 'error',
       });
       return;
     }
 
     this.departamentoService
-      .actualizarDepartamento(this.departamento)
+      .insertarDepartamento(this.departamento) // Cambiar "actualizarDepartamento" a "actualizarMovimiento"
       .subscribe({
         next: (response) => {
           // Cerrar la modal y posiblemente actualizar la tabla

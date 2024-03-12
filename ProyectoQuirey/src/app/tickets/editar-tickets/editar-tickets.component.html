@@ -4,58 +4,34 @@
   <div class="mat-dialog-row">
     <!-- Opciones de formulario -->
     <div class="mat-dialog-cell">
-      <!-- <mat-form-field>
+      <mat-form-field>
         <mat-label>IdSucursal</mat-label>
-        <input matInput type="number" placeholder="Ingresa el IdSucursal" [(ngModel)]="tickets.IdSucursal">
-      </mat-form-field> -->
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa el IdSucursal"
+        <select
+          matNativeControl
           [(ngModel)]="tickets.IdSucursal"
           required
           aria-required="true"
-        />
+          title="Selecciona la sucursal"
+        >
+          <option *ngFor="let item of sucursales" [value]="item.Id">
+            {{ item.Nombre }}
+          </option>
+        </select>
       </mat-form-field>
-      <!-- lista -->
-      <mat-label>IdSucursal</mat-label>
-      <select
-        [(ngModel)]="idsucursalsedelistDepartamento"
-        (change)="selectChangeSucursales()"
-      >
-        <option *ngFor="let item of sucursales" [value]="item.Id">
-          {{ item.Nombre }}
-        </option>
-      </select>
 
-      <!-- lista -->
-
-      <!-- <mat-form-field>
+      <mat-form-field>
         <mat-label>IdCliente</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa la IdCliente"
+        <select
+          matNativeControl
           [(ngModel)]="tickets.IdCliente"
-        />
-      </mat-form-field> -->
-
-      <!-- lista -->
-      <mat-label>IdCliente</mat-label>
-      <select
-        [(ngModel)]="idclienteslistDepartamento"
-        (change)="selectChangeClientes()"
-      >
-        <option *ngFor="let item of clientes" [value]="item.Id">
-          {{ item.Nombre }}
-        </option>
-      </select>
-
-      <!-- lista -->
-
           required
           aria-required="true"
-        />
+          title="Selecciona el cliente"
+        >
+          <option *ngFor="let item of clientes" [value]="item.Id">
+            {{ item.Nombre }}
+          </option>
+        </select>
       </mat-form-field>
 
       <mat-form-field>
@@ -80,11 +56,10 @@
           step="1"
           required
           aria-required="true"
-                  />
+        />
       </mat-form-field>
     </div>
   </div>
-  <!-- Opciones botones-->
 </div>
 <div mat-dialog-actions>
   <button class="cancelar" mat-button (click)="onNoClick()">Cancelar</button>

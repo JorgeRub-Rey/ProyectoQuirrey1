@@ -2,34 +2,13 @@
 <div mat-dialog-content class="mat-dialog-grid">
   <!-- Fila para el formulario -->
 
-  <!-- <div class="mat-dialog-row"> -->
-  <!-- Opciones de Formulario -->
-
-  <!-- <div class="mat-dialog-cell">
-
-  <div class="mat-dialog-row">
-    <!-- Opciones de Formulario -->
-  <div class="mat-dialog-cell">
-    <mat-form-field>
-      <mat-label>IdSucursal</mat-label>
-      <input
-        matInput
-        placeholder="Ingresa el IdSucursal"
-        [(ngModel)]="IdSucursal"
-        required
-        aria-required="true"
-      />
-    </mat-form-field>
-  </div>
-  -->
-  <!-- </div> -->
-
   <!-- lista -->
   <mat-label>Sucursales</mat-label>
   <select
     name="my-select"
     [(ngModel)]="idsucursalsedeDepartamento"
     (change)="selectChange()"
+    title="Selecciona una sucursal"
   >
     <option *ngFor="let item of users" [value]="item.Id">
       {{ item.Nombre }}
@@ -38,34 +17,18 @@
 
   <!-- lista -->
 
-  <!-- <div class="mat-dialog-row">
-    <!-- Columna para el campo de nombre -->
-  <!-- <div class="mat-dialog-cell">
-      <mat-form-field>
-        <mat-label>IdCliente</mat-label>
-        <input
-          matInput
-          placeholder="Ingresa el IdCliente"
-          [(ngModel)]="idclienteDepartamento"
-        />
-
-        <input matInput placeholder="Ingresa el IdCliente" [(ngModel)]="IdCliente" required aria-required="true">
-      </mat-form-field>
-    </div> -->
-  <!-- </div> -->
-
   <!-- lista -->
   <mat-label>Clientes</mat-label>
   <select
     name="my-select"
     [(ngModel)]="idclientesDepartamento"
     (change)="selectChange1()"
+    title="Selecciona un cliente"
   >
     <option *ngFor="let item of users1" [value]="item.Id">
       {{ item.Nombre }}
     </option>
   </select>
-
   <!-- lista -->
 
   <div class="mat-dialog-row">
