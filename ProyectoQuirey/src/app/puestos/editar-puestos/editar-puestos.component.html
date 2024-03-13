@@ -11,6 +11,8 @@
           matInput
           placeholder="Ingresa el nombre"
           [(ngModel)]="departamento.Nombre"
+          required
+          aria-required="true"
         />
       </mat-form-field>
 
@@ -20,9 +22,10 @@
           matInput
           placeholder="Ingresa la Usuario"
           [(ngModel)]="departamento.Usuario"
+          required
+          aria-required="true"
         />
       </mat-form-field>
-
    
     </div>
   </div>
@@ -31,7 +34,7 @@
 </div>
 <div mat-dialog-actions>
   <button class="cancelar" mat-button (click)="onNoClick()">Cancelar</button>
-  <button class="guardar" mat-button (click)="guardar()">
+  <button class="guardar" mat-button (click)="guardar()" [disabled]="!formularioValido()">
     Guardar Cambios
   </button>
 </div>

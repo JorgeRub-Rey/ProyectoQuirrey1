@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class EditarPuestosComponent implements OnInit {
   departamento: EditarDepartamento;
+
   constructor(
     public dialogRef: MatDialogRef<EditarPuestosComponent>,
     private departamentoService: PuestosService,
@@ -27,23 +28,31 @@ export class EditarPuestosComponent implements OnInit {
   }
 
   guardar(): void {
+    // Validar campos obligatorios
+    if (!this.departamento.Nombre || !this.departamento.Usuario) {
+      Swal.fire({
+        title: 'Por favor, complete todos los campos obligatorios.',
+        //text: 'Por favor, complete todos los campos obligatorios.',
+        icon: 'error',
+      });
+      return; // Detener la ejecución si hay campos obligatorios sin completar
+    }
+
     this.departamentoService
       .actualizarDepartamento(this.departamento)
       .subscribe({
         next: (response) => {
           // Cerrar la modal y posiblemente actualizar la tabla
           this.dialogRef.close(this.departamento);
-          // location.reload();
 
-        Swal.fire({
-          title: 'Se han modificado correctamente los datos!',
-          icon: 'success',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            location.reload();
-          }
-        });
-
+          Swal.fire({
+            title: 'Se han modificado correctamente los datos!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           // Manejar errores aquí
