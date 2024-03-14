@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ModulosService } from '../modulos.service';
 import { Modulos } from '../Models/modulos.models';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarModulosComponent } from './insertar-modulos/insertar-modulos.component';
 import { EditarModulosComponent } from './editar-modulos/editar-modulos.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-modulos',
@@ -22,7 +23,16 @@ export class ModulosComponent {
     'IdCategoria',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Modulos>;
+
+  
+  dataSource = new MatTableDataSource<Modulos>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
 
   constructor(
     private modulosService: ModulosService,

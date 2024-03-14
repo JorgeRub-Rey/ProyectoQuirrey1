@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { DetallePerfil } from '../Models/detalleperfil.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
@@ -6,6 +6,7 @@ import { InsertarDetalleperfilComponent } from './insertar-detalleperfil/inserta
 import { EditarDetalleperfilComponent } from './editar-detalleperfil/editar-detalleperfil.component';
 import { DetalleperfilService } from '../detalleperfil.service';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-detalleperfil',
@@ -22,7 +23,17 @@ export class DetalleperfilComponent {
     'Usuario',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<DetallePerfil>;
+
+
+  dataSource = new MatTableDataSource<DetallePerfil>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+  
+  
 
   constructor(
     private detalleperfilService: DetalleperfilService,

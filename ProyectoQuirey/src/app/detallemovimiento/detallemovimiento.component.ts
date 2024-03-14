@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { DetallemovimientoService } from '../detallemovimiento.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
@@ -6,6 +6,7 @@ import { Detallemovimiento } from '../Models/detallemovimiento.models';
 import { EditarDetallemovimientoComponent } from './editar-detallemovimiento/editar-detallemovimiento.component';
 import { InsertarDetallemovimientoComponent } from './insertar-detallemovimiento/insertar-detallemovimiento.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-detallemovimiento',
@@ -25,7 +26,16 @@ export class DetallemovimientoComponent {
     'Descripcion',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Detallemovimiento>;
+
+  
+  dataSource = new MatTableDataSource<Detallemovimiento>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+  
 
   constructor(
     private detallemovimientoService: DetallemovimientoService,

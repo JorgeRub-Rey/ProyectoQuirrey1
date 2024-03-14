@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { AlmacenesComponent } from './almacenes/almacenes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { ControlPanelComponent } from './control-panel/control-panel.component';
@@ -266,6 +266,7 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    MatPaginatorModule,
     ReactiveFormsModule,
   ],
   providers: [],

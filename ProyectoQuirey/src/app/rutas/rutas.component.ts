@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { rutas } from '../Models/rutas.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { RutasService } from '../rutas.service';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarRutasComponent } from 'src/app/rutas/insertar-rutas/insertar-rutas.component';
 import { EditarRutasComponent } from 'src/app/rutas/editar-rutas/editar-rutas.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-rutas',
@@ -21,7 +22,17 @@ export class RutasComponent {
     'FechaActualiza',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<rutas>;
+
+
+  
+  dataSource = new MatTableDataSource<rutas>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
 
   constructor(private rutasService: RutasService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource<rutas>(); // Inicializa dataSource como una instancia de MatTableDataSource

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PersonasService } from '../personas.service';
 import { Personas } from '../Models/personas.models';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarPersonasComponent } from './insertar-personas/insertar-personas.component';
 import { EditarPersonasComponent } from './editar-personas/editar-personas.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-personas',
@@ -26,7 +27,15 @@ export class PersonasComponent {
     'Usuario',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Personas>;
+ 
+
+  dataSource = new MatTableDataSource<Personas>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private personasService: PersonasService,

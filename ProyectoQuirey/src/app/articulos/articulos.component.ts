@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ArticulosService } from '../articulos.service';
 import { Articulos } from '../Models/articulos.models';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarArticulosComponent } from './insertar-articulos/insertar-articulos.component';
 import { EditarArticulosComponent } from './editar-articulos/editar-articulos.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-articulos',
@@ -25,7 +26,14 @@ export class ArticulosComponent {
     'FechaActualiza',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Articulos>;
+
+ dataSource = new MatTableDataSource<Articulos>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private articulosService: ArticulosService,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Sucursalsede } from '../Models/sucursalsede.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { SucursalsedeService } from '../sucursalsede.service';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarSucursalsedeComponent } from 'src/app/sucursalsede/insertar-sucursalsede/insertar-sucursalsede.component';
 import { EditarSucursalsedeComponent } from 'src/app/sucursalsede/editar-sucursalsede/editar-sucursalsede.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-sucursalsede',
@@ -22,7 +23,15 @@ export class SucursalsedeComponent {
     'Usuario',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Sucursalsede>;
+
+
+  dataSource = new MatTableDataSource<Sucursalsede>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private ticketsService: SucursalsedeService,

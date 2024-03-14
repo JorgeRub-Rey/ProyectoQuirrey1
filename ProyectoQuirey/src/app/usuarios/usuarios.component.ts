@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UsuariosService } from '../usuarios.service';
 import { Usuario } from '../Models/usuarios.models';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarUsuariosComponent } from './insertar-usuarios/insertar-usuarios.component';
 import { EditarUsuariosComponent } from './editar-usuarios/editar-usuarios.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-usuarios',
@@ -22,7 +23,16 @@ export class UsuariosComponent {
     'IdPersona',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Usuario>;
+
+      
+  dataSource = new MatTableDataSource<Usuario>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
 
   constructor(
     private usuariosService: UsuariosService,

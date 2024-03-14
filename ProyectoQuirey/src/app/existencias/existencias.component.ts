@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ExistenciasService } from '../existencias.service';
 import { Existencias } from '../Models/existencias.models';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { InsertarExistenciasComponent } from './insertar-existencias/insertar-existencias.component';
 import { EditarExistenciasComponent } from './editar-existencias/editar-existencias.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-existencias',
@@ -22,7 +23,16 @@ export class ExistenciasComponent {
     'Estatus',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Existencias>;
+
+
+  dataSource = new MatTableDataSource<Existencias>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
 
   constructor(
     private existenciasService: ExistenciasService,

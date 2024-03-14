@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { tickets } from '../Models/tickets.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { TicketsService } from '../tickets.service';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarTicketsComponent } from 'src/app/tickets/insertar-tickets/insertar-tickets.component';
 import { EditarTicketsComponent } from 'src/app/tickets/editar-tickets/editar-tickets.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-tickets',
@@ -23,7 +24,15 @@ export class TicketsComponent {
     'Estatus',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<tickets>;
+
+  
+  dataSource = new MatTableDataSource<tickets>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private ticketsService: TicketsService,

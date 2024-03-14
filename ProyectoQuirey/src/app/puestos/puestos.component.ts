@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PuestosService } from '../puestos.service';
 import { Puestos } from '../Models/puestos.models';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarPuestosComponent } from './insertar-puestos/insertar-puestos.component';
 import { EditarPuestosComponent } from './editar-puestos/editar-puestos.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-puestos',
@@ -21,7 +22,15 @@ export class PuestosComponent {
     'Usuario',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Puestos>;
+
+
+  dataSource = new MatTableDataSource<Puestos>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private puestosService: PuestosService,

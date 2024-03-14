@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AlmacenesService } from '../almacenes.service';
 import { Almacenes } from '../Models/almacenes.models';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarAlmacenesComponent } from './insertar-almacenes/insertar-almacenes.component';
 import { EditarAlmacenesComponent } from './editar-almacenes/editar-almacenes.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-almacenes',
@@ -22,7 +23,17 @@ export class AlmacenesComponent {
     'FechaActualiza',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Almacenes>;
+
+ //Paginador
+  dataSource = new MatTableDataSource<Almacenes>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+ //fin de Paginador
+
 
   constructor(
     private almacenesService: AlmacenesService,

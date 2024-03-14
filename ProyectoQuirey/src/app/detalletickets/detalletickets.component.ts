@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { DetalleticketsService } from '../detalletickets.service';
 import { Detalletickets } from '../Models/detalletickets.models';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarDetalleticketsComponent } from './insertar-detalletickets/insertar-detalletickets.component';
 import { EditarDetalleticketsComponent } from './editar-detalletickets/editar-detalletickets.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-detalletickets',
@@ -26,7 +27,16 @@ export class DetalleticketsComponent {
     'DescripcionArticulo',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Detalletickets>;
+
+
+
+  dataSource = new MatTableDataSource<Detalletickets>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private detalleticketsService: DetalleticketsService,

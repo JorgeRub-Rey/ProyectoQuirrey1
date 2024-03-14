@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { empleados } from '../Models/empleados.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { EmpleadosService } from '../empleados.service';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarEmpleadosComponent } from 'src/app/empleados/insertar-empleados/insertar-empleados.component';
 import { EditarEmpleadosComponent } from 'src/app/empleados/editar-empleados/editar-empleados.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-empleados',
@@ -24,7 +25,16 @@ export class EmpleadosComponent {
     'IdPersona',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<empleados>;
+
+
+  dataSource = new MatTableDataSource<empleados>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
 
   constructor(
     private ticketsService: EmpleadosService,

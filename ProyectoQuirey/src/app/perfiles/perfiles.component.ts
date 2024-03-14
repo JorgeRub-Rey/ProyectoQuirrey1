@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PerfilesService } from '../perfiles.service';
 import { Perfiles } from '../Models/perfiles.models';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarPerfilesComponent } from './insertar-perfiles/insertar-perfiles.component';
 import { EditarPerfilesComponent } from './editar-perfiles/editar-perfiles.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-perfiles',
@@ -21,7 +22,15 @@ export class PerfilesComponent {
     'Usuario',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<Perfiles>;
+
+
+  dataSource = new MatTableDataSource<Perfiles>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private perfilesService: PerfilesService,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { clientes } from '../Models/clientes.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClientesService } from '../clientes.service';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarClientesComponent } from 'src/app/clientes/insertar-clientes/insertar-clientes.component';
 import { EditarClientesComponent } from 'src/app/clientes/editar-clientes/editar-clientes.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-clientes',
@@ -22,7 +23,15 @@ export class ClientesComponent {
     'FechaActualiza',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<clientes>;
+
+  dataSource = new MatTableDataSource<clientes>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+  
 
   constructor(
     private clientesService: ClientesService,

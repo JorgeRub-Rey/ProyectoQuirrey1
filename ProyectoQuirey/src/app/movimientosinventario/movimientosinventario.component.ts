@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MovimientosinventarioService } from '../movimientosinventario.service';
 import { MovimientosInventario } from '../Models/movimientosinventario.models';
 import { MatTableDataSource } from '@angular/material/table';
@@ -8,6 +8,7 @@ import { InsertarMovimientosinventarioComponent } from './insertar-movimientosin
 import { EditarMovimientosinventarioComponent } from './editar-movimientosinventario/editar-movimientosinventario.component';
 
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-movimientosinventario',
@@ -28,7 +29,15 @@ export class MovimientosinventarioComponent {
     'Tipo_Descripcion',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<MovimientosInventario>;
+ 
+
+  dataSource = new MatTableDataSource<MovimientosInventario>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private movimientosinventarioService: MovimientosinventarioService,

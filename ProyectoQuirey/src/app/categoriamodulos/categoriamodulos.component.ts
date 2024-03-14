@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { categoriamodulos } from '../Models/categoriamodulos.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { CategoriamodulosService } from '../categoriamodulos.service';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertarCategoriamodulosComponent } from 'src/app/categoriamodulos/insertar-categoriamodulos/insertar-categoriamodulos.component';
 import { EditarCategoriamodulosComponent } from 'src/app/categoriamodulos/editar-categoriamodulos/editar-categoriamodulos.component';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-categoriamodulos',
@@ -21,7 +22,14 @@ export class CategoriamodulosComponent {
     'Usuario',
     'Acciones',
   ];
-  dataSource: MatTableDataSource<categoriamodulos>;
+
+  dataSource = new MatTableDataSource<categoriamodulos>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private ticketsService: CategoriamodulosService,

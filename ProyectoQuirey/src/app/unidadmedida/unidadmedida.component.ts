@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UnidadmedidaService } from '../unidadmedida.service';
 import { UnidadMedida } from '../Models/unidadmedida.models';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertarUnidadmedidaComponent } from './insertar-unidadmedida/insertar-unidadmedida.component';
 import { EditarUnidadMedidaComponent } from './editar-unidadmedida/editar-unidadmedida.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-unidadmedida',
@@ -13,7 +14,15 @@ import { EditarUnidadMedidaComponent } from './editar-unidadmedida/editar-unidad
 })
 export class UnidadmedidaComponent {
   displayedColumns: string[] = ['Id', 'Nombre', 'Activo', 'Acciones'];
-  dataSource: MatTableDataSource<UnidadMedida>;
+  
+    
+  dataSource = new MatTableDataSource<UnidadMedida>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   constructor(
     private unidadmedidaService: UnidadmedidaService,
