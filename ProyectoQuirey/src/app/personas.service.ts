@@ -38,10 +38,7 @@ export class PersonasService {
       Direccion: departamentoData.Direccion,
       Usuario: departamentoData.Usuario, // Valor por defecto si no se proporciona
     };
-    return this.http.post<ApiResponse>(
-      `${this.apiUrl}/Insert`,
-      body
-    );
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 
   eliminarDepartamento(Id: number): Observable<any> {
@@ -56,7 +53,7 @@ export class PersonasService {
       ApMaterno: departamentoData.ApMaterno,
       Curp: departamentoData.curp,
       Direccion: departamentoData.Direccion,
-    
+
       Usuario: departamentoData.Usuario,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
