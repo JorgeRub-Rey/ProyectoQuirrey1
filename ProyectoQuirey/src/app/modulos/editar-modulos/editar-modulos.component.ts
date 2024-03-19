@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class EditarModulosComponent implements OnInit {
   departamento: EditarDepartamento;
+
   constructor(
     public dialogRef: MatDialogRef<EditarModulosComponent>,
     private departamentoService: ModulosService,
@@ -27,30 +28,29 @@ export class EditarModulosComponent implements OnInit {
   }
 
   guardar(): void {
-    // Validación de campos obligatorios
+    // Verificar campos obligatorios vacíos
     if (
       !this.departamento.Modulo ||
       !this.departamento.Activo ||
       !this.departamento.Usuario ||
       !this.departamento.IdCategoria
     ) {
-      // Mostrar mensaje de error con SweetAlert2
+      // Mostrar mensaje de advertencia con SweetAlert2
       Swal.fire({
         title: 'Por favor completa todos los campos obligatorios',
-
-        icon: 'error',
+        icon: 'warning',
       });
       return;
     }
 
+    // Si todos los campos obligatorios están completos, proceder con la actualización
     this.departamentoService
       .actualizarDepartamento(this.departamento)
       .subscribe({
         next: (response) => {
           // Cerrar la modal y posiblemente actualizar la tabla
           this.dialogRef.close(this.departamento);
-          // location.reload();
-
+          
           Swal.fire({
             title: 'Se han modificado correctamente los datos!',
             icon: 'success',
