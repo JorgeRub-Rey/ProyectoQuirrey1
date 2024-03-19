@@ -5,6 +5,7 @@ import {
 } from './Models/categoriamodulos.models';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,6 +20,12 @@ export class CategoriamodulosService {
       `${this.apiUrl}/Get_CategoriaModulos`,
       requestBody
     );
+  }
+  getDropDownText(IdCategoria: string | number, object: any[]) {
+    const selObj = _.filter(object, function (o) {
+      return o.Id === IdCategoria;
+    });
+    return selObj;
   }
 
   // Método para insertar un nuevo departamento

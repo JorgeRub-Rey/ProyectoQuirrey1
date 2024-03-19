@@ -2,21 +2,47 @@ import { Component } from '@angular/core';
 import { ModulosService } from 'src/app/modulos.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
-
+import { CategoriamodulosService } from 'src/app/categoriamodulos.service';
 @Component({
   selector: 'app-insertar-modulos',
   templateUrl: './insertar-modulos.component.html',
   styleUrls: ['./insertar-modulos.component.css'],
 })
 export class InsertarModulosComponent {
+  mySelect: (string | number)[] = [];
+  selectedValueCategoria: any;
+  categoria: any;
+
   moduloDepartamento: string = '';
   usuarioDepartamento: number = 1;
   idcategoriaDepartamento: number = 1;
+  idcategorialistDepartamento: number = 0;
 
   constructor(
     public dialogRef: MatDialogRef<InsertarModulosComponent>,
-    private departamentoService: ModulosService
+    private departamentoService: ModulosService,
+    private categoriaservice:CategoriamodulosService
   ) {}
+  getCategoria() {
+    this.categoriaservice.getTickets().subscribe((res) => {
+      this.categoria = res.response.data; // Cambia aquí
+      console.log(res);
+    });
+  }
+  selectChangeCategoria() {
+    if (this.mySelect.length > 0) {
+      // Por ejemplo, seleccionando el primer elemento de mySelect
+      const selectedItemId = this.mySelect[0]; // o cualquier otra lógica para obtener un solo valor
+      this.selectedValueCategoria = this.categoriaservice.getDropDownText(
+        selectedItemId,
+        this.categoria
+      );
+    }
+  }
+  ngOnInit(): void {
+    this.getCategoria();
+   
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -27,7 +53,8 @@ export class InsertarModulosComponent {
     if (
       !this.moduloDepartamento ||
       !this.usuarioDepartamento ||
-      !this.idcategoriaDepartamento
+      !this.idcategorialistDepartamento ||
+      !this.idcategorialistDepartamento 
     ) {
       Swal.fire({
         title: 'Por favor, complete todos los campos obligatorios.',
@@ -41,7 +68,8 @@ export class InsertarModulosComponent {
     const nuevoDepartamento = {
       Modulo: this.moduloDepartamento,
       Usuario: this.usuarioDepartamento,
-      IdCategoria: this.idcategoriaDepartamento,
+      IdCategoria: this.idcategorialistDepartamento,
+      IdCategorias:this.idcategorialistDepartamento,
       // ...otros campos si los hay
     };
 

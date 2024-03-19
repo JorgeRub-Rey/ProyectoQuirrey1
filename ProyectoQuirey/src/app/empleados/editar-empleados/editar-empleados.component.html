@@ -16,40 +16,53 @@
           aria-required="true"
         />
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Puestos</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa"
-          [(ngModel)]="tickets.Puesto"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Perfil</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa"
-          [(ngModel)]="tickets.Perfil"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
+            <!-- lista -->
+      <mat-label class="LisLebel">Puesto</mat-label>
+    <select
+      class="ListaDes"
+      name="my-select"
+      [(ngModel)]="idpuestoslistDepartamento"
 
-      <mat-form-field>
-        <mat-label>idPersona</mat-label>
-        <input
-          matInput
-          type="number"
-          placeholder="Ingresa"
-          [(ngModel)]="tickets.idPersona"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
+      required
+      aria-required="true"
+      (change)="selectChangePuestos()"
+    >
+      <option *ngFor="let item of puestos" [value]="item.Id">
+        {{ item.Nombre }}
+      </option>
+    </select>
+          <!-- lista -->
+      <mat-label class="LisLebel">perfil</mat-label>
+      <select
+        class="ListaDes"
+      
+        [(ngModel)]="idperfileslistDepartamento"
+    
+        required
+        aria-required="true"
+        (change)="selectChangePerfiles()"
+      >
+        <option *ngFor="let item of perfiles" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+      <!-- lista -->
+      <mat-label class="LisLebel">idpersonas</mat-label>
+      <select
+        class="ListaDes"
+        
+        [(ngModel)]="idpersonaslistDepartamento"
+       
+        required
+        aria-required="true"
+        (change)="selectChangePersonas()"
+      >
+        <option *ngFor="let item of idpersona" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+
       <mat-form-field>
         <mat-label>Activo</mat-label>
         <input
