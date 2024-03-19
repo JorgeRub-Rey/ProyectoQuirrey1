@@ -33,9 +33,9 @@
     </div>
   </div>
 
-  <div class="mat-dialog-row">
-    <!-- Columna para el campo de nombre -->
-    <div class="mat-dialog-cell">
+  <!-- <div class="mat-dialog-row"> -->
+  <!-- Columna para el campo de nombre -->
+  <!-- <div class="mat-dialog-cell">
       <mat-form-field>
         <mat-label>IdPersona</mat-label>
         <input
@@ -47,9 +47,28 @@
           aria-required="true"
         />
       </mat-form-field>
-    </div>
-  </div>
-  
+    </div> -->
+  <!-- </div> -->
+
+  <!-- lista -->
+  <mat-label class="LisLebel">IdPersona</mat-label>
+  <select
+    class="ListaDes"
+    name="my-select"
+    [(ngModel)]="idpersonaDepartamento"
+    title="Selecciona una persona de la lista"
+    required
+    aria-required="true"
+    (change)="selectChangePersonas()"
+  >
+    <option *ngFor="let item of personas" [value]="item.Id">
+      {{ item.Nombre }}
+    </option>
+  </select>
+
+  <!-- lista -->
+  <h1></h1>
+
   <!-- Opciones botones-->
 </div>
 <div mat-dialog-actions>

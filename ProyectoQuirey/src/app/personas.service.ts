@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiResponse, Personas } from './Models/personas.models';
-
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,6 +17,13 @@ export class PersonasService {
       `${this.apiUrl}/Get_PersonaPrincipal`,
       requestBody
     );
+  }
+
+  getDropDownText(IdPersona: string | number, object: any[]) {
+    const selObj = _.filter(object, function (o) {
+      return o.Id === IdPersona;
+    });
+    return selObj;
   }
 
   // Método para insertar un nuevo departamento
