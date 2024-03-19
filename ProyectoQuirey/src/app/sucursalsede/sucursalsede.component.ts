@@ -83,22 +83,22 @@ export class SucursalsedeComponent {
   }
 
   eliminarTickets(Id: number) {
-    Swal.fire({
-      title: 'Se han eliminado los datos!',
-      icon: 'success',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        location.reload();
-      }
-    });
-    //location.reload();
-
     if (confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
       this.ticketsService.eliminarTickets(Id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter(
             (clientes: Sucursalsede) => clientes.Id !== Id
           );
+
+          // Agregar la notificación de éxito aquí
+          Swal.fire({
+            title: 'Se ha eliminado correctamente!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el cliente', error);

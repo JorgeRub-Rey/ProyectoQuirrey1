@@ -84,21 +84,22 @@ export class UsuariosComponent {
   }
 
   eliminarDepartamento(Id: number) {
-    //location.reload();
-    Swal.fire({
-      title: 'Se han eliminado los datos!',
-      icon: 'success',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        location.reload();
-      }
-    });
     if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
       this.usuariosService.eliminarDepartamento(Id).subscribe({
         next: () => {
           this.dataSource.data = this.dataSource.data.filter(
             (departamento: Usuario) => departamento.Id !== Id
           );
+
+          // Agregar la notificación de éxito aquí
+          Swal.fire({
+            title: 'Se ha eliminado correctamente!',
+            icon: 'success',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.reload();
+            }
+          });
         },
         error: (error) => {
           console.error('Hubo un error al eliminar el departamento', error);
@@ -115,6 +116,7 @@ export class UsuariosComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
+        // Puedes manejar los resultados aquí si es necesario
       }
     });
   }
