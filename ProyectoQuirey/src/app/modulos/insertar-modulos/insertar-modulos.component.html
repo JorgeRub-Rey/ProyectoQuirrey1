@@ -33,23 +33,22 @@
       </mat-form-field>
     </div>
   </div>
+ <!-- lista -->
+  <mat-label class="LisLebel">idcategoria</mat-label>
+  <select
+    class="ListaDes"
+    name="my-select"
+    [(ngModel)]="idcategorialistDepartamento"
+    title="Selecciona una persona de la lista"
+    required
+    aria-required="true"
+    (change)="selectChangeCategoria()"
+  >
+    <option *ngFor="let item of categoria" [value]="item.Id">
+      {{ item.Categoria }}
+    </option>
+  </select>
 
-  <div class="mat-dialog-row">
-    <!-- Columna para el campo de nombre -->
-    <div class="mat-dialog-cell">
-      <mat-form-field>
-        <mat-label>IdCategoria</mat-label>
-        <input
-          type="number"
-          matInput
-          placeholder="Ingresa el IdCategoria"
-          [(ngModel)]="idcategoriaDepartamento"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
-    </div>
-  </div>
   <!-- Opciones botones-->
 </div>
 <div mat-dialog-actions>

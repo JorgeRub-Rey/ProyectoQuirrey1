@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiResponse, Puestos } from './Models/puestos.models';
-
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,6 +17,12 @@ export class PuestosService {
       `${this.apiUrl}/Get_Puestos`,
       requestBody
     );
+  }
+  getDropDownText(IdPuestos: string | number, object: any[]) {
+    const selObj = _.filter(object, function (o) {
+      return o.Id === IdPuestos;
+    });
+    return selObj;
   }
 
   // Método para insertar un nuevo departamento
