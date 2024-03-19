@@ -19,9 +19,9 @@ export class PersonasService {
     );
   }
 
-  getDropDownText(IdPersona: string | number, object: any[]) {
+  getDropDownText(IdPersonas: string | number, object: any[]) {
     const selObj = _.filter(object, function (o) {
-      return o.Id === IdPersona;
+      return o.Id === IdPersonas;
     });
     return selObj;
   }

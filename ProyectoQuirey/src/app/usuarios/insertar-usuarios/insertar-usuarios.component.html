@@ -51,23 +51,26 @@
   <!-- </div> -->
 
   <!-- lista -->
-  <mat-label class="LisLebel">IdPersona</mat-label>
+  <h1></h1>
+  <mat-label class="LisLebel">Personas</mat-label>
   <select
     class="ListaDes"
     name="my-select"
-    [(ngModel)]="idpersonaDepartamento"
-    title="Selecciona una persona de la lista"
+    [(ngModel)]="idpersonalistDepartamento"
     required
     aria-required="true"
-    (change)="selectChangePersonas()"
+    (change)="selectChange()"
+    [@dropDownAnimation]
   >
-    <option *ngFor="let item of personas" [value]="item.Id">
+    <option
+      *ngFor="let item of personas"
+      [value]="item.Id"
+      [@dropDownAnimation]
+    >
       {{ item.Nombre }}
     </option>
   </select>
-
   <!-- lista -->
-  <h1></h1>
 
   <!-- Opciones botones-->
 </div>

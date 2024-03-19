@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { UsuariosService } from 'src/app/usuarios.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import Swal from 'sweetalert2'; // Import SweetAlert2
 import { PersonasService } from 'src/app/personas.service';
+import Swal from 'sweetalert2'; // Import SweetAlert2
 
 @Component({
   selector: 'app-insertar-usuarios',
@@ -31,7 +31,8 @@ export class InsertarUsuariosComponent {
       console.log(res);
     });
   }
-  selectChangePersonas() {
+
+  selectChange() {
     if (this.mySelect.length > 0) {
       // Por ejemplo, seleccionando el primer elemento de mySelect
       const selectedItemId = this.mySelect[0]; // o cualquier otra lógica para obtener un solo valor
@@ -53,15 +54,16 @@ export class InsertarUsuariosComponent {
     if (
       !this.nombreusuarioDepartamento ||
       !this.passwordDepartamento ||
+      !this.idpersonalistDepartamento ||
       !this.idpersonalistDepartamento
     ) {
       // Display SweetAlert2 message for missing fields
       Swal.fire({
-        icon: 'error',
         title: 'Por favor, completa todos los campos obligatorios.',
-        // text: 'Por favor, completa todos los campos obligatorios.',
+
+        icon: 'error',
       });
-      return; // Stop execution if fields are missing
+      return;
     }
 
     const nuevoDepartamento = {
@@ -69,6 +71,7 @@ export class InsertarUsuariosComponent {
       Password: this.passwordDepartamento,
       Usuario: this.usuarioDepartamento,
       IdPersona: this.idpersonalistDepartamento,
+      IdPersonas: this.idpersonalistDepartamento,
       // ...otros campos si los hay
     };
 

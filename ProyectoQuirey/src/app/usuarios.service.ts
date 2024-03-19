@@ -44,7 +44,7 @@ export class UsuariosService {
       id: departamentoData.Id,
       nombreusuario: departamentoData.NombreUsuario,
       password: departamentoData.Password,
-      idpersona: 1,
+      idpersona: departamentoData.IdPersona,
     };
     console.log('Enviando solicitud con el siguiete cuerpo:', body);
     return this.http.post<ApiResponse>(

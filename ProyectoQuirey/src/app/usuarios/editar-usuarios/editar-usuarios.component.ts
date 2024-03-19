@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EditarDepartamento } from 'src/app/Models/usuarios.models';
 import { UsuariosService } from 'src/app/usuarios.service';
+import { PersonasService } from 'src/app/personas.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,23 +11,43 @@ import Swal from 'sweetalert2';
   styleUrls: ['./editar-usuarios.component.css'],
 })
 export class EditarUsuariosComponent implements OnInit {
+  mySelect: (string | number)[] = [];
+  selectedValuePersonas: any;
+  personas: any;
   departamento: EditarDepartamento;
+  idpersonaslistDepartamento = 0;
+
   constructor(
     public dialogRef: MatDialogRef<EditarUsuariosComponent>,
     private departamentoService: UsuariosService,
+    private personasservice: PersonasService,
     @Inject(MAT_DIALOG_DATA) public data: EditarDepartamento
   ) {
     // Clona los datos recibidos para evitar la mutación directa
     this.departamento = { ...data };
   }
-
-  ngOnInit(): void {}
+  getPersonas() {
+    this.personasservice.getDepartamentos().subscribe((res) => {
+      this.personas = res.response.data;
+      console.log(res);
+    });
+  }
+  selectChangePersonas() {
+    if (this.mySelect.length > 0) {
+      const selectedItemId = this.mySelect[0];
+      console.log('Sucursal seleccionada:', this.idpersonaslistDepartamento);
+    }
+  }
+  ngOnInit(): void {
+    this.getPersonas();
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   guardar(): void {
+    this.departamento.IdPersona = this.idpersonaslistDepartamento;
     // Validación de campos obligatorios
     if (
       !this.departamento.NombreUsuario ||

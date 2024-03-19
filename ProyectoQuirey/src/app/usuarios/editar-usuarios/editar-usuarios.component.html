@@ -26,7 +26,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field>
+      <!-- <mat-form-field>
         <mat-label>IdPersona</mat-label>
         <input
           matInput
@@ -37,7 +37,23 @@
           required
           aria-required="true"
         />
-      </mat-form-field>
+      </mat-form-field> -->
+
+      <!-- lista -->
+      <h1></h1>
+      <h1></h1>
+      <mat-label class="LisLebel">Personas</mat-label>
+      <select
+        class="ListaDes"
+        [(ngModel)]="idpersonaslistDepartamento"
+        required
+        aria-required="true"
+        (change)="selectChangePersonas()"
+      >
+        <option *ngFor="let item of personas" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
     </div>
   </div>
   <!-- Opciones botones-->
