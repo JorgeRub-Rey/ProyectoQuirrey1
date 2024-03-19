@@ -30,7 +30,7 @@ export class EditarModulosComponent implements OnInit {
     // Validación de campos obligatorios
     if (
       !this.departamento.Modulo ||
-      !this.departamento.Activo ||
+      // !this.departamento.Activo ||
       !this.departamento.Usuario ||
       !this.departamento.IdCategoria
     ) {

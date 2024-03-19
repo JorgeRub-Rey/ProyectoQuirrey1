@@ -34,7 +34,7 @@ export class EditarEmpleadosComponent implements OnInit {
       !this.tickets.Puesto ||
       !this.tickets.Perfil ||
       !this.tickets.idPersona ||
-      !this.tickets.Activo ||
+      // !this.tickets.Activo ||
       !this.tickets.Usuario
     ) {
       Swal.fire({
