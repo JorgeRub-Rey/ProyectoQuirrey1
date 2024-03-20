@@ -55,7 +55,7 @@ export class EditarModulosComponent implements OnInit {
 
     if (
       !this.departamento.Modulo ||
-      !this.departamento.Activo ||
+      // !this.departamento.Activo ||
       !this.departamento.Usuario ||
       !this.departamento.IdCategoria
     ) {

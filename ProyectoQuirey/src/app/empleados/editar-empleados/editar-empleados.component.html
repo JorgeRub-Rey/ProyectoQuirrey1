@@ -16,28 +16,25 @@
           aria-required="true"
         />
       </mat-form-field>
-            <!-- lista -->
+      <!-- lista -->
       <mat-label class="LisLebel">Puesto</mat-label>
-    <select
-      class="ListaDes"
-      name="my-select"
-      [(ngModel)]="idpuestoslistDepartamento"
-
-      required
-      aria-required="true"
-      (change)="selectChangePuestos()"
-    >
-      <option *ngFor="let item of puestos" [value]="item.Id">
-        {{ item.Nombre }}
-      </option>
-    </select>
-          <!-- lista -->
+      <select
+        class="ListaDes"
+        name="my-select"
+        [(ngModel)]="idpuestoslistDepartamento"
+        required
+        aria-required="true"
+        (change)="selectChangePuestos()"
+      >
+        <option *ngFor="let item of puestos" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+      <!-- lista -->
       <mat-label class="LisLebel">perfil</mat-label>
       <select
         class="ListaDes"
-      
         [(ngModel)]="idperfileslistDepartamento"
-    
         required
         aria-required="true"
         (change)="selectChangePerfiles()"
@@ -50,9 +47,7 @@
       <mat-label class="LisLebel">idpersonas</mat-label>
       <select
         class="ListaDes"
-        
         [(ngModel)]="idpersonaslistDepartamento"
-       
         required
         aria-required="true"
         (change)="selectChangePersonas()"
@@ -62,8 +57,19 @@
         </option>
       </select>
 
-
       <mat-form-field>
+        <mat-label>idPersona</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa"
+          [(ngModel)]="tickets.idPersona"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+      <!-- <mat-form-field>
+
         <mat-label>Activo</mat-label>
         <input
           matInput
@@ -73,7 +79,7 @@
           required
           aria-required="true"
         />
-      </mat-form-field>
+      </mat-form-field> -->
       <mat-form-field>
         <mat-label>Usuario</mat-label>
         <input
